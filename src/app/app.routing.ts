@@ -61,6 +61,10 @@ const appRoutes: Routes = [
         , canActivate: [AuthGuard]
       },
       {
+        path: 'typing', loadChildren: () => import('../app/features/typing/typing.module').then(m => m.TypingModule)
+        , canActivate: [AuthGuard]
+      },
+      {
         path: 'chats', loadChildren: () => import('../app/content/applications/chat/chats.module').then(m => m.ChatsModule),
         canActivate: [AuthGuard]
       },

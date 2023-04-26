@@ -80,6 +80,11 @@ export const MenuSettingsConfig: MenuConfig = {
               page: "/todo-app",
             },
             {
+              title: "Typing",
+              icon: "la-edit",
+              page: "/typing",
+            },
+            {
               title: "Contacts",
               icon: "la-users",
               page: "/contacts",
@@ -887,11 +892,15 @@ export const MenuSettingsConfig: MenuConfig = {
         },
       },
       { section: "APPS", icon: "la-ellipsis-h" },
-
       {
         title: "To Do",
         icon: "la-edit",
         page: "/todo-app",
+      },
+      {
+        title: "Typing",
+        icon: "la-edit",
+        page: "/typing",
       },
       {
         title: "Contacts",

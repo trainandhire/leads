@@ -1,0 +1,143 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row mb-1">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+        </div>
+        <div class="content-body">
+
+            <!-- Content types section start -->
+            <section id="content-types">
+
+                <div class="row">
+                    <div class="col-xl-8 col-md-8 col-sm-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 id="basic-forms" class="card-title">
+                                    <span>Typing Test</span>
+                                    <span class="ml-5">
+                                        <i class="ficon feather ft-clock"></i>
+                                        {{seconds | date:'mm:ss'}}
+                                    </span>
+                                    <span class="ml-5">
+                                        <svg style="position:relative;top:-2px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-keyboard"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M14 5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h12zM2 4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H2z" />
+                                            <path
+                                                d="M13 10.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm0-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-5 0A.25.25 0 0 1 8.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 8 8.75v-.5zm2 0a.25.25 0 0 1 .25-.25h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25v-.5zm1 2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-5-2A.25.25 0 0 1 6.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 6 8.75v-.5zm-2 0A.25.25 0 0 1 4.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 4 8.75v-.5zm-2 0A.25.25 0 0 1 2.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 2 8.75v-.5zm11-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-2 0a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-2 0A.25.25 0 0 1 9.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 9 6.75v-.5zm-2 0A.25.25 0 0 1 7.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 7 6.75v-.5zm-2 0A.25.25 0 0 1 5.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 5 6.75v-.5zm-3 0A.25.25 0 0 1 2.25 6h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5A.25.25 0 0 1 2 6.75v-.5zm0 4a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm2 0a.25.25 0 0 1 .25-.25h5.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-5.5a.25.25 0 0 1-.25-.25v-.5z" />
+                                        </svg>
+                                        {{totalWords}}
+                                    </span>
+                                    <span class="ml-5">
+                                        <i class="la la-check"></i>
+                                        {{successWords}}
+                                    </span>
+                                    <span class="ml-5">
+                                        <i class="la la-times"></i>
+                                        {{wrongWords}}
+                                    </span>
+                                </h4>
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li><a data-action="collapse"><i class="ficon feather ft-minus"></i></a></li>
+                                        <li><a data-action="expand"><i class="ficon feather ft-maximize"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <!-- <div class="card-body">
+                                    <h4 class="card-title">Contact Form</h4>
+                                    <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                                    <p class="card-text">
+                                        Icing powder caramels macaroon. Toffee sugar plum brownie pastry gummies
+                                        jelly. 
+                                    </p>
+                                </div> -->
+                                <div class="card-body">
+                                    <!--  -->
+                                    <!-- <div class="d-flex justify-content-center">
+                                        <h1 class="type mx-5">Typing Test - Developed by DaiDH!<span>&nbsp;</span></h1>
+                                    </div> -->
+                                    
+                                    <div class="h3" [style.wordBreak]="'break-word'">
+                                        <span *ngFor="let item of data; trackByFn">
+                                            <span [class]="item?.status">
+                                                {{ item.value }}
+                                            </span>
+                                        </span>
+                                    
+                                        <div class="input-group input-group-lg my-3">
+                                            <input (focus)="typingStarted()" type="text" class="form-control form-lg" (keyup.space)="onSpace($event)"
+                                                (keyup.enter)="onSpace($event)" (input)="onInput($event)" placeholder="Typing test 10 fast fingers">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button" (click)="initData()">Random</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="container text-center">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Finger_position_on_a_keyboard.png" class="w-75">
+                                    </div>
+                                    
+                                    <!-- <div class="input-group input-group-lg p-5">
+                                        <textarea class="form-control" [(ngModel)]="text" rows="3" (change)="initData()"></textarea>
+                                    </div> -->
+                                    <!--  -->
+                                    <!-- <form class="form">
+                                        <div class="form-body">
+                                            <div class="form-group">
+                                                <label for="donationinput7" class="sr-only">Message</label>
+                                                <textarea id="donationinput7" rows="5" class="form-control square"
+                                                    name="message" placeholder="message"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-actions center">
+                                            <button type="submit" class="btn btn-outline-primary">Completed</button>
+                                        </div>
+                                    </form> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div  class="col-xl-4 col-md-4 col-sm-4">
+                        <div class="sidebar-content affix" data-spy="affix" data-offset-top="-77">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="card-title">Get started</h6>
+                                </div>
+                                <div class="card-body collapse show" aria-expanded="true">
+                                    <div class="card-block">
+                                        <nav id="sidebar-page-navigation">
+                                            <ul id="page-navigation-list" class="nav">
+                                                <li class="nav-item"><a class="nav-link" href="#prerequisite">Installing The Prerequisite</a>
+                                                </li>
+                                                <li class="nav-item"><a class="nav-link" href="#npm">Installing The NPM Packages</a></li>
+                                                <li class="nav-item"><a class="nav-link" href="#server">Command Line</a>
+                                                    <ul class="nav">
+                                                        <li class="nav-item"><a class="nav-link" href="#server">Development Server</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="#code">Code Scaffoldings</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="#building">Building</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="#help">Further Help</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <h6 class="border-top-grey border-top-lighten-2 p-1 mt-1 mb-0">
+                                        <a class="nav-link display-block text-muted" href="#top">Back to top
+                                            <i class="float-xs-right fa fa-arrow-circle-o-up font-medium-3"></i>
+                                        </a>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Content types section end -->
+
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->
