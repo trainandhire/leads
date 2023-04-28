@@ -24,4 +24,9 @@ export class UserService {
     return this.ref.add(user);
   }
 
+  // User details from local storage
+  getCurrentUserId(){
+    return JSON.parse(localStorage.getItem("currentUser")).uid;
+  }
+
 }

@@ -1,0 +1,31 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TypingService {
+
+  constructor(private _httpClient: HttpClient, private _afs: AngularFirestore) {
+  }
+
+  getTypingMenu(){
+    return this._httpClient.get("/assets/data/typing/typing-menu.json");
+  }
+
+  getText(id) {
+    return this._afs.collection('typing').doc(id).snapshotChanges();
+  }
+
+  getTypingScores(uid){
+    return this._afs.collection('typing-scores').doc(uid).snapshotChanges();
+  }
+
+  addScore(uid, typingScoreDoc) {
+    return this._afs.collection('typing-scores').doc(uid).set(
+      typingScoreDoc
+    );
+  }
+
+}

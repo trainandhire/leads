@@ -1,0 +1,95 @@
+[
+    { 
+        "section": "Letter Finger Training", 
+        "icon": "la-ellipsis-h",
+        "children":[
+            {
+                "title": "ASDF JKL;",
+                "id":"typing-1",
+                "maxWPM": null
+            },
+            {
+                "title": "ASDFG JKL;",
+                "id":"typing-2",
+                "maxWPM": null
+            },
+            {
+                "title": "RTYU VBN",
+                "id":"typing-3",
+                "maxWPM": null
+            },
+            {
+                "title": "RTYU VBN",
+                "id":"typing-4",
+                "maxWPM": null
+            },
+            {
+                "title": "QWE IOP",
+                "id":"typing-5",
+                "maxWPM": null
+            },
+            {
+                "title": "ZXC NM",
+                "id":"typing-6",
+                "maxWPM": null
+            }
+        ]
+    },
+    { 
+        "section": "Row Perfection", 
+        "icon": "la-ellipsis-h",
+        "children": [
+            {
+                "title": "Home row words",
+                "id":"typing-7",
+                "maxWPM": null
+            },
+            {
+                "title": "Top row words",
+                "id":"typing-8",
+                "maxWPM": null
+            },
+            {
+                "title": "Bottom row words",
+                "id":"typing-9",
+                "maxWPM": null
+            }
+        ]
+    },
+    { 
+        "section": "Skill Builder", 
+        "icon": "la-ellipsis-h",
+        "children": [
+            {
+                "title": "Simple sentences",
+                "id":"typing-10",
+                "maxWPM": null
+            },
+            {
+                "title": "Moderate sentences",
+                "id":"typing-11",
+                "maxWPM": null
+            },
+            {
+                "title": "Advance sentences",
+                "id":"typing-12",
+                "maxWPM": null
+            },
+            {
+                "title": "Coding keywords 1",
+                "id":"typing-13",
+                "maxWPM": null
+            },
+            {
+                "title": "Coding keywords 2",
+                "id":"typing-14",
+                "maxWPM": null
+            },
+            {
+                "title": "Coding keywords 3",
+                "id":"typing-15",
+                "maxWPM": null
+            }
+        ]
+    }
+]
