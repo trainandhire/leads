@@ -85,6 +85,11 @@ export const MenuSettingsConfig: MenuConfig = {
               page: "/typing",
             },
             {
+              title: "Course",
+              icon: "la-edit",
+              page: "/course",
+            },
+            {
               title: "Contacts",
               icon: "la-users",
               page: "/contacts",
@@ -901,6 +906,11 @@ export const MenuSettingsConfig: MenuConfig = {
         title: "Typing",
         icon: "la-edit",
         page: "/typing",
+      },
+      {
+        title: "Course",
+        icon: "la-edit",
+        page: "/course",
       },
       {
         title: "Contacts",

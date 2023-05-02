@@ -65,6 +65,10 @@ const appRoutes: Routes = [
         , canActivate: [AuthGuard]
       },
       {
+        path: 'course', loadChildren: () => import('../app/features/course/course.module').then(m => m.CourseModule),
+        canActivate: [AuthGuard]
+      },
+      {
         path: 'chats', loadChildren: () => import('../app/content/applications/chat/chats.module').then(m => m.ChatsModule),
         canActivate: [AuthGuard]
       },

@@ -67,7 +67,7 @@ import { FullLayoutComponent } from './_layout/full-layout/full-layout.component
 import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_api/user/user.service';
 import { PrivacyPolicyComponent } from './login/privacy-policy/privacy-policy.component';
-import { TermsConditionComponent } from './login/terms-condition/terms-condition.component';;
+import { TermsConditionComponent } from './login/terms-condition/terms-condition.component';
 
 @NgModule({
   imports: [

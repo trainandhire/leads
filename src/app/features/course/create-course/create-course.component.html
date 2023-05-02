@@ -1,0 +1,165 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+
+        <div class="content-header row pl-2 course-container">
+            <div class="row" matchHeight="card">
+                <div class="col-lg-12 col-md-12" *blockUI="'badges'; message: 'Loading'">
+                    <m-card [options]="options" (reloadFunction)="reloadBadges($event)">
+                        <ng-container mCardHeaderTitle>
+                            Course
+                        </ng-container>
+                        <ng-container mCardBody>
+                            <p>Add bagdes to any list group item to show unread counts, activity, etc.</p>
+                            <textarea name="" id="" rows="1" placeholder="Enter course name here" style="width:100%;border: 0;font-size: 33px;"></textarea>
+                        </ng-container>
+                    </m-card>
+                </div>
+        </div>
+        <div class="content-body">
+
+            <!-- Basic Kanban App -->
+            <section class="kan" id="kanban-wrapper">
+
+                
+                <div class="kanban-container">
+
+                    <!--/ COURSES -->
+                    <div data-id="kanban-board-1" data-order="1" class="kanban-board"
+                        style="width: 250px; margin-left: 15px; margin-right: 15px;">
+
+                        <header class="kanban-board-header">
+                            <div type="text" class="kanban-title-board truncate" contenteditable="false">Courses</div>
+                            <button class="kanban-title-button btn btn-default btn-xs" (click)="openAddNewCourseForm()">+ Add New Course</button>
+                        </header>
+                        <main class="kanban-drag">
+                            <div cdkDropListGroup>
+                                <div cdkDropList [cdkDropListData]="courses" (cdkDropListDropped)="drop($event)">
+                                    <div class="kanban-item" (click)="selectedCourse(i)" *ngFor="let course of courses;let i=index" cdkDrag>{{course.name}}</div>
+                                </div>
+                            </div>
+                            <form class="itemform not-draggable" [hidden]="!isAddNewCourse">
+                                <div class="form-group">
+                                    <textarea class="form-control add-new-item" [(ngModel)]="courseName" rows="2" autofocus=""
+                                        required="" [ngModelOptions]="{standalone: true}"></textarea>
+                                </div>
+                                <div class="form-group"><button type="submit" class="btn btn-primary btn-sm mr-50"
+                                    (click)="addNewCourse()">Submit</button><button type="button" id="CancelBtn"
+                                    class="btn btn-sm btn-danger" (click)="closeAddNewCourse()">Cancel</button>
+                                </div>
+                            </form>
+                        </main>
+                    </div>
+                    <!--/ COURSES -->
+
+                    <!--/ MODULES -->
+                    <div data-id="kanban-board-2" data-order="1" class="kanban-board"
+                        style="width: 250px; margin-left: 15px; margin-right: 15px;">
+                        <header class="kanban-board-header">
+                            <div type="text" class="kanban-title-board truncate" contenteditable="false">Modules</div>
+                            <button *ngIf="selectedCourseIndex!=-1" class="kanban-title-button btn btn-default btn-xs" (click)="openAddNewModuleForm()">+ Add New Module</button>
+                        </header>
+                        <h5 class="pl-2 pr-2 mt-3 mb-3 text-secondary text-center" *ngIf="selectedCourseIndex==-1">Select course to view modules.</h5>
+                        <main *ngIf="selectedCourseIndex!=-1" class="kanban-drag">
+                            <div cdkDropListGroup>
+                                <div cdkDropList [cdkDropListData]="courses[selectedCourseIndex].modules" (cdkDropListDropped)="drop($event)">
+                                    <div class="kanban-item" (click)="selectedModule(i)" *ngFor="let module of courses[selectedCourseIndex].modules;let i=index" cdkDrag>{{module.name}}</div>
+                                </div>
+                            </div>
+                            <h5 class="pl-2 pr-2 mt-3 mb-3 text-secondary text-center" *ngIf="!courses[selectedCourseIndex].modules.length && !isAddNewModule">Ther are no modules in {{courses[selectedCourseIndex].name}} course.</h5>
+                            <form class="itemform not-draggable" [hidden]="!isAddNewModule">
+                                <div class="form-group">
+                                    <textarea class="form-control add-new-item" [(ngModel)]="moduleName" rows="2" autofocus="" required=""
+                                        [ngModelOptions]="{standalone: true}"></textarea>
+                                </div>
+                                <div class="form-group"><button type="submit" class="btn btn-primary btn-sm mr-50"
+                                        (click)="addNewModule()">Submit</button><button type="button" id="CancelBtn"
+                                        class="btn btn-sm btn-danger" (click)="closeAddNewModule()">Cancel</button>
+                                </div>
+                            </form>
+                        </main>
+                    </div>
+                    <!--/ MODULES -->
+
+                    <!--/ CHAPTERS -->
+                    <div data-id="kanban-board-2" data-order="1" class="kanban-board"
+                        style="width: 250px; margin-left: 15px; margin-right: 15px;">
+                        <header class="kanban-board-header">
+                            <div type="text" class="kanban-title-board truncate" contenteditable="false">Chapters</div>
+                            <button *ngIf="selectedModuleIndex!=-1" class="kanban-title-button btn btn-default btn-xs"
+                                (click)="openAddNewChapterForm()">+ Add New Chapter</button>
+                        </header>
+                        <h5 class="pl-2 pr-2 mt-3 mb-3 text-secondary text-center" *ngIf="selectedModuleIndex==-1">Select module to view
+                            chapters.</h5>
+                        <main *ngIf="selectedModuleIndex!=-1" class="kanban-drag">
+                            <div cdkDropListGroup>
+                                <div cdkDropList [cdkDropListData]="courses[selectedCourseIndex].modules[selectedModuleIndex].chapters"
+                                    (cdkDropListDropped)="drop($event)">
+                                    <div class="kanban-item" (click)="selectedChapter(i)" *ngFor="let chapter of courses[selectedCourseIndex].modules[selectedModuleIndex].chapters; let i = index" cdkDrag>
+                                        {{chapter.name}}</div>
+                                </div>
+                            </div>
+                            <h5 class="pl-2 pr-2 mt-3 mb-3 text-secondary text-center"
+                                *ngIf="!courses[selectedCourseIndex].modules[selectedModuleIndex].chapters.length && !isAddNewChapter">Ther are no chapters in
+                                {{courses[selectedCourseIndex].modules[selectedModuleIndex].name}} module.</h5>
+                            <form class="itemform not-draggable" [hidden]="!isAddNewChapter">
+                                <div class="form-group">
+                                    <textarea class="form-control add-new-item" [(ngModel)]="chapterName" rows="2" autofocus="" required=""
+                                        [ngModelOptions]="{standalone: true}"></textarea>
+                                </div>
+                                <div class="form-group"><button type="submit" class="btn btn-primary btn-sm mr-50"
+                                        (click)="addNewChapter()">Submit</button><button type="button" id="CancelBtn"
+                                        class="btn btn-sm btn-danger" (click)="closeAddNewChapter()">Cancel</button>
+                                </div>
+                            </form>
+                        </main>
+                    </div>
+                    <!--/ CHAPTERS -->
+
+                    <!--/ PAGES -->
+                    <div data-id="kanban-board-2" data-order="1" class="kanban-board"
+                        style="width: 250px; margin-left: 15px; margin-right: 15px;">
+                        <header class="kanban-board-header">
+                            <div type="text" class="kanban-title-board truncate" contenteditable="false">Pages</div>
+                            <button *ngIf="selectedChapterIndex!=-1" class="kanban-title-button btn btn-default btn-xs"
+                                (click)="openAddNewPageForm()">+ Add New Page</button>
+                        </header>
+                        <h5 class="pl-3 pr-3 mt-3 mb-3 text-secondary text-center" *ngIf="selectedChapterIndex==-1">Select chapter to view
+                            pages.</h5>
+                        <main *ngIf="selectedChapterIndex!=-1" class="kanban-drag">
+                            <div cdkDropListGroup>
+                                <div cdkDropList [cdkDropListData]="courses[selectedCourseIndex].modules[selectedModuleIndex].chapters[selectedChapterIndex].pages"
+                                    (cdkDropListDropped)="drop($event)">
+                                    <div class="kanban-item" (click)="selectedChapter(i)"
+                                        *ngFor="let page of courses[selectedCourseIndex].modules[selectedModuleIndex].chapters[selectedChapterIndex].pages; let i = index"
+                                        cdkDrag>
+                                        {{page.name}}</div>
+                                </div>
+                            </div>
+                            <h5 class="pl-2 pr-2 mt-3 mb-3 text-secondary text-center"
+                                *ngIf="!courses[selectedCourseIndex].modules[selectedModuleIndex].chapters[selectedChapterIndex].pages.length && !isAddNewPage">There
+                                are no pages in {{courses[selectedCourseIndex].modules[selectedModuleIndex].chapters[selectedChapterIndex].name}} chapter.</h5>
+                            <form class="itemform not-draggable" [hidden]="!isAddNewPage">
+                                <div class="form-group">
+                                    <textarea class="form-control add-new-item" [(ngModel)]="pageName" rows="2" autofocus="" required=""
+                                        [ngModelOptions]="{standalone: true}"></textarea>
+                                </div>
+                                <div class="form-group"><button type="submit" class="btn btn-primary btn-sm mr-50"
+                                        (click)="addNewPage()">Submit</button><button type="button" id="CancelBtn"
+                                        class="btn btn-sm btn-danger" (click)="closeAddNewPage()">Cancel</button>
+                                </div>
+                            </form>
+                        </main>
+                    </div>
+                    <!--/ PAGES -->
+
+                </div>
+            </section>
+            <!--/ Basic kanban App -->
+            
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->
+
+
+
