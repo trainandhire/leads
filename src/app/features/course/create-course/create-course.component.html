@@ -1,26 +1,19 @@
 <div class="app-content content">
     <div class="content-wrapper">
 
-        <div class="content-header row pl-2 course-container">
-            <div class="row" matchHeight="card">
-                <div class="col-lg-12 col-md-12" *blockUI="'badges'; message: 'Loading'">
-                    <m-card [options]="options" (reloadFunction)="reloadBadges($event)">
-                        <ng-container mCardHeaderTitle>
-                            Course
-                        </ng-container>
-                        <ng-container mCardBody>
-                            <p>Add bagdes to any list group item to show unread counts, activity, etc.</p>
-                            <textarea name="" id="" rows="1" placeholder="Enter course name here" style="width:100%;border: 0;font-size: 33px;"></textarea>
-                        </ng-container>
-                    </m-card>
-                </div>
-        </div>
         <div class="content-body">
 
             <!-- Basic Kanban App -->
             <section class="kan" id="kanban-wrapper">
 
-                
+                <div class="row">
+                    <div class="col-12 mt-3 mb-1">
+                        <h4 class="text-uppercase">Create Course Stucture</h4>
+                        <p>Constrain the width of cards via custom CSS, our predefined grid classes, or with custom styles using
+                            our grid
+                            mixins.</p>
+                    </div>
+                </div>
                 <div class="kanban-container">
 
                     <!--/ COURSES -->
@@ -155,11 +148,47 @@
                 </div>
             </section>
             <!--/ Basic kanban App -->
+
+
+            <!-- Page edit with index section start -->
+            <section id="sizing">
+                <div class="row">
+                    <div class="col-12 mt-3 mb-1">
+                        <h4 class="text-uppercase">Course View</h4>
+                        <p>Constrain the width of cards via custom CSS, our predefined grid classes, or with custom styles using
+                            our grid
+                            mixins.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8" *blockUI="'projectInfo'; message: 'Loading'">
+                        <m-card [options]="options" style="height: 764.5px;" (reloadFunction)="reloadProjectInfo($event)">
+                            <ng-container mCardHeaderTitle>
+                                Project Info
+                            </ng-container>
+                            <ng-container mCardBody>
+                                <div class="card-text">
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                </div>
+                            </ng-container>
+                        </m-card>
+                    </div>
+                    <div class="col-md-4" *blockUI="'projectInfo'; message: 'Loading'">
+                        <m-card [options]="options" style="height: 764.5px;" (reloadFunction)="reloadProjectInfo($event)">
+                            <ng-container mCardHeaderTitle>
+                                Course Name
+                            </ng-container>
+                            <ng-container mCardBody>
+                                <app-course-index style="width:100%" [course]="courses[selectedCourseIndex]"></app-course-index>
+                            </ng-container>
+                        </m-card>
+                    </div>
+                </div>
+            </section>
+            <!-- Page edit with index section end -->
             
         </div>
     </div>
 </div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
-
-
 

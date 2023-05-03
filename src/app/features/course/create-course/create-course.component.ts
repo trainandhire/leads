@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-import {
-  CdkDragDrop,
-  moveItemInArray,
-  transferArrayItem,
-} from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 @Component({
   selector: 'app-create-course',
@@ -27,6 +24,33 @@ export class CreateCourseComponent {
   public selectedModuleIndex:number = -1;
   public selectedChapterIndex:number = -1;
   public selectedPageIndex:number = -1;
+
+
+  @BlockUI('projectInfo') blockUIProjectInfo: NgBlockUI;
+  @BlockUI('userProfile') blockUIUserProfile: NgBlockUI;
+
+  public options = {
+    close: true,
+    expand: true,
+    minimize: true,
+    reload: true
+  };
+
+  reloadProjectInfo() {
+    this.blockUIProjectInfo.start('Loading..');
+
+    setTimeout(() => {
+      this.blockUIProjectInfo.stop();
+    }, 2500);
+  }
+
+  reloadUserProfile() {
+    this.blockUIUserProfile.start('Loading..');
+
+    setTimeout(() => {
+      this.blockUIUserProfile.stop();
+    }, 2500);
+  }
 
 
   // ----------------- COURSE FUNCTIONS ---------------
@@ -151,11 +175,25 @@ export class CreateCourseComponent {
           chapters:[
             {
               name:"Form Group",
-              pages:[ "id1", "id2"]
+              pages:[
+                {
+                  name:'page 11'
+                },
+                {
+                  name:'page 21'
+                }
+              ]
             },
             {
               name:"Form Array",
-              pages:[ "id1", "id2"]
+              pages:[
+                {
+                  name:'page 11'
+                },
+                {
+                  name:'page 21'
+                }
+              ]
             },
           ]
         },
@@ -164,11 +202,25 @@ export class CreateCourseComponent {
           chapters:[
             {
               name:"Observables",
-              pages:[ "id1", "id2"]
+              pages:[
+                {
+                  name:'page 11'
+                },
+                {
+                  name:'page 21'
+                }
+              ]
             },
             {
               name:"Subjects",
-              pages:[ "id1", "id2"]
+              pages:[
+                {
+                  name:'page 11'
+                },
+                {
+                  name:'page 21'
+                }
+              ]
             },
           ]
         }
