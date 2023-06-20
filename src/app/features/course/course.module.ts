@@ -9,11 +9,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CourseIndexComponent } from './course-index/course-index.component';
+import { SmartEditorComponent } from './smart-editor/smart-editor.component';
+import { EditorModule } from '@smart-webcomponents-angular/editor';
 
 @NgModule({
   declarations: [
     CreateCourseComponent,
-    CourseIndexComponent
+    CourseIndexComponent,
+    SmartEditorComponent
   ],
   imports: [
     CommonModule,
@@ -25,8 +28,8 @@ import { CourseIndexComponent } from './course-index/course-index.component';
     BlockUIModule.forRoot({
       template: BlockTemplateComponent
     }),
-    DragDropModule
-
+    DragDropModule,
+    EditorModule
   ]
 })
 export class CourseModule { }

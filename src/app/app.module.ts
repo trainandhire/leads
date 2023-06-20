@@ -69,6 +69,7 @@ import { UserService } from './_api/user/user.service';
 import { PrivacyPolicyComponent } from './login/privacy-policy/privacy-policy.component';
 import { TermsConditionComponent } from './login/terms-condition/terms-condition.component';
 
+
 @NgModule({
   imports: [
     BrowserModule,
