@@ -11,7 +11,7 @@
     "ngcc": "ngcc --properties es2015 browser main module --async false --first-only",
     "postinstall": "npm run ngcc",
     "preinstall": "npx npm-force-resolutions",
-    "pwa": "ng build --prod && sw-precache --root=dist --config=precache-config.js",
+    "pwa": "ng build && sw-precache --root=dist --config=precache-config.js",
     "ng-serve-hm": "node --max_old_space_size=8048 ./node_modules/@angular/cli/bin/ng serve"
   },
   "private": true,

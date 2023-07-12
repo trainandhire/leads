@@ -69,6 +69,14 @@ const appRoutes: Routes = [
         canActivate: [AuthGuard]
       },
       {
+        path: 'student-day-launcher', loadChildren: () => import('../app/launchers/student-day-launcher/student-day-launcher.module').then(m => m.StudentDayLauncherModule),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'tasks', loadChildren: () => import('../app/features/tasks/tasks.module').then(m => m.TasksModule),
+        canActivate: [AuthGuard]
+      },
+      {
         path: 'chats', loadChildren: () => import('../app/content/applications/chat/chats.module').then(m => m.ChatsModule),
         canActivate: [AuthGuard]
       },

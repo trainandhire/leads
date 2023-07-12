@@ -1,0 +1,97 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+        </div>
+        <div class="content-body">
+
+            <!-- Image grid -->
+            <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                <ng-container mCardHeaderTitle>
+                    Image gallery
+                </ng-container>
+                <ng-container mCardContent>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-8">
+                                A paragraph is a series of sentences that are organized and coherent,
+                                and are all related to a single topic. Almost every piece of writing you
+                                do that is longer than a few sentences should be organized into paragraphs.
+
+                            </div>
+                            <div class="col-4">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Section</th>
+                                            <th>Marks</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let section of marksSection; let i=index">
+                                            <td>{{section.section}}</td>
+                                            <td>{{section.marks}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Total</th>
+                                            <th>50</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body my-gallery">
+                    <div class="row">
+                        <div class="card card-img-top border-grey border-lighten-2 col-md-3">
+                        <a2p-gallery>
+                            <ngxps-gallery [images]="image1"></ngxps-gallery>
+                        </a2p-gallery>
+                        <div class="card-body px-0">
+                            <h4 class="card-title">Card title 1</h4>
+                            <p class="card-text">This is a longer card with supporting text below.</p>
+                        </div>
+                        </div>
+                        <div class="card card-img-top border-grey border-lighten-2 col-md-3">
+                        <a2p-gallery>
+                            <ngxps-gallery [images]="image2"></ngxps-gallery>
+                        </a2p-gallery>
+                        <div class="card-body px-0">
+                            <h4 class="card-title">Card title 2</h4>
+                            <p class="card-text">This is a longer card with supporting text below.</p>
+                        </div>
+                        </div>
+                        <div class="card card-img-top border-grey border-lighten-2 col-md-3">
+                        <a2p-gallery>
+                            <ngxps-gallery [images]="image3"></ngxps-gallery>
+                        </a2p-gallery>
+                        <div class="card-body px-0">
+                            <h4 class="card-title">Card title 3</h4>
+                            <p class="card-text">This is a longer card with supporting text below.</p>
+                        </div>
+                        </div>
+                        <div class="card card-img-top border-grey border-lighten-2 col-md-3">
+                        <a2p-gallery>
+                            <ngxps-gallery [images]="image4"></ngxps-gallery>
+                        </a2p-gallery>
+                        <div class="card-body px-0">
+                            <h4 class="card-title">Card title 4</h4>
+                            <p class="card-text">This is a longer card with supporting text below.</p>
+                        </div>
+                        </div>
+                    </div>
+                    <ngxps-lightbox></ngxps-lightbox>
+                    </div>
+                </ng-container>
+                </m-card>
+            </section>
+            <!--/ Image grid -->
+
+
+        </div>
+    </div>
+</div>
+
+
+<router-outlet></router-outlet>
