@@ -34,6 +34,7 @@ export class TypingTestComponent {
   public isCompleted:boolean = false;
   public WPM:number = 0;
   public accuracy:number = 0;
+  public isMaxWPMbutLowAccuracy:boolean = false;
 
   public typingScoreDoc:any = {};
   public typingId:string="";
@@ -81,7 +82,9 @@ export class TypingTestComponent {
        * Convert text to array
        * Random item
        */
-      const strArr = this.shuffleArray(this.text.split(' '));
+      // const strArr = this.shuffleArray(this.text.split(' '));
+      const strArr = this.text.split(' ');
+
       /**
        * Active
        */
@@ -154,7 +157,7 @@ export class TypingTestComponent {
       this.isCompleted = true;
 
       // USER firest time - document creation
-      if(!Object.keys(this.typingScoreDoc).length){
+      if(!this.typingScoreDoc || !Object.keys(this.typingScoreDoc)?.length){
         this.typingScoreDoc={
           uid: this._userService.getCurrentUserId(),
           scores: [
@@ -166,7 +169,10 @@ export class TypingTestComponent {
           ]
         }
       }
-      else if(this.accuracy>=75){
+      // else if(score.maxWPM<this.WPM && this.accuracy<=80){
+      //   this.isMaxWPMbutLowAccuracy = true;
+      // }
+      else if(this.accuracy>=80){
         let isExist = this.typingScoreDoc.scores.find(item => item.id == this.typingId);
 
         if(isExist){
@@ -290,6 +296,7 @@ export class TypingTestComponent {
 
   reset(){
     this.isCompleted = false;
+    this.isMaxWPMbutLowAccuracy = false;
     this.seconds=0;
     clearInterval(this.timeInterval);
     this.WPM = 0;

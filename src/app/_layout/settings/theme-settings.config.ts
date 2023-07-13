@@ -12,7 +12,7 @@ export const ThemeSettingsConfig = {
   header: "fix", // fix, static
   footer: "static", // fix, static
   customizer: "on", // on,off
-  buybutton: "on", // on, off
+  buybutton: "off", // on, off
   headerIcons: {
     maximize: "on", // on, off
     search: "on", // on, off
@@ -21,7 +21,7 @@ export const ThemeSettingsConfig = {
     email: "on", // on, off
   },
   brand: {
-    brand_name: "IMSA ",
+    brand_name: "MOHITH IT ",
     logo: {
       type: "internal", // internal, url
       value: "assets/custom/images/logo.png", // recommended location for custom images

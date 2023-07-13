@@ -19,11 +19,11 @@ export class TypingService {
   }
 
   getTypingScores(uid){
-    return this._afs.collection('typing-scores').doc(uid).snapshotChanges();
+    return this._afs.collection('typingScores').doc(uid).snapshotChanges();
   }
 
   addScore(uid, typingScoreDoc) {
-    return this._afs.collection('typing-scores').doc(uid).set(
+    return this._afs.collection('typingScores').doc(uid).set(
       typingScoreDoc
     );
   }

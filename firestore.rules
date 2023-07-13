@@ -22,7 +22,7 @@ service cloud.firestore {
       allow delete;
     }
 
-     // A read rule can be divided into get and list rules
+    // A read rule can be divided into get and list rules
     match /users/ {users} {
       // Applies to single document read requests
       allow get;
@@ -34,7 +34,7 @@ service cloud.firestore {
       allow create;
      }
 
-       // A read rule can be divided into get and list rules
+    // A read rule can be divided into get and list rules
     match /chatroom/ {chatroom} {
       // Applies to single document read requests
       allow get;
@@ -48,5 +48,23 @@ service cloud.firestore {
       // Applies to writes to existing documents
       allow update;
      }
+
+    // A read rule can be divided into get and list rules
+    match /typing/ {typing} {
+
+      // Applies to single document read requests
+      allow get;
+
+      // Applies to queries and collection read requests
+      allow list;
+
+      // Applies to writes to nonexistent documents
+      allow create;
+
+      // Applies to writes to existing documents
+      allow update;
+
+     }
+    
   }
 }

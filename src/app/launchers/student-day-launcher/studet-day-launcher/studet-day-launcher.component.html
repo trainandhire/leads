@@ -26,17 +26,8 @@
                             <div class="card-body">
 
                                 <ul class="nav nav-pills">
-                                    <li class="nav-item">
-                                      <a class="nav-link active" routerLink="course">Content</a>
-                                    </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link" routerLink="tasks">Tasks</a>
-                                    </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link" routerLink="typing">Typing</a>
-                                    </li>
-                                    <li class="nav-item">
-                                      <a class="nav-link" href="#">Email</a>
+                                    <li class="nav-item" *ngFor="let tab of dayPlannerTabs">
+                                      <a class="nav-link" [ngClass]="{'active':currentRoute==tab.routerLink}" (click)="selectedTab=tab.title" routerLink="{{tab.routerLink}}">{{tab.title}}</a>
                                     </li>
                                 </ul>
 

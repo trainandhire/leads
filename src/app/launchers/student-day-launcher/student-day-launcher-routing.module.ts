@@ -14,6 +14,7 @@ const routes: Routes = [
       {
         path: 'tasks', loadChildren: () => import('../../../app/features/tasks/tasks.module').then(m => m.TasksModule)
       },
+      {path:'', pathMatch:'full', redirectTo:'course'}
   ]},
   // {path:'', pathMatch:'full', redirectTo:'student-day-launcher'}
 ];

@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['john@pixinvent.com', Validators.required],
-      password: ['password@123', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
       rememberMe: false
     });
     // Remember Me
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
         }
         this.setUserInStorage(res);
         localStorage.removeItem('currentLayoutStyle');
-        let returnUrl = '/dashboard/sales';
+        let returnUrl = '/student-day-launcher/typing';
         if (this.returnUrl) {
           returnUrl = this.returnUrl;
         }

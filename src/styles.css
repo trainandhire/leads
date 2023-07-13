@@ -28,3 +28,12 @@ body{
   background-color: var(--light) !important;
 }
 
+
+/* custom css */
+#watermark{
+  display: none;
+}
+
+
+
+

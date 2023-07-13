@@ -52,6 +52,7 @@
                                     <div *ngIf="isCompleted" style="text-align: center" class="mb-2">
                                         <h1>WPM: {{WPM}}</h1>
                                         <h1>Accuracy: {{accuracy}}</h1>
+                                        <h1 style="color:red" *ngIf="isMaxWPMbutLowAccuracy">You have achived max WPM {{WPM}}, but accuracy is poor, so not conidering your max WPM.</h1>
                                         <button class="btn btn-info" (click)="reset()">Retry</button>
                                     </div>
                                     

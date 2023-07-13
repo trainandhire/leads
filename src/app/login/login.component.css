@@ -33,3 +33,12 @@
 :host ::ng-deep .icheckbox_square-blue.checked {
     background-position: -48px 0;
 }
+
+/* custom */
+
+.mit-logo{
+    width: 200px;
+    background-color: lightsteelblue;
+    padding: 10px;
+    border-radius: 10px;
+}

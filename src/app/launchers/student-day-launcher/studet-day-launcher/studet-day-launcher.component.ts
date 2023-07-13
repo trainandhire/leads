@@ -1,10 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-studet-day-launcher',
   templateUrl: './studet-day-launcher.component.html',
   styleUrls: ['./studet-day-launcher.component.css']
 })
-export class StudetDayLauncherComponent {
+export class StudetDayLauncherComponent implements OnInit {
+
+  public currentRoute:string = "";
+
+  public dayPlannerTabs:any = [
+    {
+      title: "content",
+      routerLink: 'course'
+    },
+    {
+      title: "tasks",
+      routerLink: 'tasks'
+    },
+    {
+      title: "typing",
+      routerLink: 'typing'
+    },
+    {
+      title: "email",
+      routerLink: 'email'
+    }
+  ];
+
+  constructor(private router:Router){
+  }
+
+  ngOnInit(): void {
+    this.currentRoute = this.router.url.split('/').pop();
+    this.router.events.subscribe((event) => {
+      if(event instanceof NavigationEnd && event.url) {
+        this.currentRoute = event.url.split('/').pop();
+      }
+    });
+  }
 
 }
