@@ -45,4 +45,5 @@ export class ChangelogComponent implements OnInit {
       this.blockUIChangelog.stop();
     }, 2500);
   }
+
 }

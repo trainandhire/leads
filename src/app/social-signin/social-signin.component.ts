@@ -10,7 +10,7 @@ import { UserService } from '../_api/user/user.service';
   styleUrls: ['./social-signin.component.css']
 })
 export class SocialSigninComponent implements OnInit {
-  private homeURL = '/home';
+  private homeURL = '/student-day-launcher';
   private returnUrl: string;
   users = [];
   user = {};

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-studet-day-launcher',
@@ -33,11 +33,8 @@ export class StudetDayLauncherComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.currentRoute = this.router.url.split('/').pop();
     this.router.events.subscribe((event) => {
-      if(event instanceof NavigationEnd && event.url) {
-        this.currentRoute = event.url.split('/').pop();
-      }
+      this.currentRoute = this.router.url.split('/').pop();
     });
   }
 
