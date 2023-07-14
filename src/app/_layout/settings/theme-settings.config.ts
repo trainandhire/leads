@@ -11,7 +11,7 @@ export const ThemeSettingsConfig = {
   menu: "expand", // collapse, expand
   header: "fix", // fix, static
   footer: "static", // fix, static
-  customizer: "on", // on,off
+  customizer: "off", // on,off
   buybutton: "off", // on, off
   headerIcons: {
     maximize: "on", // on, off
