@@ -57,15 +57,15 @@
                                     </div>
                                     
                                     <div *ngIf="typingId && !isCompleted" class="h3" [style.wordBreak]="'break-word'">
-                                        <span *ngFor="let item of data; trackByFn">
+                                        <span *ngFor="let item of data; let i = index; trackByFn">
                                             <span [class]="item?.status">
                                                 {{ item.value }}
                                             </span>
                                         </span>
                                     
                                         <div class="input-group input-group-lg my-3">
-                                            <input (focus)="typingStarted()" type="text" class="form-control form-lg" (keyup.space)="onSpace($event)"
-                                                (keyup.enter)="onSpace($event)" (input)="onInput($event)" placeholder="Type here, Timer will start once you focused here.">
+                                            <input (focus)="typingStarted()" type="text" class="form-control form-lg" (keyup.space)="onSpace($event,i)"
+                                                (keyup.enter)="onSpace($event,i)" (input)="onInput($event)" placeholder="Type here, Timer will start once you focused here.">
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary" type="button" (click)="initData()">Random</button>
                                             </div>

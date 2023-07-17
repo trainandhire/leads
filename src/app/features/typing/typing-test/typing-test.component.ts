@@ -102,17 +102,20 @@ export class TypingTestComponent {
    * Space event
    * @param e 
    */
-  onSpace(e: any) {
+  onSpace(e: any,index:any) {
 
     // succes/wrong words colors
     this.data = this.data.map((m, i) => {
       const value = e?.target?.value?.trim();
       const previous = this.data[i != 0 ? i - 1 : 0];
-      const equal = m.value == value;
+      const equal = this.data[index] == value;
+      
       if (m.status) {
         const status = equal ? 'text-success' : (new RegExp(/(default|success)/g).test(m.status) ? 'text-success' : 'text-danger');
         return { ...m, active: false, status: status };
-      } if (previous.status) {
+      }
+
+      if (previous.status) {
         return { ...m, active: true, status: 'label-default' };
       } else {
         return m;
@@ -137,7 +140,9 @@ export class TypingTestComponent {
       const previous = this.data[i != 0 ? i - 1 : 0];
       const equal = previous?.value === value;
       if (item.active) {
-        this.playAudioJS(`https://id1945.github.io/typing/assets/${equal ? 'success' : 'wrong'}.mp3`, 1);
+        // this.playAudioJS(`https://id1945.github.io/typing/assets/${equal ? 'success' : 'wrong'}.mp3`, 1);
+        this.playAudioJS(`https://id1945.github.io/typing/assets/${equal ? '' : 'wrong'}.mp3`, 1);
+
       }
     }
 
@@ -206,10 +211,12 @@ export class TypingTestComponent {
   }
   
   typingStarted(){
-    this.timeInterval = setInterval(()=>{
-      this.seconds += 1000;
-      this.time = this.millisToMinutesAndSeconds(this.seconds);
-    },1000)
+    if(!this.time?.length){
+      this.timeInterval = setInterval(()=>{
+        this.seconds += 1000;
+        this.time = this.millisToMinutesAndSeconds(this.seconds);
+      },1000);
+    }
   }
 
   millisToMinutesAndSeconds(millis) {
