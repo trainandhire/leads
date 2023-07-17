@@ -14,6 +14,9 @@ const routes: Routes = [
       {
         path: 'tasks', loadChildren: () => import('../../../app/features/tasks/tasks.module').then(m => m.TasksModule)
       },
+      {
+        path: 'mail-test', loadChildren: () => import('../../../app/features/mail-test/mail-test.module').then(m => m.MailTestModule)
+      },
       {path:'', pathMatch:'full', redirectTo:'typing'}
   ]},
   // {path:'', pathMatch:'full', redirectTo:'student-day-launcher'}

@@ -82,6 +82,40 @@ service cloud.firestore {
       allow update;
 
      }
+
+    // A read rule can be divided into get and list rules
+    match /mailTest/ {mailTest} {
+
+      // Applies to single document read requests
+      allow get;
+
+      // Applies to queries and collection read requests
+      allow list;
+
+      // Applies to writes to nonexistent documents
+      allow create;
+
+      // Applies to writes to existing documents
+      allow update;
+
+     }
+
+    // A read rule can be divided into get and list rules
+    match /mailTestSubmissions/ {mailTestSubmissions} {
+
+      // Applies to single document read requests
+      allow get;
+
+      // Applies to queries and collection read requests
+      allow list;
+
+      // Applies to writes to nonexistent documents
+      allow create;
+
+      // Applies to writes to existing documents
+      allow update;
+
+     }
     
   }
 }

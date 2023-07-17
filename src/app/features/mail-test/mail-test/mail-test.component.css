@@ -1,0 +1,30 @@
+.nav-item{
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-wrapper{
+    padding-top: 0 !important;
+}
+
+.email-body{
+    border: 1px solid #cacfe7;
+    padding: 5%;
+    border-radius: 4px;
+}
+
+.form-control-position{
+    width: 25px;
+}
+
+.input-group-prepend{
+    width: 96px;
+}
+
+.input-group-text{
+    width: 100%;
+}
+
+.input-group-append{
+    width: 50px;
+}

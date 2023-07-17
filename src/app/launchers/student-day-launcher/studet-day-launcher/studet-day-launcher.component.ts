@@ -25,7 +25,7 @@ export class StudetDayLauncherComponent implements OnInit {
     },
     {
       title: "email",
-      routerLink: 'email'
+      routerLink: 'mail-test'
     }
   ];
 

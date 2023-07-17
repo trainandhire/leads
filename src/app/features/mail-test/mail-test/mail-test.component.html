@@ -1,0 +1,208 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row mb-1">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+        </div>
+        <div class="content-body">
+
+            <!-- Content types section start -->
+            <section id="content-types">
+
+                <div class="row">
+                    <div class="col-xl-9 col-md-9 col-sm-9">
+                        <ng-container *ngIf="mailDesc?.length>0">
+                            <!-- Mail Description -->
+                            <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                                <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                    <ng-container mCardHeaderTitle>
+                                        Mail description
+                                    </ng-container>
+                                    <ng-container mCardContent>
+                                        <div class="card-body">
+                                            {{mailDesc}}
+                                        </div>
+                                    </ng-container>
+                                </m-card>
+                            </section>
+                            <!--/ Mail Description -->
+
+                            <!-- Mail test -->
+                            <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                                <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                    <ng-container mCardHeaderTitle>
+                                        Compose Mail
+                                    </ng-container>
+                                    <ng-container mCardContent>
+                                        <div class="card-body">
+                                            <form [formGroup]="emailTestForm">
+                                                <!-- <h4 class="form-section"><i class="la la-eye"></i> About User</h4> -->
+                                                <div class="row justify-content-md-center">
+                                                    <div class="col-md-12">
+                                                        <div class="form-body">
+
+                                                            <div class="form-group">
+                                                                <div class="input-group mt-0">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">From</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="name@email.com"
+                                                                        formControlName="from">
+                                                                    <div class="input-group-append">
+                                                                        <span class="input-group-text">1 M</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <div class="input-group mt-0">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">To</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="name@email.com"
+                                                                        formControlName="to">
+                                                                    <div class="input-group-append">
+                                                                        <span class="input-group-text">1 M</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <div class="input-group mt-0">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">cc</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="name@email.com"
+                                                                        formControlName="cc">
+                                                                    <div class="input-group-append">
+                                                                        <span class="input-group-text">1 M</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <div class="input-group mt-0">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">Subject</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="name@email.com"
+                                                                        formControlName="subject">
+                                                                    <div class="input-group-append">
+                                                                        <span class="input-group-text">1 M</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="email-body">
+
+                                                            <div class="form-group">
+                                                                <div class="input-group mt-0">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">Salutation</span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Greeting"
+                                                                        formControlName="salutation">
+                                                                    <div class="input-group-append">
+                                                                        <span class="input-group-text">1 M</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <div class="input-group mt-0">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">Body</span>
+                                                                    </div>
+                                                                    <textarea id="timesheetinput7" rows="15"
+                                                                        class="form-control" formControlName="body"
+                                                                        placeholder="Main content"></textarea>
+                                                                    <div class="input-group-append">
+                                                                        <span class="input-group-text">4 M</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <div class="input-group mt-0">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">Signature</span>
+                                                                    </div>
+                                                                    <textarea id="timesheetinput7" rows="5"
+                                                                        class="form-control" formControlName="signature"
+                                                                        placeholder="Closing"></textarea>
+                                                                    <div class="input-group-append">
+                                                                        <span class="input-group-text">1 M</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-actions text-center">
+                                                    <button type="button" class="btn btn-warning mr-1">
+                                                        <i class="feather ft-x"></i> Cancel
+                                                    </button>
+                                                    <button type="submit" class="btn btn-primary" (click)="sendEmail()">
+                                                        <i class="la la-check"></i> Send
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </ng-container>
+                                </m-card>
+                            </section>
+                            <!--/ Mail test -->
+                        </ng-container>
+
+                    </div>
+
+                    <!-- Mail Menu -->
+                    <div class="col-xl-3 col-md-3 col-sm-3">
+                        <div class="sidebar-content affix" data-spy="affix" data-offset-top="-77">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="card-title">Get started</h6>
+                                </div>
+                                <div class="card-body collapse show" aria-expanded="true">
+                                    <div class="card-block">
+                                        <nav id="sidebar-page-navigation">
+
+                                            <ng-container
+                                                *ngFor="let section of menu; let i=index; let isFirst = first">
+                                                <h6 class="card-subtitle text-muted mb-1 pl-1"
+                                                    [ngClass]="{'mt-2':!isFirst}">{{section.section}}</h6>
+                                                <div class="" *ngFor="let child of section.children; let i=index"
+                                                    class="nav-item pl-2 pb-1">
+                                                    <a href="javascript:void(0);" (click)="loadMailDesc(child.id)">
+                                                        {{i+1}}. {{child.title}}
+                                                    </a>
+                                                </div>
+                                            </ng-container>
+
+                                        </nav>
+                                    </div>
+                                    <h6 class="border-top-grey border-top-lighten-2 p-1 mt-1 mb-0">
+                                        <a class="nav-link display-block text-muted" href="#top">Back to top
+                                            <i class="float-xs-right fa fa-arrow-circle-o-up font-medium-3"></i>
+                                        </a>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <!-- Content types section end -->
+
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->

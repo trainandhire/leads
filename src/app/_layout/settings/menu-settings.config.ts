@@ -884,23 +884,23 @@ export const MenuSettingsConfig: MenuConfig = {
       //     ],
       //   },
       // },
-      // {
-      //   title: "Templates",
-      //   icon: "la-television",
-      //   page: "null",
-      //   submenu: {
-      //     items: [
-      //       {
-      //         title: "Horizontal",
-      //         page: "null",
-      //       },
-      //       {
-      //         title: "Vertical",
-      //         page: "null",
-      //       },
-      //     ],
-      //   },
-      // },
+      {
+        title: "Templates",
+        icon: "la-television",
+        page: "null",
+        submenu: {
+          items: [
+            {
+              title: "Horizontal",
+              page: "null",
+            },
+            {
+              title: "Vertical",
+              page: "null",
+            },
+          ],
+        },
+      },
       // { section: "APPS", icon: "la-ellipsis-h" },
       // {
       //   title: "To Do",
