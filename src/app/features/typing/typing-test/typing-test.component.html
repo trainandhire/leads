@@ -95,7 +95,7 @@
 
                                             <ng-container *ngFor="let section of menu; let i=index; let isFirst = first">
                                                 <h6 class="card-subtitle text-muted mb-1 pl-1" [ngClass]="{'mt-2':!isFirst}">{{section.section}}</h6>
-                                                <div class="" *ngFor="let child of section.children; let i=index" class="nav-item pl-2 pb-1">
+                                                <div *ngFor="let child of section.children; let i=index" class="nav-item pl-2 pr-1" [ngClass]="{'selected':typingId==child.id}">
                                                     <a href="javascript:void(0);" (click)="loadText(child.id)">
                                                         {{i+1}}. {{child.title}}
                                                     </a>

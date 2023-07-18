@@ -96,9 +96,22 @@ export class MailTestComponent {
       this.mailSubmissionData['submittedMails'].push(this.emailTestForm.value);
     }
     else{
-      this.mailSubmissionData['submittedMails'] = [this.emailTestForm.value];
+      this.mailSubmissionData = {
+        'submittedMails' : [this.emailTestForm.value]
+      }
     }
-    this._mailTestService.mailSubmission(this._userService.getCurrentUserId(),this.mailSubmissionData);
+    
+    let result = this._mailTestService.mailSubmission(this._userService.getCurrentUserId(),this.mailSubmissionData);
+
+    this.reset();
+    console.log("result---------",result);
+  }
+
+  reset(){
+    this.emailTestForm.reset();
+    this.emailTestForm.updateValueAndValidity();
+    this.selectedEamilId = "";
+    this.mailDesc = "";
   }
 
   
