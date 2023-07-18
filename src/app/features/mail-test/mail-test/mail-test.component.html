@@ -18,8 +18,7 @@
                                         Mail description
                                     </ng-container>
                                     <ng-container mCardContent>
-                                        <div class="card-body">
-                                            {{mailDesc}}
+                                        <div class="card-body" innerHTML="{{mailDesc}}">
                                         </div>
                                     </ng-container>
                                 </m-card>
@@ -159,6 +158,20 @@
                                 </m-card>
                             </section>
                             <!--/ Mail test -->
+                        </ng-container>
+                        <ng-container *ngIf="!mailDesc?.length || mailDesc?.length<=0">
+                            <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                                <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                    <ng-container mCardHeaderTitle>
+                                        Professional Email Format
+                                    </ng-container>
+                                    <ng-container mCardContent>
+                                        <div class="card-body">
+                                            <img src="/assets/images/email/email-format.png" alt="Professional email format image" width="100%">
+                                        </div>
+                                    </ng-container>
+                                </m-card>
+                            </section>
                         </ng-container>
 
                     </div>
