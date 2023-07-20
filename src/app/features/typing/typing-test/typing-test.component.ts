@@ -44,7 +44,7 @@ export class TypingTestComponent {
 
   ngOnInit(): void {
     // play welcome
-    this.playAudioJS(`https://id1945.github.io/typing/assets/welcome.mp3?v=${Date.now()}`, 1);
+    // this.playAudioJS(`https://id1945.github.io/typing/assets/welcome.mp3?v=${Date.now()}`, 1);
 
     // MENU
     this._typingService.getTypingMenu().subscribe(
