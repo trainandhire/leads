@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { MailTestService } from 'src/app/_api/mail-test/mail-test.service';
+import { UserService } from 'src/app/_api/user/user.service';
 
 @Component({
   selector: 'app-view-task',
@@ -8,15 +11,56 @@ import { BlockUI, NgBlockUI } from 'ng-block-ui';
 })
 export class ViewTaskComponent {
 
-  public marksSection:any = [
-    {section:'completion', marks:10},
-    {section:'view', marks:10},
-    {section:'logic', marks:10},
-    {section:'naming', marks:10},
-    {section:'clean code', marks:10}
+  public marksSection: any = [
+    { section: 'total task completion', marks: 10 },
+    { section: 'view', marks: 10 },
+    { section: 'logic', marks: 10 },
+    { section: 'naming', marks: 10 },
+    { section: 'clean code', marks: 10 }
   ];
 
-  
+  public uploadFileForm:FormGroup = new FormGroup({
+    fileArray: new FormArray([])
+  })
+
+  get fileArray(){
+    return this.uploadFileForm.get('fileArray') as FormArray;
+  }
+
+  addFile(){
+    this.fileArray.push(
+      new FormGroup({
+        file: new FormControl()
+      })
+    )
+  }
+
+  removeFile(i:number){
+    this.fileArray.removeAt(i);
+  }
+
+  emptyFileArray(){
+    for(let i=this.fileArray.length; i>=0; i--){
+      this.fileArray.removeAt(i);
+      this.fileArray.updateValueAndValidity();
+    }
+  }
+
+  onFileChange(event) {
+    const reader = new FileReader();
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        // this.projectInfoForm.patchValue({
+        //   file: reader.result
+        // });
+        // this.cd.markForCheck();
+        console.log(reader.result);
+      };
+    }
+  }
+
   image1 = [
     {
       img: '../../../../assets/images/gallery/1.jpg',
@@ -86,7 +130,7 @@ export class ViewTaskComponent {
         thumb: '../../../../assets/images/gallery/11.jpg',
         description: 'Image 11'
       }
-  ];
+    ];
   image12 =
     [
       {
@@ -94,7 +138,7 @@ export class ViewTaskComponent {
         thumb: '../../../../assets/images/gallery/12.jpg',
         description: 'Image 12'
       }
-  ];
+    ];
 
   options = {
     close: true,
@@ -108,33 +152,23 @@ export class ViewTaskComponent {
     minimize: true,
     reload: true
   };
-  public breadcrumb: any;
+
+  public menu:any = [];
 
   @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
 
-  constructor() { }
+  constructor(private _mailTestService: MailTestService, private _userService: UserService) {
+
+    this._mailTestService.getMailTestMenu().subscribe(
+      (data: any) => {
+        this.menu = data;
+      }
+    );
+  }
 
   ngOnInit() {
-    
-    this.breadcrumb = {
-      'mainlabel': 'Gallery Media Grid With Description',
-      'links': [
-        {
-          'name': 'Home',
-          'isLink': true,
-          'link': '/dashboard/sales'
-        },
-        {
-          'name': 'Gallery',
-          'isLink': true,
-          'link': ''
-        },
-        {
-          'name': 'Gallery Media Grid With Description',
-          'isLink': false
-        }
-      ]
-    };
+
+
   }
 
   reloadImageGallery() {
