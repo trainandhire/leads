@@ -1,0 +1,22 @@
+<!-- line Chart -->
+<section id="chartjs-line-charts">
+    <div class="row">
+        <div class="col-12" *blockUI="'lineCharts'; message: 'Loading'">
+            <m-card [options]="options" (reloadFunction)="reloadLineCharts($event)">
+                <ng-container mCardHeaderTitle>
+                    {{cardHeader}}
+                </ng-container>
+                <ng-container mCardBody>
+                    <div class="card-block">
+                        <div class="height-400">
+                            <canvas height="400" baseChart class="chart" [datasets]="lineChartsData"
+                                [labels]="lineChartsLabels" [options]="lineChartsOptions" [colors]="lineChartsColors"
+                                [legend]="lineChartsLegend" [type]="lineChartsType"></canvas>
+                        </div>
+                    </div>
+                </ng-container>
+            </m-card>
+        </div>
+    </div>
+</section>
+<!-- End line chart-->

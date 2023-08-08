@@ -7,9 +7,10 @@
 
             <!-- Content types section start -->
             <section id="content-types">
-
                 <div class="row">
                     <div class="col-xl-8 col-md-8 col-sm-8">
+
+                        <!-- Typing workstation -->
                         <div class="card">
                             <!-- HEADER -->
                             <div class="card-header">
@@ -20,7 +21,8 @@
                                         {{time}}
                                     </span>
                                     <span class="ml-5">
-                                        <svg style="position:relative;top:-2px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-keyboard"
+                                        <svg style="position:relative;top:-2px" xmlns="http://www.w3.org/2000/svg"
+                                            width="16" height="16" fill="currentColor" class="bi bi-keyboard"
                                             viewBox="0 0 16 16">
                                             <path
                                                 d="M14 5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h12zM2 4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H2z" />
@@ -52,38 +54,46 @@
                                     <div *ngIf="isCompleted" style="text-align: center" class="mb-2">
                                         <h1>WPM: {{WPM}}</h1>
                                         <h1>Accuracy: {{accuracy}}</h1>
-                                        <h1 style="color:red" *ngIf="isMaxWPMbutLowAccuracy">You have achived max WPM {{WPM}}, but accuracy is poor, so not conidering your max WPM.</h1>
+                                        <h1 style="color:red" *ngIf="isMaxWPMbutLowAccuracy">You have achived max WPM
+                                            {{WPM}}, but accuracy is poor, so not conidering your max WPM.</h1>
                                         <button class="btn btn-info" (click)="reset()">Retry</button>
                                     </div>
-                                    
+
                                     <div *ngIf="typingId && !isCompleted" class="h3" [style.wordBreak]="'break-word'">
                                         <span *ngFor="let item of data; let i = index; trackByFn">
                                             <span [class]="item?.status">
                                                 {{ item.value }}
                                             </span>
                                         </span>
-                                    
+
                                         <div class="input-group input-group-lg my-3">
-                                            <input (focus)="typingStarted()" type="text" class="form-control form-lg" (keyup.space)="onSpace($event,i)"
-                                                (keyup.enter)="onSpace($event,i)" (input)="onInput($event)" placeholder="Type here, Timer will start once you focused here.">
+                                            <input (focus)="typingStarted()" type="text" class="form-control form-lg"
+                                                (keyup.space)="onSpace($event,i)" (keyup.enter)="onSpace($event,i)"
+                                                (input)="onInput($event)"
+                                                placeholder="Type here, Timer will start once you focused here.">
                                             <div class="input-group-append">
-                                                <button class="btn btn-primary" type="button" (click)="initData()">Random</button>
+                                                <button class="btn btn-primary" type="button"
+                                                    (click)="initData()">Random</button>
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="container text-center">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Finger_position_on_a_keyboard.png" class="w-75">
+
+                                    <div *ngIf="!isCompleted" class="container text-center">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Finger_position_on_a_keyboard.png"
+                                            class="w-75">
                                     </div>
 
                                 </div>
                             </div>
                         </div>
+                        <!-- /Typing workstation -->
+                        
+                        <!-- Specific day attempts -->
+                        <app-line-chart *ngIf="typingId?.length && allAttempts?.length" [xValues]="allAttempts" [label]="selectedTypingMenu" [cardHeader]="'All attempts'"></app-line-chart>
                     </div>
 
-
                     <!-- Typing Menu -->
-                    <div  class="col-xl-4 col-md-4 col-sm-4">
+                    <div class="col-xl-4 col-md-4 col-sm-4">
                         <div class="sidebar-content affix" data-spy="affix" data-offset-top="-77">
                             <div class="card">
                                 <div class="card-header">
@@ -93,14 +103,18 @@
                                     <div class="card-block">
                                         <nav id="sidebar-page-navigation">
 
-                                            <ng-container *ngFor="let section of menu; let i=index; let isFirst = first">
-                                                <h6 class="card-subtitle text-muted mb-1 pl-1" [ngClass]="{'mt-2':!isFirst}">{{section.section}}</h6>
-                                                <div *ngFor="let child of section.children; let i=index" class="nav-item pl-2 pr-1" [ngClass]="{'selected':typingId==child.id}">
-                                                    <a href="javascript:void(0);" (click)="loadText(child.id)">
+                                            <ng-container
+                                                *ngFor="let section of menu; let i=index; let isFirst = first">
+                                                <h6 class="card-subtitle text-muted mb-1 pl-1"
+                                                    [ngClass]="{'mt-2':!isFirst}">{{section.section}}</h6>
+                                                <div *ngFor="let child of section.children; let i=index"
+                                                    class="nav-item pl-2 pr-1"
+                                                    [ngClass]="{'selected':typingId==child.id}">
+                                                    <a href="javascript:void(0);" (click)="loadText(child)">
                                                         {{i+1}}. {{child.title}}
                                                     </a>
                                                     <span class="badge badge-light text-dark" *ngIf="child.maxWPM">
-                                                        {{child.maxWPM}} wpm
+                                                        {{child.maxWPM}}WPM|{{child.allAttempts?.length}}A
                                                     </span>
                                                 </div>
                                             </ng-container>
@@ -116,6 +130,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
             <!-- Content types section end -->
@@ -166,4 +181,3 @@
     6.Test
 
  -->
-

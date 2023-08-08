@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TypingRoutingModule } from './typing-routing.module';
 import { TypingTestComponent } from './typing-test/typing-test.component';
 import { FormsModule } from '@angular/forms';
+import { SharedChartsModule } from 'src/app/shared/shared-charts/shared-charts.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    TypingRoutingModule
+    TypingRoutingModule,
+    SharedChartsModule
   ]
 })
 export class TypingModule { }

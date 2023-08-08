@@ -8,7 +8,6 @@ interface Typing {
   status: string;
 }
 
-
 @Component({
   selector: 'app-typing-test',
   templateUrl: './typing-test.component.html',
@@ -38,6 +37,9 @@ export class TypingTestComponent {
 
   public typingScoreDoc:any = {};
   public typingId:string="";
+  public selectedTypingMenu:string = "";
+
+  public allAttempts:any = [];
 
   constructor(private _typingService: TypingService, private _userService:UserService){
   }
@@ -55,17 +57,21 @@ export class TypingTestComponent {
         this._typingService.getTypingScores(this._userService.getCurrentUserId()).subscribe(
           (res:any)=>{
             this.typingScoreDoc = res.payload.data();
+            console.log("***********",this.typingScoreDoc.scores);
             this.menu = this.menu.map((item:any) => {
                 if(item.children){
                   for(let child of item.children){
+                    console.log(child, "//////////////");
                     let score:any = this.typingScoreDoc.scores.filter((ele:any) => ele.id == child.id)[0];
                     if(score){
                       child.maxWPM = score.maxWPM;
+                      child.allAttempts = score.allAttempts;
                     } 
                   }
                 }
                 return item;
             })
+            console.log("--------------", this.menu);
           }
         )
 
@@ -149,7 +155,7 @@ export class TypingTestComponent {
     // Clean
     e.target.value = '';
 
-    // complte check
+    // compelte check
     if(this.successWords+this.wrongWords==this.totalWords){
 
       clearInterval(this.timeInterval);
@@ -157,6 +163,7 @@ export class TypingTestComponent {
       var seconds = parseInt( ((this.seconds % 60000) / 1000).toFixed(0) );
       minutes += seconds/60;
       this.WPM = Math.round(this.totalWords/minutes);
+      console.log("XXXXXXXXX",this.totalWords, minutes, this.WPM);
       this.accuracy = (this.successWords/this.totalWords)*100;
       this.accuracy = Math.round(this.accuracy);
       this.isCompleted = true;
@@ -221,6 +228,7 @@ export class TypingTestComponent {
 
   millisToMinutesAndSeconds(millis) {
     var minutes = Math.floor(millis / 60000);
+    console.log("*************",millis,minutes);
     var seconds = parseInt( ((millis % 60000) / 1000).toFixed(0) );
     return seconds == 60 ?
     (minutes+1) + ":00" :
@@ -289,22 +297,32 @@ export class TypingTestComponent {
    * Loading text When user select typing lession
    * @param id 
    */
-  loadText(id){
-    this.typingId = id;
+  loadText(child:any){
+    this.typingId = child.id;
+    this.selectedTypingMenu = child.title;
     this.reset();
-    this._typingService.getText(id).subscribe(
+    this._typingService.getText(this.typingId).subscribe(
       (res:any)=>{    
         let data:any = res.payload.data();
         this.text = data.text;
         this.initData();
       }
-    )
+    );
+    let score:any = this.typingScoreDoc.scores.filter((ele:any) => ele.id == this.typingId)[0]
+    this.allAttempts = score?.allAttempts;
+    console.log("all atemtps", this.allAttempts);
+  }
+
+  retry(){
+
+    this.reset();
   }
 
   reset(){
     this.isCompleted = false;
     this.isMaxWPMbutLowAccuracy = false;
     this.seconds=0;
+    this.time = "";
     clearInterval(this.timeInterval);
     this.WPM = 0;
     this.accuracy = 0;
