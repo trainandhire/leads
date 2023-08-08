@@ -192,6 +192,7 @@ export class TypingTestComponent {
           this.typingScoreDoc.scores = this.typingScoreDoc.scores.map((score:any)=>{
             if(score.id == this.typingId){
               score.allAttempts.push(this.WPM);
+              this.allAttempts = [...score.allAttempts];
               if(score.maxWPM<this.WPM){
                 score.maxWPM=this.WPM
               }

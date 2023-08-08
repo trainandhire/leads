@@ -59,8 +59,9 @@ export class LineChartComponent implements OnChanges {
 
 
   ngOnChanges(changes: SimpleChanges): void {
+    
     this.xValues = this.xValues.filter(value=> value != null && value != Infinity);
-
+    console.log("---------->",this.xValues);
     // values
     this.lineChartsData[0].data = this.xValues; // this.xValues;
 
