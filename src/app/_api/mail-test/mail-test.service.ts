@@ -23,10 +23,15 @@ export class MailTestService {
   }
 
   mailSubmission(uid, data) {
-
     return this._afs.collection('mailTestSubmissions').doc(uid).set(
       data
     );
+  }
+
+  // -------------------
+
+  getSubmittedMails(){
+    return this._httpClient.get("/assets/data/mail-test/submittedMails.json");
   }
 
 }

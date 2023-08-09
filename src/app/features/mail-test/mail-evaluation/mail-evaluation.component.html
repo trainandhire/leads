@@ -1,0 +1,176 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row mb-1">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+        </div>
+        <div class="content-body">
+
+            <!-- Content types section start -->
+            <section id="content-types">
+
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12">
+                        <!-- Mail Description -->
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    text
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+
+                                        <table class="table table-bordered table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <input type="checkbox" class="checkboxInTd">
+                                                        From
+                                                    </th>
+                                                    <th>
+                                                        <input type="checkbox" class="checkboxInTd">
+                                                        To
+                                                    </th>
+                                                    <th>
+                                                        <input type="checkbox" class="checkboxInTd">
+                                                        cc
+                                                    </th>
+                                                    <th>
+                                                        <input type="checkbox" class="checkboxInTd">
+                                                        Subject
+                                                    </th>
+                                                    <th>
+                                                        <input type="checkbox" class="checkboxInTd">
+                                                        salutation
+                                                    </th>
+                                                    <th >
+                                                        <input type="checkbox" class="checkboxInTd">
+                                                        <button class="btn btn-outline-primary block btn-lg" (click)="HighModel(LargeModelContent,mail.body)">
+                                                            body
+                                                           </button>     
+                                                    </th>
+
+                                                    <th>
+                                                        <input type="checkbox" class="checkboxInTd">
+                                                        signature
+                                                    </th>
+                                                    <th>
+                                                        <input type="checkbox" class="checkboxInTd">
+                                                        Score
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let mail of submittedMails">
+                                                    <td>
+                                                        <input type="checkbox" class="checkboxInTd">
+                                                        {{mail.from}}
+                                                    </td>
+                                                    <td>
+                                                        <input type="checkbox" class="checkboxInTd">
+                                                        {{mail.to}}
+
+                                                    </td>
+                                                    <td>
+                                                        <input type="checkbox" class="checkboxInTd">
+                                                        <ng-container *ngFor="let cc of mail.cc.split(',')">
+                                                            {{cc}}
+                                                        </ng-container>
+                                                    </td>
+                                                    <td>
+                                                        <input type="checkbox" class="checkboxInTd">
+                                                        {{mail.subject}}
+                                                    </td>
+                                                    <td>
+                                                        <input type="checkbox" class="checkboxInTd">
+                                                        {{mail.salutation}}
+                                                    </td>
+                                                    <!-- <td>{{mail.body}}</td> -->
+                                                    <td>
+                                                        <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+                                                                <!-- Button trigger modal -->
+                                                        <button class="btn btn-outline-primary block btn-lg" (click)="LargeModel(LargeModelContent,mail.body)">
+                                                         Modal
+                                                        </button>
+
+                                                    </td>
+                                                    <td>
+                                                        <input type="checkbox" class="checkboxInTd">
+                                                        {{mail.signature}}
+                                                    </td>
+                                                    <td>6/10</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+                        <!--/ Mail Description -->
+                    </div>
+
+                    <!-- Mail Menu -->
+                    <!-- <div class="col-xl-3 col-md-3 col-sm-3">
+                        mmmmmmmm
+                    </div> -->
+
+                </div>
+            </section>
+            <!-- Content types section end -->
+
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->
+
+<!-- Modal -->
+<ng-template class="modal text-left" #LargeModelContent let-c="close" let-d="dismiss">
+    <div class="modal-lg">
+        <div class="modal-header">
+            <h6 id="myModalLabel23">Basic Modal</h6>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <h5>Check First Paragraph</h5>
+            <p>{{selectedBody}}</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn grey btn-outline-secondary"
+                (click)="d('Close modal')">Close</button>
+            <button type="button" class="btn btn-outline-primary">Save changes</button>
+        </div>
+    </div>
+</ng-template>
+
+<!--  -->
+
+<ng-template class="modal text-left" #HighModelContent let-c="close" let-d="dismiss">
+    <div class="modal-lg">
+        <div class="modal-header">
+            <h6 id="myModalLabel23">Basic Modal</h6>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <h5>Check First Paragraph</h5>
+            <p>{{mail.Body}}</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn grey btn-outline-secondary"
+                (click)="d('Close modal')">Close</button>
+            <button type="button" class="btn btn-outline-primary">Save changes</button>
+        </div>
+    </div>
+</ng-template>
+
+
+
+
+
+
+
+
+
+

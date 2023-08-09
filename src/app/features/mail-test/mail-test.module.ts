@@ -7,11 +7,14 @@ import { BlockUIModule } from 'ng-block-ui';
 import { BlockTemplateComponent } from 'src/app/_layout/blockui/block-template.component';
 import { CardModule } from 'src/app/content/partials/general/card/card.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MailEvaluationComponent } from './mail-evaluation/mail-evaluation.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [
-    MailTestComponent
+    MailTestComponent,
+    MailEvaluationComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
       template: BlockTemplateComponent
     }),
     CardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ]
 })
 export class MailTestModule { }

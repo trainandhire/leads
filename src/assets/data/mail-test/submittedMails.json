@@ -1,0 +1,79 @@
+[
+    {
+        "from": "rajesh@gmail.com",
+        "to": "ankith.r@capgemini.com",
+        "cc": "shyam.s@capgemini.com,radha.n@capgemini.com",
+        "subject": "Application of long Leave,",
+        "salutation": "Hi ankith",
+        "body": "I am requesting for long leave in the month of October because we were planning a trip to the north of India with my family from the date (19/08/23) to (25/08/23). So, I am kindly requesting permission to take the leave.",
+        "signature": "Thanks & Regards,Rajesh,UI Developer.",
+        "id": "mailTest-2",
+        "scores":[]
+    },
+    {
+        "from": "sathish@gmail.com",
+        "to": "ankith.r@capgemini.com",
+        "cc": "shyam.s@capgemini.com,radha.n@capgemini.com,sekhar123@gmail.com,",
+        "subject": "Application of long Leave,",
+        "salutation": "Hi ankith",
+        "body": "I am requesting for long leave in the month of October because we were planning a trip to the north of India with my family from the date (19/08/23) to (25/08/23). So, I am kindly requesting permission to take the leave.",
+        "signature": "Thanks & Regards,Sathish,UI Developer.",
+        "id": "mailTest-2",
+        "scores":[]
+    },
+    {
+        "from": "rakesh@gmail.com",
+        "to": "ankith.r@capgemini.com",
+        "cc": "shyam.s@capgemini.com,radha.n@capgemini.com,sekhar123@gmail.com,praneeth@gmail.com",
+        "subject": "Application of vacasion Leave,",
+        "salutation": "Hi ankith",
+        "body": "I am requesting for vacasion leave in the month of October because we were planning a trip to the north of India with my family from the date (19/08/23) to (25/08/23). So, I am kindly requesting permission to take the leave.",
+        "signature": "Thanks & Regards,Rakesh,UI Developer.",
+        "id": "mailTest-2",
+        "scores":[]
+    },
+    {
+        "from": "veeresh@gmail.com",
+        "to": "ankith.r@capgemini.com",
+        "cc": "shyam.s@capgemini.com,radha.n@capgemini.com,sekhar123@gmail.com,praneeth@gmail.com",
+        "subject": "Application of vacasion Leave,",
+        "salutation": "Hi ankith",
+        "body": "I am requesting for vacasion leave in the month of October because we were planning a trip to the north of India with my family from the date (19/08/23) to (25/08/23). So, I am kindly requesting permission to take the leave.",
+        "signature": "Thanks & Regards,veeresh,UI Developer.",
+        "id": "mailTest-2",
+        "scores":[]
+    },
+    {
+        "from": "vamshee@gmail.com",
+        "to": "ankith.r@capgemini.com",
+        "cc": "shyam.s@capgemini.com,radha.n@capgemini.com,sekhar123@gmail.com,praneeth@gmail.com",
+        "subject": "Application of sick Leave,",
+        "salutation": "Hi ankith",
+        "body": "I am requesting for sick leave for 2 days leave, i am unable to come to office due to fever.",
+        "signature": "Thanks & Regards,Vamshee,UI Developer.",
+        "id": "mailTest-2",
+        "scores":[]
+    },
+    {
+        "from": "praneeth@gmail.com",
+        "to": "ankith.r@capgemini.com",
+        "cc": "shyam.s@capgemini.com,radha.n@capgemini.com,sekhar123@gmail.com,praneeth@gmail.com",
+        "subject": "Application of vacasion Leave,",
+        "salutation": "Hi ankith",
+        "body": "I am requesting for vacasion leave in the month of October because we were planning a trip to the north of India with my family from the date (19/08/23) to (25/08/23). So, I am kindly requesting permission to take the leave..",
+        "signature": "Thanks & Regards,praneeth,UI Developer.",
+        "id": "mailTest-2",
+        "scores":[]
+    },
+    {
+        "from": "ravi@gmail.com",
+        "to": "ankith.r@capgemini.com",
+        "cc": "shyam.s@capgemini.com,radha.n@capgemini.com,sekhar123@gmail.com,praneeth@gmail.com",
+        "subject": "Application of vacasion Leave,",
+        "salutation": "Hi ankith",
+        "body": "I am requesting for vacasion leave in the month of October because we were planning a trip to the north of India with my family from the date (19/08/23) to (25/08/23). So, I am kindly requesting permission to take the leave..",
+        "signature": "Thanks & Regards,Ravi,UI Developer.",
+        "id": "mailTest-2",
+        "scores":[]
+    }
+]

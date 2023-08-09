@@ -137,6 +137,7 @@ import { TermsConditionComponent } from './login/terms-condition/terms-condition
     },
     NgbCarouselConfig,
     NgbModalConfig,
+    NgbModule,
   ],
   bootstrap: [AppComponent],
   exports: [RouterModule]
