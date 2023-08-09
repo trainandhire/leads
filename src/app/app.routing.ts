@@ -77,6 +77,9 @@ const appRoutes: Routes = [
         canActivate: [AuthGuard]
       },
       {
+          path: 'text',loadChildren: () => import('../app/features/text/text.module').then(m=>m.TextModule),
+      },
+      {
         path: 'tasks', loadChildren: () => import('../app/features/tasks/tasks.module').then(m => m.TasksModule),
         canActivate: [AuthGuard]
       },
