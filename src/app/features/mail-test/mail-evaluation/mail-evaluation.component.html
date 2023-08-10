@@ -10,94 +10,89 @@
 
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12">
-                        <!-- Mail Description -->
-                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
-                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                        <!-- Submitted mails table card -->
+                        <section id="image-grid" class="card" *blockUI="'submittedMailTableCard'; message: 'Loading'">
+                            <m-card [options]="options" (reloadFunction)="reloadSubmittedMailTableCard()">
                                 <ng-container mCardHeaderTitle>
-                                    text
+                                    Submitted Mails
                                 </ng-container>
                                 <ng-container mCardContent>
                                     <div class="card-body">
-
                                         <table class="table table-bordered table-responsive">
                                             <thead>
                                                 <tr>
                                                     <th>
-                                                        <input type="checkbox" class="checkboxInTd">
+                                                        <input [(ngModel)]="isAllFromChecked" (click)="allFromChanged();" type="checkbox" class="checkboxInTd" >
                                                         From
                                                     </th>
                                                     <th>
-                                                        <input type="checkbox" class="checkboxInTd">
+                                                        <input [(ngModel)]="isAllToChecked" (click)="allToChanged()" type="checkbox"  class="checkboxInTd">
                                                         To
                                                     </th>
                                                     <th>
-                                                        <input type="checkbox" class="checkboxInTd">
+                                                        <input  [(ngModel)]="isAllCcChecked" (click)="allCcChanged()" type="checkbox" class="checkboxInTd">
                                                         cc
                                                     </th>
                                                     <th>
-                                                        <input type="checkbox" class="checkboxInTd">
+                                                        <input [(ngModel)]="isAllSubjectChecked" (click)="allSubjectChanged()" type="checkbox" class="checkboxInTd">
                                                         Subject
                                                     </th>
                                                     <th>
-                                                        <input type="checkbox" class="checkboxInTd">
+                                                        <input [(ngModel)]="isAllSalutationChecked" (click)="allSalutationchanged()" type="checkbox" class="checkboxInTd">
                                                         salutation
                                                     </th>
                                                     <th >
-                                                        <input type="checkbox" class="checkboxInTd">
-                                                        <button class="btn btn-outline-primary block btn-lg" (click)="HighModel(LargeModelContent,mail.body)">
-                                                            body
+                                                        <button class="btn btn-outline-primary block btn-lg" (click)="AllMailBodies(AllMailBodiesContent)">
+                                                            all bodies
                                                            </button>     
                                                     </th>
 
                                                     <th>
-                                                        <input type="checkbox" class="checkboxInTd">
+                                                        <input [(ngModel)]="isAllSignatureChecked" (click)="allSignatureChanged()" type="checkbox" class="checkboxInTd">
                                                         signature
                                                     </th>
                                                     <th>
-                                                        <input type="checkbox" class="checkboxInTd">
                                                         Score
                                                     </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr *ngFor="let mail of submittedMails">
+                                                <tr *ngFor="let mail of submittedMails; let i=index">
                                                     <td>
-                                                        <input type="checkbox" class="checkboxInTd">
+                                                        <input type="checkbox" [(ngModel)]="submittedMails[i].scores.from.isCorrect" (ngModelChange)="calculateScoreForOneMail(i)" class="checkboxInTd" >
                                                         {{mail.from}}
                                                     </td>
                                                     <td>
-                                                        <input type="checkbox" class="checkboxInTd">
+                                                        <input type="checkbox" [(ngModel)]="submittedMails[i].scores.to.isCorrect" (ngModelChange)="calculateScoreForOneMail(i)" class="checkboxInTd">
                                                         {{mail.to}}
-
                                                     </td>
                                                     <td>
-                                                        <input type="checkbox" class="checkboxInTd">
+                                                        <input type="checkbox" class="checkboxInTd" [(ngModel)]="submittedMails[i].scores.cc.isCorrect" (ngModelChange)="calculateScoreForOneMail(i)">
                                                         <ng-container *ngFor="let cc of mail.cc.split(',')">
                                                             {{cc}}
                                                         </ng-container>
                                                     </td>
                                                     <td>
-                                                        <input type="checkbox" class="checkboxInTd">
+                                                        <input type="checkbox" class="checkboxInTd" [(ngModel)]="submittedMails[i].scores.subject.isCorrect" (ngModelChange)="calculateScoreForOneMail(i)">
                                                         {{mail.subject}}
                                                     </td>
                                                     <td>
-                                                        <input type="checkbox" class="checkboxInTd">
+                                                        <input type="checkbox" class="checkboxInTd" [(ngModel)]="submittedMails[i].scores.salutation.isCorrect" (ngModelChange)="calculateScoreForOneMail(i)">
                                                         {{mail.salutation}}
                                                     </td>
-                                                    <!-- <td>{{mail.body}}</td> -->
                                                     <td>
-                                                        <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
-                                                                <!-- Button trigger modal -->
-                                                        <button class="btn btn-outline-primary block btn-lg" (click)="LargeModel(LargeModelContent,mail.body)">
-                                                         Modal
+                                                        <!-- body display model trigger button -->
+                                                        <button class="btn btn-outline-primary block btn-lg" (click)="OneMailBody(OneMailBodyContent,mail.body,i)">
+                                                            body
                                                         </button>
-
                                                     </td>
                                                     <td>
-                                                        <input type="checkbox" class="checkboxInTd">
+                                                        <input type="checkbox" class="checkboxInTd" [(ngModel)]="submittedMails[i].scores.signature.isCorrect" (ngModelChange)="calculateScoreForOneMail(i)">
                                                         {{mail.signature}}
                                                     </td>
-                                                    <td>6/10</td>
+                                                    <td>
+                                                        {{mail.scores.total.points}}/10
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -105,14 +100,8 @@
                                 </ng-container>
                             </m-card>
                         </section>
-                        <!--/ Mail Description -->
+                        <!--/Submitted mails table card  -->
                     </div>
-
-                    <!-- Mail Menu -->
-                    <!-- <div class="col-xl-3 col-md-3 col-sm-3">
-                        mmmmmmmm
-                    </div> -->
-
                 </div>
             </section>
             <!-- Content types section end -->
@@ -120,47 +109,50 @@
         </div>
     </div>
 </div>
+
 <!-- ////////////////////////////////////////////////////////////////////////////-->
 
-<!-- Modal -->
-<ng-template class="modal text-left" #LargeModelContent let-c="close" let-d="dismiss">
+<!-- One mail body model -->
+<ng-template class="modal text-left" #OneMailBodyContent let-c="close" let-d="dismiss">
     <div class="modal-lg">
         <div class="modal-header">
-            <h6 id="myModalLabel23">Basic Modal</h6>
+            <h6 id="myModalLabel23">Mail Body</h6>
             <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-            <h5>Check First Paragraph</h5>
+            <input type="checkbox" (click)="bodyChangedForOneMail($event.target.checked)">
             <p>{{selectedBody}}</p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn grey btn-outline-secondary"
                 (click)="d('Close modal')">Close</button>
-            <button type="button" class="btn btn-outline-primary">Save changes</button>
+            <!-- <button type="button" class="btn btn-outline-primary">Save changes</button> -->
         </div>
     </div>
 </ng-template>
 
-<!--  -->
-
-<ng-template class="modal text-left" #HighModelContent let-c="close" let-d="dismiss">
+<!-- All mails body model -->
+<ng-template class="modal text-left" #AllMailBodiesContent let-c="close" let-d="dismiss">
     <div class="modal-lg">
         <div class="modal-header">
-            <h6 id="myModalLabel23">Basic Modal</h6>
+            <h6 id="myModalLabel23" >
+                <input type="checkbox" [(ngModel)]="isAllBodyChecked" (click)="allBodyChanged()">&nbsp;
+                All mails bodies
+            </h6>
             <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="modal-body">
-            <h5>Check First Paragraph</h5>
-            <p>{{mail.Body}}</p>
+        <div class="modal-body" *ngFor="let mail of submittedMails, let i=index" class="border border-1 rounded m-1 p-2">
+            <input type="checkbox" [(ngModel)]="submittedMails[i].scores.body.isCorrect">
+            <p>{{mail.body}}</p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn grey btn-outline-secondary"
                 (click)="d('Close modal')">Close</button>
-            <button type="button" class="btn btn-outline-primary">Save changes</button>
+            <!-- <button type="button" class="btn btn-outline-primary">Save changes</button> -->
         </div>
     </div>
 </ng-template>

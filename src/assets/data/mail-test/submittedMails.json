@@ -8,7 +8,39 @@
         "body": "I am requesting for long leave in the month of October because we were planning a trip to the north of India with my family from the date (19/08/23) to (25/08/23). So, I am kindly requesting permission to take the leave.",
         "signature": "Thanks & Regards,Rajesh,UI Developer.",
         "id": "mailTest-2",
-        "scores":[]
+        "scores":{
+            "from":{
+                "isCorrect":false,
+                "points":1
+            },
+            "to":{
+                "isCorrect":false,
+                "points":1
+            },
+            "cc":{
+                "isCorrect":false,
+                "points":1
+            },
+            "subject":{
+                "isCorrect":false,
+                "points":1
+            },
+            "salutation":{
+                "isCorrect":false,
+                "points":1
+            },
+            "body":{
+                "isCorrect":false,
+                "points":4
+            },
+            "signature":{
+                "isCorrect":false,
+                "points":1
+            },
+            "total":{
+                "points":0
+            }
+        }
     },
     {
         "from": "sathish@gmail.com",
@@ -19,7 +51,39 @@
         "body": "I am requesting for long leave in the month of October because we were planning a trip to the north of India with my family from the date (19/08/23) to (25/08/23). So, I am kindly requesting permission to take the leave.",
         "signature": "Thanks & Regards,Sathish,UI Developer.",
         "id": "mailTest-2",
-        "scores":[]
+        "scores":{
+            "from":{
+                "isCorrect":false,
+                "points":1
+            },
+            "to":{
+                "isCorrect":false,
+                "points":1
+            },
+            "cc":{
+                "isCorrect":false,
+                "points":1
+            },
+            "subject":{
+                "isCorrect":false,
+                "points":1
+            },
+            "salutation":{
+                "isCorrect":false,
+                "points":1
+            },
+            "body":{
+                "isCorrect":false,
+                "points":4
+            },
+            "signature":{
+                "isCorrect":false,
+                "points":1
+            },
+            "total":{
+                "points":0
+            }
+        }
     },
     {
         "from": "rakesh@gmail.com",
@@ -30,7 +94,39 @@
         "body": "I am requesting for vacasion leave in the month of October because we were planning a trip to the north of India with my family from the date (19/08/23) to (25/08/23). So, I am kindly requesting permission to take the leave.",
         "signature": "Thanks & Regards,Rakesh,UI Developer.",
         "id": "mailTest-2",
-        "scores":[]
+        "scores":{
+            "from":{
+                "isCorrect":false,
+                "points":1
+            },
+            "to":{
+                "isCorrect":false,
+                "points":1
+            },
+            "cc":{
+                "isCorrect":false,
+                "points":1
+            },
+            "subject":{
+                "isCorrect":false,
+                "points":1
+            },
+            "salutation":{
+                "isCorrect":false,
+                "points":1
+            },
+            "body":{
+                "isCorrect":false,
+                "points":4
+            },
+            "signature":{
+                "isCorrect":false,
+                "points":1
+            },
+            "total":{
+                "points":0
+            }
+        }
     },
     {
         "from": "veeresh@gmail.com",
@@ -41,7 +137,39 @@
         "body": "I am requesting for vacasion leave in the month of October because we were planning a trip to the north of India with my family from the date (19/08/23) to (25/08/23). So, I am kindly requesting permission to take the leave.",
         "signature": "Thanks & Regards,veeresh,UI Developer.",
         "id": "mailTest-2",
-        "scores":[]
+        "scores":{
+            "from":{
+                "isCorrect":false,
+                "points":1
+            },
+            "to":{
+                "isCorrect":false,
+                "points":1
+            },
+            "cc":{
+                "isCorrect":false,
+                "points":1
+            },
+            "subject":{
+                "isCorrect":false,
+                "points":1
+            },
+            "salutation":{
+                "isCorrect":false,
+                "points":1
+            },
+            "body":{
+                "isCorrect":false,
+                "points":4
+            },
+            "signature":{
+                "isCorrect":false,
+                "points":1
+            },
+            "total":{
+                "points":0
+            }
+        }
     },
     {
         "from": "vamshee@gmail.com",
@@ -52,7 +180,39 @@
         "body": "I am requesting for sick leave for 2 days leave, i am unable to come to office due to fever.",
         "signature": "Thanks & Regards,Vamshee,UI Developer.",
         "id": "mailTest-2",
-        "scores":[]
+        "scores":{
+            "from":{
+                "isCorrect":false,
+                "points":1
+            },
+            "to":{
+                "isCorrect":false,
+                "points":1
+            },
+            "cc":{
+                "isCorrect":false,
+                "points":1
+            },
+            "subject":{
+                "isCorrect":false,
+                "points":1
+            },
+            "salutation":{
+                "isCorrect":false,
+                "points":1
+            },
+            "body":{
+                "isCorrect":false,
+                "points":4
+            },
+            "signature":{
+                "isCorrect":false,
+                "points":1
+            },
+            "total":{
+                "points":0
+            }
+        }
     },
     {
         "from": "praneeth@gmail.com",
@@ -63,7 +223,39 @@
         "body": "I am requesting for vacasion leave in the month of October because we were planning a trip to the north of India with my family from the date (19/08/23) to (25/08/23). So, I am kindly requesting permission to take the leave..",
         "signature": "Thanks & Regards,praneeth,UI Developer.",
         "id": "mailTest-2",
-        "scores":[]
+        "scores":{
+            "from":{
+                "isCorrect":false,
+                "points":1
+            },
+            "to":{
+                "isCorrect":false,
+                "points":1
+            },
+            "cc":{
+                "isCorrect":false,
+                "points":1
+            },
+            "subject":{
+                "isCorrect":false,
+                "points":1
+            },
+            "salutation":{
+                "isCorrect":false,
+                "points":1
+            },
+            "body":{
+                "isCorrect":false,
+                "points":4
+            },
+            "signature":{
+                "isCorrect":false,
+                "points":1
+            },
+            "total":{
+                "points":0
+            }
+        }
     },
     {
         "from": "ravi@gmail.com",
@@ -74,6 +266,38 @@
         "body": "I am requesting for vacasion leave in the month of October because we were planning a trip to the north of India with my family from the date (19/08/23) to (25/08/23). So, I am kindly requesting permission to take the leave..",
         "signature": "Thanks & Regards,Ravi,UI Developer.",
         "id": "mailTest-2",
-        "scores":[]
+        "scores":{
+            "from":{
+                "isCorrect":false,
+                "points":1
+            },
+            "to":{
+                "isCorrect":false,
+                "points":1
+            },
+            "cc":{
+                "isCorrect":false,
+                "points":1
+            },
+            "subject":{
+                "isCorrect":false,
+                "points":1
+            },
+            "salutation":{
+                "isCorrect":false,
+                "points":1
+            },
+            "body":{
+                "isCorrect":false,
+                "points":4
+            },
+            "signature":{
+                "isCorrect":false,
+                "points":1
+            },
+            "total":{
+                "points":0
+            }
+        }
     }
 ]
