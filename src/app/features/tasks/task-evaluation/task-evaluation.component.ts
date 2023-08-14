@@ -8,6 +8,7 @@ import { TaskEvaluationService } from 'src/app/_api/task/task-evaluation.service
   templateUrl: './task-evaluation.component.html',
   styleUrls: ['./task-evaluation.component.css']
 })
+
 export class TaskEvaluationComponent {
 
   public marksSection: any = [
@@ -18,7 +19,10 @@ export class TaskEvaluationComponent {
     { section: 'clean code', marks: 10 }
   ];
 
-  public tasks:any=[];
+  public basicArray: any = ['/assets/images/carousel/02.jpg',
+    '/assets/images/carousel/03.jpg',
+    '/assets/images/carousel/01.jpg'
+  ];
 
   public imageOptions = {
     close: true,
@@ -29,28 +33,26 @@ export class TaskEvaluationComponent {
 
   @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
 
+  public tasks: any = [];
 
-  constructor(private _taskEvaluation:TaskEvaluationService,private modelService:NgbModal){
+  constructor(private _taskEvaluation: TaskEvaluationService, private modelService: NgbModal) {
     this.getTasks()
   }
 
-  getTasks(){
+  getTasks() {
     this._taskEvaluation.getTaskEvaluation().subscribe(
-      (data:any)=>{
-        this.tasks=data;
+      (data: any) => {
+        this.tasks = data;
       },
-      (err:any)=>{
+      (err: any) => {
         alert("internal server error")
       }
     )
   }
-  basicArray = ['/assets/images/carousel/02.jpg',
-  '/assets/images/carousel/03.jpg',
-  '/assets/images/carousel/01.jpg'
-];
-taskModel(taskModelContent) {
-  this.modelService.open(taskModelContent, { windowClass: 'animated fadeInDown', size: 'lg' });
-}
+
+  taskModel(taskModelContent) {
+    this.modelService.open(taskModelContent, { windowClass: 'animated fadeInDown', size: 'lg' });
+  }
 
   reloadImageGallery() {
     this.blockUIImageGallery.start('Loading..');
@@ -59,5 +61,4 @@ taskModel(taskModelContent) {
       this.blockUIImageGallery.stop();
     }, 2500);
   }
-
 }

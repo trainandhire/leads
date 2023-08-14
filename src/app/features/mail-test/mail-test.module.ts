@@ -26,10 +26,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CardModule,
     ReactiveFormsModule,
     NgbModule,
-<<<<<<< HEAD
-=======
     FormsModule
->>>>>>> 7ad3b8335ca1fe29cdfa059c5c5f515a5a0e3ac2
   ]
 })
 export class MailTestModule { }
