@@ -25,6 +25,10 @@ export class StudetDayLauncherComponent implements OnInit {
       routerLink: 'typing'
     },
     {
+      title: "typing trainer summery",
+      routerLink: "typing/typing-trainer-summery"
+    },
+    {
       title: "email",
       routerLink: 'mail-test/create-mail'
     },
@@ -33,11 +37,11 @@ export class StudetDayLauncherComponent implements OnInit {
       routerLink: "text"
     },
     {
-      title:"mail-evaluation",
+      title:"mail evaluation",
       routerLink: "mail-test/mail-evaluation"
     },
     {
-      title:"task-evaluation",
+      title:"task evaluation",
       routerLink: "tasks/task-evaluation"
     }
   ];
