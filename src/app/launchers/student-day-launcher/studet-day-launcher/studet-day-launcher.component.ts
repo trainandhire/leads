@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class StudetDayLauncherComponent implements OnInit {
 
   public currentRoute:string = "";
+  public currentRouteAndParentRoute:string = "";
 
   public dayPlannerTabs:any = [
     {
@@ -47,6 +48,8 @@ export class StudetDayLauncherComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
       this.currentRoute = this.router.url.split('/').pop();
+      let pathsArr = this.router.url.split('/');
+      this.currentRouteAndParentRoute = pathsArr[pathsArr.length-2]+"/"+pathsArr[pathsArr.length-1];
     });
   }
 

@@ -27,7 +27,7 @@
 
                                 <ul class="nav nav-pills">
                                     <li class="nav-item" *ngFor="let tab of dayPlannerTabs">
-                                      <a class="nav-link" [ngClass]="{'active':currentRoute==tab.routerLink}" routerLink="{{tab.routerLink}}">{{tab.title}}</a>
+                                      <a class="nav-link" [ngClass]="{'active':currentRoute==tab.routerLink || currentRouteAndParentRoute == tab.routerLink}" routerLink="{{tab.routerLink}}">{{tab.title}}</a>
                                     </li>
                                 </ul>
 
