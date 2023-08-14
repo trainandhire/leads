@@ -11,6 +11,7 @@ import { MailEvaluationComponent } from './mail-evaluation/mail-evaluation.compo
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
+
 @NgModule({
   declarations: [
     MailTestComponent,
@@ -24,7 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     }),
     CardModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
   ]
 })
 export class MailTestModule { }

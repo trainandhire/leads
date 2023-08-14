@@ -34,6 +34,10 @@ export class StudetDayLauncherComponent implements OnInit {
     {
       title:"mail-evaluation",
       routerLink: "mail-test/mail-evaluation"
+    },
+    {
+      title:"task-evaluation",
+      routerLink: "tasks/task-evaluation"
     }
   ];
 

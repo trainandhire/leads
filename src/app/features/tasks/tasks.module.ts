@@ -9,12 +9,15 @@ import { BlockTemplateComponent } from 'src/app/_layout/blockui/block-template.c
 import { NgxPhotoswipeModule } from '@fnxone/ngx-photoswipe';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { CardModule } from 'src/app/content/partials/general/card/card.module';
+import { TaskEvaluationComponent } from './task-evaluation/task-evaluation.component';
+import {  NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [
     CreateTaskComponent,
-    ViewTaskComponent
+    ViewTaskComponent,
+    TaskEvaluationComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +27,8 @@ import { CardModule } from 'src/app/content/partials/general/card/card.module';
     }),
     CardModule,
     NgxPhotoswipeModule,
-    NgxMasonryModule
+    NgxMasonryModule,
+    NgbModule
   ]
 })
 export class TasksModule { }
