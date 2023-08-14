@@ -1,0 +1,113 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row mb-1">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+        </div>
+        <div class="content-body">
+
+            <!-- Content types section start -->
+            <section id="content-types">
+
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12">
+                        <!-- Task Evaluation Card -->
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    Tasks
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>batch-Id</th>
+                                                    <th>Student-ID</th>
+                                                    <th>Student-Name</th>
+                                                    <th>Task-evaluation</th>
+                                                    <th>Scores</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let task of tasks">
+                                                    <td>{{task.batchId}}</td>
+                                                    <td>{{task.studentId}}</td>
+                                                    <td>{{task.studentName}}</td>
+                                                    <td><button class="btn btn-primary"
+                                                            (click)="taskModel(taskModelContent)">{{task.task}}</button>
+                                                    </td>
+                                                    <td>{{task.marks}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+                        <!-- /Task Evaluation Card -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!--  Task evaluation model-->
+<ng-template class="modal text-left" #taskModelContent let-c="close" let-d="dismiss">
+    <div class="modal-lg">
+        <div class="modal-header">
+            <h6 id="myModalLabel23">Task evaluation</h6>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <section id="basic-carousel">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8">
+                        <ngb-carousel *ngIf="basicArray">
+                            <ng-template ngbSlide>
+                                <img [src]="basicArray[0]">
+                            </ng-template>
+                            <ng-template ngbSlide>
+                                <img [src]="basicArray[1]">
+                            </ng-template>
+                            <ng-template ngbSlide>
+                                <img [src]="basicArray[2]">
+                            </ng-template>
+                        </ngb-carousel>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <table class="table table-bordered table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>Section</th>
+                                    <th>Marks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let section of marksSection; let i=index">
+                                    <td>{{section.section}}</td>
+                                    <td class="_sm"><input type="text" class="_marks"><span>/</span> {{section.marks}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Total</th>
+                                    <th>50</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="modal-footer">
+            <button type="button" class="btn grey btn-outline-secondary" (click)="d('Close modal')">Close</button>
+            <button type="button" class="btn btn-outline-primary">Save</button>
+        </div>
+        
+    </div>
+</ng-template>
+<!--  /Task evaluation model-->
