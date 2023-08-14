@@ -28,4 +28,7 @@ export class TypingService {
     );
   }
 
+  getTypingTrainerSummery(){
+    return this._httpClient.get("/assets/data/typing/typing-trainer-summery.json");
+  }
 }
