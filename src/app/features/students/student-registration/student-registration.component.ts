@@ -30,10 +30,10 @@ export class StudentRegistrationComponent {
 
   public studentForm: FormGroup = new FormGroup({
     personalDetails: new FormGroup({
-      firstName: new FormControl(),
-      lastName: new FormControl(),
-      fatherName: new FormControl(),
-      mobileNumber: new FormControl(),
+      firstName: new FormControl("",[Validators.required,Validators.minLength(3)]),
+      lastName: new FormControl("",[Validators.required,Validators.minLength(3)]),
+      fatherName: new FormControl("",[Validators.required,Validators.minLength(3)]),
+      mobileNumber: new FormControl("",[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
       alternateMobileNumber: new FormControl(),
       email: new FormControl(),
       aadharCardNumber: new FormControl(),
@@ -42,19 +42,19 @@ export class StudentRegistrationComponent {
     addressDetails: new FormGroup({
       presentAddress: new FormGroup({
         houseNo: new FormControl(),
-        city: new FormControl(),
+        city: new FormControl("",[Validators.required,Validators.minLength(3)]),
         mandal: new FormControl(),
         district: new FormControl(),
         state: new FormControl(),
         country: new FormControl(),
-        pincode: new FormControl()
+        pincode: new FormControl("",[Validators.required,Validators.min(1000000),Validators.max(999999)])
       }),
       perminentAddress: new FormGroup({
         houseNo: new FormControl(),
-        city: new FormControl(),
+        city: new FormControl("",[Validators.required,Validators.minLength(3)]),
         mandal: new FormControl(),
         district: new FormControl(),
-        state: new FormControl(),
+        state: new FormControl("",[Validators.required,Validators.minLength(3)]),
         country: new FormControl(),
         pincode: new FormControl()
       })

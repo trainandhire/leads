@@ -11,6 +11,7 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { BreadcrumbModule } from 'src/app/_layout/breadcrumb/breadcrumb.module';
 import { MatchHeightModule } from 'src/app/content/partials/general/match-height/match-height.module';
 import { ArchwizardModule } from 'angular-archwizard';
+import { FormUtilitiesModule } from 'src/app/shared/form-utilities/form-utilities.module';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ArchwizardModule } from 'angular-archwizard';
     NgbDatepickerModule,
     MatchHeightModule,
     ArchwizardModule,
-    FormsModule
+    FormsModule,
+    FormUtilitiesModule
   ]
 })
 export class StudentsModule { }
