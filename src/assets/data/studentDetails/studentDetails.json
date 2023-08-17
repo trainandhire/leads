@@ -1,0 +1,61 @@
+{
+    "personalDetails": {
+        "firstName": "surya",
+        "lastName": "kaniki",
+        "fatherName": "karunya",
+        "mobileNumber": "8989787878",
+        "alternateMobileNumber": "99878787878",
+        "email": "surya@gmail.com",
+        "aadharCardNumber": "12345678997",
+        "panCardNumber": "KFHV12675"
+    },
+    "addressDetails": {
+        "presentAddress": {
+            "houseNo": "59-12-2",
+            "city": "hyderabad",
+            "mandal": "telanagana",
+            "district": "telangana",
+            "state": "telanagna",
+            "country": "india",
+            "pincode": 5436788
+        },
+        "perminentAddress": {
+            "houseNo": "59-12-3",
+            "city": "hyderabad",
+            "mandal": "telangana",
+            "district": "telangana",
+            "state": "telangana",
+            "country": "india",
+            "pincode": "5436788"
+        }
+    },
+    "educationalDetails": {
+        "educations": [
+            {
+                "name": "btech-computers",
+                "passOut": "2023-08-16",
+                "percentage": 78
+            }
+        ]
+    },
+    "experienceDetails": {
+        "companies": [
+            {
+                "role": "Angular developer",
+                "companyName": "cognizent",
+                "from": "2016-02-10",
+                "to": "2023-08-16"
+            }
+        ]
+    },
+    "documents": {
+        "aadharcard": null,
+        "panCard": null,
+        "passportSizePhoto": null,
+        "educationCertificates": [
+            {
+                "certificates": null
+            }
+        ]
+    }
+}

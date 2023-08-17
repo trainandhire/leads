@@ -1,0 +1,45 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row mb-1">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+        </div>
+        <div class="content-body">
+
+            <!-- Content types section start -->
+            <section id="content-types">
+
+                <div class="row">
+                    <div class="col-xl-9 col-md-9 col-sm-9">
+                        <!-- Mail Description -->
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    text
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        <div *ngFor="let student of students">
+                                            <h1>{{student.personalDetails?.firstName}}</h1>
+                                            <h1>{{student | json}}</h1>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+                        <!--/ Mail Description -->
+
+                    </div>
+
+                    <!-- Mail Menu -->
+                    <div class="col-xl-3 col-md-3 col-sm-3">
+                        mmmmmmmm
+                    </div>
+
+                </div>
+            </section>
+            <!-- Content types section end -->
+
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->

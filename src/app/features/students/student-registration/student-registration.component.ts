@@ -101,6 +101,9 @@ export class StudentRegistrationComponent {
   remove(i: number) {
     this.educationsFormArray.removeAt(i)
   }
+  check(){
+    console.log(this.studentForm)
+  }
 
   // companies form array
   get companiesFormArray() {
