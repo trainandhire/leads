@@ -47,6 +47,10 @@ export class StudetDayLauncherComponent implements OnInit {
     {
       title:"student registration",
       routerLink: "students/student-registration"
+    },
+    {
+      title:"student details",
+      routerLink : "students/student-details"
     }
   ];
 
