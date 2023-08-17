@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TypingTestComponent } from './typing-test.component';
+import { FormArray, FormGroup } from '@angular/forms';
 
 describe('TypingTestComponent', () => {
   let component: TypingTestComponent;
@@ -21,3 +22,6 @@ describe('TypingTestComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
+
