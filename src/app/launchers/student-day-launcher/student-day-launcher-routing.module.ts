@@ -19,7 +19,10 @@ const routes: Routes = [
       },
       {
         path: 'text',loadChildren: () => import('../../../app/features/text/text.module').then(m=>m.TextModule),
-    },
+      },
+      {
+        path: 'students',loadChildren: () => import('../../../app/features/students/students.module').then(m=>m.StudentsModule),
+      },
       {path:'', pathMatch:'full', redirectTo:'typing'}
   ]},
   // {path:'', pathMatch:'full', redirectTo:'student-day-launcher'}

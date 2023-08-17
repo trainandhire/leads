@@ -1,0 +1,342 @@
+<div class="app-content content">
+  <div class="content-wrapper">
+    <div class="content-header row mb-1">
+      <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+    </div>
+    <div class="content-body">
+      <!-- Content types section start -->
+      <section id="content-types">
+
+        <div class="row">
+          <div class="col-xl-12 col-md-12 col-sm-12">
+            <!-- student Registration Description -->
+            <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+              <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                <ng-container mCardHeaderTitle>
+                  Student Registration Form
+                </ng-container>
+                <ng-container mCardContent>
+                  <div class="card-body">
+                    <section>
+                      <div class="row">
+                        <div class="col-12" *blockUI="'iconTabs'; message: 'Loading'">
+                          <ng-container mCardBody>
+                            <div class="card-block" [formGroup]="studentForm">
+                              <aw-wizard #wizard navBarLayout="large-filled-symbols">
+                                <aw-wizard-step [stepTitle]="'Personal info'"
+                                  [navigationSymbol]="{ symbol: '&#xf015;' ,fontFamily: 'FontAwesome' }">
+                                  <div>
+                                    <div class="row" formGroupName="personalDetails">
+                                      <div class='col-md-6'>
+                                        <div class="form-group">
+                                          <label class="form-control-label">First Name :</label>
+                                          <input class="form-control" type="text" formControlName="firstName" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">father Name :</label>
+                                          <input class="form-control" type="text" formControlName="fatherName" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">alternate mobile number :</label>
+                                          <input class="form-control" type="text"
+                                            formControlName="alternateMobileNumber" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label" for="phone">Aadharcard Number :</label>
+                                          <input class="form-control" type="text" formControlName="aadharCardNumber" />
+                                        </div>
+                                      </div>
+                                      <div class='col-md-6'>
+                                        <div class="form-group">
+                                          <label class="form-control-label">Last Name :</label>
+                                          <input class="form-control" type="text" formControlName="lastName" />
+                                        </div>
+
+                                        <div class="form-group">
+                                          <label class="form-control-label">Phone Number :</label>
+                                          <input class="form-control" type="text" formControlName="mobileNumber" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">email Address :</label>
+                                          <input class="form-control" type="text" formControlName="email" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">Pancard Number :</label>
+                                          <input class="form-control" type="text" formControlName="panCardNumber" />
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group text-center">
+                                      <button class="btn btn-info btn-raised" [disabled]="iconTab.valid" awNextStep>
+                                        Next
+                                        <span style="margin-left:10px;">
+                                          <i class="feather ft-chevron-right"></i>
+                                        </span>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </aw-wizard-step>
+                                <aw-wizard-step [stepTitle]="'Address info'"
+                                  [navigationSymbol]="{ symbol: '&#xf040;' ,fontFamily: 'FontAwesome' }">
+                                  <div>
+                                    <div class="row" formGroupName="addressDetails">
+                                      <div class='col-md-6' formGroupName="presentAddress">
+                                        <label>Present Address</label>
+                                        <input type="checkbox" class="ml-1">
+                                        <div class="form-group">
+                                          <label class="form-control-label">House No :</label>
+                                          <input class="form-control" type="text" formControlName="houseNo" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">City :</label>
+                                          <input class="form-control" type="text" formControlName="city" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">Mandal :</label>
+                                          <input class="form-control" type="text" formControlName="mandal" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">District :</label>
+                                          <input class="form-control" type="text" formControlName="district" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">State :</label>
+                                          <input class="form-control" type="text" formControlName="state" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">Country :</label>
+                                          <input class="form-control" type="text" formControlName="country" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">Pincode :</label>
+                                          <input class="form-control" type="number" formControlName="pincode" />
+                                        </div>
+                                      </div>
+                                      <div class='col-md-6' formGroupName="perminentAddress">
+                                        <label>Same as Present Address</label>
+                                        <input type="checkbox" class="ml-1">
+                                        <div class="form-group">
+                                          <label class="form-control-label">House No :</label>
+                                          <input class="form-control" type="text" formControlName="houseNo" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">City :</label>
+                                          <input class="form-control" type="text" formControlName="city" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">Mandal :</label>
+                                          <input class="form-control" type="text" formControlName="mandal" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">District :</label>
+                                          <input class="form-control" type="text" formControlName="district" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">State :</label>
+                                          <input class="form-control" type="text" formControlName="state" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">Country :</label>
+                                          <input class="form-control" type="text" formControlName="country" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">Pincode :</label>
+                                          <input class="form-control" type="text" formControlName="pincode" />
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group text-center space-20">
+                                      <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1"
+                                        awPreviousStep>
+                                        <span style="margin-right:10px;">
+                                          <i class="feather ft-chevron-left"></i>
+                                        </span> Previous</button>
+                                      <button uiSref="address" type="button" class="btn btn-raised btn-info"
+                                        [disabled]="iconTab.valid" awNextStep>
+                                        Next
+                                        <span style="margin-left:10px;">
+                                          <i class="feather ft-chevron-right"></i>
+                                        </span>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </aw-wizard-step>
+                                <aw-wizard-step [stepTitle]="'Education info'"
+                                  [navigationSymbol]="{ symbol: '&#xf26c;', fontFamily: 'FontAwesome' }">
+                                  <div>
+                                    <div class="row" formGroupName="educationalDetails">
+                                      <div class='col-md-8'>
+                                        <div class="form-group">
+                                          <button (click)="addEducations()" class="btn btn-primary">Add
+                                            Education</button>
+                                          <div formArrayName="educations">
+                                            <div *ngFor="let education of educationsFormArray.controls; let i=index">
+                                              <div formGroupName="{{i}}" class="cards p-2">
+                                                <div class="form-group">
+                                                  <label class="form-control-label"> Name :</label>
+                                                  <input class="form-control" type="text" formControlName="name" />
+                                                </div>
+                                                <div class="form-group">
+                                                  <label class="form-control-label"> Year of Passout :</label>
+                                                  <input class="form-control" type="date" formControlName="passOut" />
+                                                </div>
+                                                <div class="form-group">
+                                                  <label class="form-control-label"> Percentage :</label>
+                                                  <input class="form-control" type="number"
+                                                    formControlName="percentage" />
+                                                </div>
+                                                <button (click)="remove(i)" class="btn btn-danger">Delete</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group text-center space-20">
+                                      <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1"
+                                        awPreviousStep>
+                                        <span style="margin-right:10px;">
+                                          <i class="feather ft-chevron-left"></i>
+                                        </span> Previous</button>
+                                      <button uiSref="address" type="button" class="btn btn-raised btn-info"
+                                        [disabled]="iconTab.valid" awNextStep>
+                                        Next
+                                        <span style="margin-left:10px;">
+                                          <i class="feather ft-chevron-right"></i>
+                                        </span>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </aw-wizard-step>
+                                <aw-wizard-step [stepTitle]="'Experience info'"
+                                  [navigationSymbol]="{ symbol: '&#xf024;', fontFamily: 'FontAwesome' }">
+                                  <div>
+                                    <div class="row" formGroupName="experienceDetails">
+                                      <div class='col-md-8'>
+                                        <div class="form-group">
+                                          <button (click)="addCompanies()" class="btn btn-primary">Add
+                                            Experience</button>
+                                          <div formArrayName="companies">
+                                            <div *ngFor="let company of companiesFormArray.controls; let i=index">
+                                              <div formGroupName="{{i}}" class="cards p-2">
+                                                <div>
+                                                  <div class="form-group">
+                                                    <label class="form-control-label"> Role :</label>
+                                                    <input class="form-control" type="text" formControlName="role" />
+                                                  </div>
+                                                  <div class="form-group">
+                                                    <label class="form-control-label"> Company Name :</label>
+                                                    <input class="form-control" type="text"
+                                                      formControlName="companyName" />
+                                                  </div>
+                                                  <div class="form-group">
+                                                    <label class="form-control-label"> From :</label>
+                                                    <input class="form-control" type="date" formControlName="from" />
+                                                  </div>
+                                                  <div class="form-group">
+                                                    <label class="form-control-label"> To :</label>
+                                                    <input class="form-control" type="date" formControlName="to" />
+                                                  </div>
+                                                </div>
+                                                <div>
+                                                  <button (click)="experiencedelete(i)"
+                                                    class="btn btn-danger">Delete</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group text-center space-20">
+                                      <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1"
+                                        awPreviousStep>
+                                        <span style="margin-right:10px;">
+                                          <i class="feather ft-chevron-left"></i>
+                                        </span> Previous</button>
+                                      <button uiSref="address" type="button" class="btn btn-raised btn-info"
+                                        [disabled]="iconTab.valid" awNextStep>
+                                        Next
+                                        <span style="margin-left:10px;">
+                                          <i class="feather ft-chevron-right"></i>
+                                        </span>
+                                      </button>
+                                    </div>
+                                  </div>
+                                </aw-wizard-step>
+                                <aw-wizard-step [stepTitle]="'Documents'"
+                                  [navigationSymbol]="{ symbol: '&#xf03e;', fontFamily: 'FontAwesome' }">
+                                  <div>
+                                    <div class="row" formGroupName="documents">
+                                      <div class='col-md-6'>
+                                        <div class="form-group">
+                                          <label class="form-control-label">Aadharcard :</label>
+                                          <input class="form-control" type="file" formControlName="aadharcard" />
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">PanCard :</label>
+                                          <input class="form-control" type="file" formControlName="panCard">
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="form-control-label">Passport Size Photo :</label>
+                                          <input class="form-control" type="file" type="file"
+                                            formControlName="passportSizePhoto">
+                                        </div>
+                                      </div>
+                                      <div class='col-md-6'>
+                                        <div class="form-group">
+                                          <button (click)="addEducationCertificates()" class="btn btn-primary mt-2">Add
+                                            EducationCertificates</button>
+                                          <div formArrayName="educationCertificates">
+                                            <div
+                                              *ngFor="let education of educationCertificatesFormArray.controls; let i= index">
+                                              <div formGroupName="{{i}}">
+                                                <div class="row mb-1">
+                                                  <div class="col-10 col-xl-10">
+                                                    <label class="file center-block">
+                                                      <input type="file" id="file" formControlName="certificates"
+                                                        class="mt-2">
+                                                      <span class="file-custom"></span>
+                                                    </label>
+                                                  </div>
+                                                  <div class="col-2 col-xl-2">
+                                                    <button type="button" class="btn btn-icon btn-danger mr-1 mt-1"
+                                                      (click)="removeFile(i)"><i class="feather ft-x"></i></button>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="form-group text-center space-20">
+                                      <button uiSref="personal" type="button" class="btn btn-raised btn-secondary mr-1"
+                                        awPreviousStep>
+                                        <span style="margin-right:10px;">
+                                          <i class="feather ft-chevron-left"></i>
+                                        </span> Previous</button>
+                                      <button uiSref="address" type="button" class="btn btn-raised btn-info"
+                                        [disabled]="iconTab.valid" (click)="submit()">
+                                        Submit
+                                      </button>
+                                    </div>
+                                  </div>
+                                </aw-wizard-step>
+
+                              </aw-wizard>
+                            </div>
+                          </ng-container>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </ng-container>
+              </m-card>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
