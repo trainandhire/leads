@@ -31,6 +31,7 @@
                                         <div class="form-group">
                                           <label class="form-control-label">First Name :</label>
                                           <input class="form-control" type="text" formControlName="firstName" />
+                                          <app-validations class="text text-danger" [control]="studentForm.get('personalDetails')?.get('firstName')"></app-validations>
                                         </div>
                                         <div class="form-group">
                                           <label class="form-control-label">father Name :</label>
@@ -55,6 +56,7 @@
                                         <div class="form-group">
                                           <label class="form-control-label">Phone Number :</label>
                                           <input class="form-control" type="text" formControlName="mobileNumber" />
+                                          <app-validations class="text text-danger" [control]="studentForm.get('personalDetails')?.get('mobileNumber')"></app-validations>
                                         </div>
                                         <div class="form-group">
                                           <label class="form-control-label">email Address :</label>
@@ -90,6 +92,7 @@
                                         <div class="form-group">
                                           <label class="form-control-label">City :</label>
                                           <input class="form-control" type="text" formControlName="city" />
+                                          <app-validations class="text text-danger" [control]="studentForm.get('addressDetails')?.get('presentAddress')?.get('city')"></app-validations>
                                         </div>
                                         <div class="form-group">
                                           <label class="form-control-label">Mandal :</label>
@@ -110,6 +113,7 @@
                                         <div class="form-group">
                                           <label class="form-control-label">Pincode :</label>
                                           <input class="form-control" type="number" formControlName="pincode" />
+                                          <app-validations class="text text-danger" [control]="studentForm.get('addressDetails')?.get('presentAddress').get('pincode')"></app-validations>
                                         </div>
                                       </div>
                                       <div class='col-md-6' formGroupName="perminentAddress">
@@ -122,6 +126,7 @@
                                         <div class="form-group">
                                           <label class="form-control-label">City :</label>
                                           <input class="form-control" type="text" formControlName="city" />
+                                          <app-validations class="text text-danger" [control]="studentForm.get('addressDetails')?.get('perminentAddress')?.get('city')"></app-validations>
                                         </div>
                                         <div class="form-group">
                                           <label class="form-control-label">Mandal :</label>
