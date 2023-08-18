@@ -49,13 +49,13 @@
         ]
     },
     "documents": {
-        "aadharcard": null,
-        "panCard": null,
-        "passportSizePhoto": null,
+        "aadharcard": "Aadhar file",
+        "panCard": "Pancard file",
+        "passportSizePhoto": "Passport Size Photo",
         "educationCertificates": [
             {
-                "certificates": null
+                "certificates": "Certificates"
             }
         ]
     }
-}
+}   
