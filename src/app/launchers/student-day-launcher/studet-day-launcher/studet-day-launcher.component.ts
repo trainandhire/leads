@@ -51,6 +51,10 @@ export class StudetDayLauncherComponent implements OnInit {
     {
       title:"student details",
       routerLink : "students/student-details"
+    },
+    {
+      title:"role management",
+      routerLink : "users/role-management"
     }
   ];
 

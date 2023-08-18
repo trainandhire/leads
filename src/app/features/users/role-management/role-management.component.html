@@ -1,0 +1,126 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row mb-1">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+        </div>
+        <div class="content-body">
+
+            <!-- Content types section start -->
+            <section id="content-types">
+
+                <div class="row" [formGroup]="rolesForm">
+                    <div class="col-xl-9 col-md-9 col-sm-9">
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    Add roles
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        <button (click)="add()" class="btn btn-primary">+</button>
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+                        <div formArrayName="roleManagement">
+                            <div *ngFor="let role of roleManagementFormArray.controls; let i = index">
+                                <div formGroupName="{{i}}">
+                                    <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                                        <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                            <ng-container mCardHeaderTitle>
+                                                NewRole{{i+1}}
+                                                <button class="btn btn-outline-primary"
+                                                    (click)="EditModel(EditModelContent)">
+                                                    edit
+                                                </button>
+                                                <button class="btn btn-primary ml-1"
+                                                    (click)="RoleModel(RoleModelContent)">Manage roles</button>
+                                            </ng-container>
+                                            <ng-container mCardContent>
+                                                <div class="card-body">
+                                                    <!-- table -->
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Student Name</th>
+                                                                <th>Student Id</th>
+                                                                <th>WPM</th>
+                                                                <th>Attempts</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let result of typingResults">
+                                                                <td>{{result.name}}</td>
+                                                                <td>{{result.id}}</td>
+                                                                <td>{{result.wpm}}</td>
+                                                                <td>{{result.attempts}}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <!-- / -->
+                                                    <!-- pagination -->
+                                                    <nav aria-label="Page navigation">
+                                                        <ul
+                                                            class="pagination justify-content-center pagination-separate pagination-flat">
+                                                            <ngb-pagination [collectionSize]="70"
+                                                                [boundaryLinks]="true"></ngb-pagination>
+                                                        </ul>
+                                                    </nav>
+                                                    <!-- / -->
+
+                                                </div>
+                                            </ng-container>
+                                        </m-card>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Model -->
+<ng-template class="modal text-left" #EditModelContent let-c="close" let-d="dismiss">
+    <div class="modal-lg ">
+        <div class="modal-header">
+            <h6 id="myModalLabel23">
+                <input type="checkbox" [(ngModel)]="isAllBodyChecked" (click)="allBodyChanged()">&nbsp;
+                Edit
+            </h6>
+            <div>
+                <button type="button" class="btn grey btn-outline-secondary" (click)="d('Close modal')">Close</button>
+                <!-- <button type="button" class="btn btn-outline-primary">Save changes</button> -->
+            </div>
+        </div>
+        <div class="modal-body">
+            <input type="text" placeholder="Name">
+        </div>
+    </div>
+</ng-template>
+<!-- End of Edit Model -->
+
+<!-- Role Management model -->
+<ng-template class="modal text-left" #RoleModelContent let-c="close" let-d="dismiss">
+    <div class="modal-lg ">
+        <div class="modal-header">
+            <h6 id="myModalLabel23">
+                <input type="checkbox" [(ngModel)]="isAllBodyChecked" (click)="allBodyChanged()">&nbsp;
+                Roles
+            </h6>
+            <div>
+                <button type="button" class="btn grey btn-outline-secondary" (click)="d('Close modal')">Close</button>
+            </div>
+        </div>
+        <div class="modal-body">
+            <ng-container *ngFor="let role of roles">
+                <input type="checkbox">
+                <label>{{role.role}}</label>
+                <br>
+            </ng-container>
+        </div>
+    </div>
+</ng-template>
+<!-- End of Role Management model -->

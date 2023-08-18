@@ -23,6 +23,9 @@ const routes: Routes = [
       {
         path: 'students',loadChildren: () => import('../../../app/features/students/students.module').then(m=>m.StudentsModule),
       },
+      {
+        path: 'users',loadChildren: () => import('../../../app/features/users/users.module').then(m=>m.UsersModule),     
+      },
       {path:'', pathMatch:'full', redirectTo:'typing'}
   ]},
   // {path:'', pathMatch:'full', redirectTo:'student-day-launcher'}
