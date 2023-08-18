@@ -18,22 +18,13 @@ export class StudentDetailsComponent {
 
   @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
 
-  reloadImageGallery() {
-    this.blockUIImageGallery.start('Loading..');
-
-    setTimeout(() => {
-      this.blockUIImageGallery.stop();
-    }, 2500);
-  }
-
   public students: any = [];
 
   constructor(private _httpclient: HttpClient) {
-    this.getstudentdetails();
+    this.getStudentDetails();
   }
 
-
-  getstudentdetails() {
+  getStudentDetails() {
     this._httpclient.get("/assets/data/studentDetails/studentDetails.json").subscribe(
       (data: any) => {
         this.students = [data]
@@ -42,5 +33,13 @@ export class StudentDetailsComponent {
         alert("internal server error")
       }
     )
+  }
+
+  reloadImageGallery() {
+    this.blockUIImageGallery.start('Loading..');
+
+    setTimeout(() => {
+      this.blockUIImageGallery.stop();
+    }, 2500);
   }
 }
