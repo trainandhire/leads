@@ -29,6 +29,24 @@ export class TypingService {
   }
 
   getTypingTrainerSummery(){
-    return this._httpClient.get("/assets/data/typing/typing-trainer-summery.json");
+    // return this._httpClient.get("/assets/data/typing/typing-trainer-summery.json");
+    return this._httpClient.get("http://localhost:3000/typingSummary");
   }
+
+  createSore(){
+    // return this._httpClient.get("/assets/data/typing/typing-trainer-summery.json");
+     return this._httpClient.post("http://localhost:3000/typingSummary",[
+      {
+      name:"ravi",
+      age : 25,
+      class : "graduation"
+     },
+     {
+      name:"Angular",
+      age:16,
+      framework : "javascript"
+     }
+  ]);
+  }
+
 }

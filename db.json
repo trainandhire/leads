@@ -1,0 +1,113 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "typingSummary": [
+    {
+      "name": "rakesh",
+      "id": "s45152",
+      "wpm": "20WPM",
+      "attempts": "5A"
+    },
+    {
+      "name": "suresh",
+      "id": "s45152",
+      "wpm": "30WPM",
+      "attempts": "5A"
+    },
+    {
+      "name": "naresh",
+      "id": "s45152",
+      "wpm": "30WPM",
+      "attempts": "6A"
+    },
+    {
+      "name": "mahesh",
+      "id": "s45152",
+      "wpm": "40WPM",
+      "attempts": "5A"
+    },
+    {
+      "name": "vamshee",
+      "id": "s45152",
+      "wpm": "30WPM",
+      "attempts": "5A",
+      "add": {
+        "pin": 123
+      },
+      "phones": [
+        {
+          "num": 999
+        }
+      ]
+    },
+    {
+      "name": "varun",
+      "id": "s45152",
+      "wpm": "50WPM",
+      "attempts": "5A"
+    },
+    {
+      "name": "ravi",
+      "id": "f24564",
+      "wpm": "70WPM",
+      "attempts": "9A"
+    },
+    {
+      "name": "praneeth",
+      "id": "s45sdf",
+      "wpm": "40WPM",
+      "attempts": "15A"
+    },
+    {
+      "name": "suresh",
+      "id": "s45152",
+      "wpm": "45WPM",
+      "attempts": "10A"
+    },
+    {
+      "name": "ravi",
+      "age": 25,
+      "class": "graduation",
+      "id": "O1gw_KN"
+    },
+    [
+      {
+        "name": "ravi",
+        "age": 25,
+        "class": "graduation"
+      },
+      {
+        "name": "Angular",
+        "age": 16,
+        "framework": "javascript"
+      }
+    ],
+    [
+      {
+        "name": "ravi",
+        "age": 25,
+        "class": "graduation"
+      },
+      {
+        "name": "Angular",
+        "age": 16,
+        "framework": "javascript"
+      }
+    ]
+  ]
+}
