@@ -1,0 +1,286 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row mb-1">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+        </div>
+        <div class="content-body">
+            <!-- Content types section start -->
+            <section id="content-types">
+
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12">
+                        <!-- Institute Registration Description -->
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    Institute Registration Form
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        <section>
+                                            <div class="row">
+                                                <div class="col-12" *blockUI="'iconTabs'; message: 'Loading'">
+                                                    <ng-container mCardBody>
+                                                        <div class="card-block" [formGroup]="instituteForm">
+                                                            <aw-wizard #wizard navBarLayout="large-filled-symbols">
+                                                                <!-- institute info -->
+                                                                <aw-wizard-step [stepTitle]="'insititute info'"
+                                                                    [navigationSymbol]="{ symbol: '&#xf015;' ,fontFamily: 'FontAwesome' }">
+                                                                    <div>
+                                                                        <div class="row" formGroupName="instituteInfo">
+                                                                            <div class='col-md-6'>
+                                                                                <div class="form-group">
+                                                                                    <label class="form-control-label">
+                                                                                        Name :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="name" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="form-control-label"
+                                                                                        for="phone">email :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="email" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class='col-md-6'>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">Mobile
+                                                                                        Number :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="phone" />
+                                                                                </div>
+
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">Prefix
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="prefix" />
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group text-center">
+                                                                            <button class="btn btn-info btn-raised"
+                                                                                [disabled]="" awNextStep>
+                                                                                Next
+                                                                                <span style="margin-left:10px;">
+                                                                                    <i
+                                                                                        class="feather ft-chevron-right"></i>
+                                                                                </span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </aw-wizard-step>
+                                                                <!-- End of info  -->
+
+                                                                <!-- Address Info -->
+                                                                <aw-wizard-step [stepTitle]="'Address info'"
+                                                                    [navigationSymbol]="{ symbol: '&#xf040;' ,fontFamily: 'FontAwesome' }">
+                                                                    <div>
+                                                                        <div class="row" formGroupName="addressDetails">
+                                                                            <div class='col-md-6'
+                                                                                formGroupName="BranchOne">
+                                                                                <label>Branch 1</label>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">House
+                                                                                        No :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="houseNo" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">City
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="city" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">Mandal
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="mandal" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">District
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="district" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">State
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="state" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">Country
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="country" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">Pincode
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="number"
+                                                                                        formControlName="pincode" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class='col-md-6'
+                                                                                formGroupName="BranchTwo">
+                                                                                <label>Branch 2</label>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">House
+                                                                                        No :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="houseNo" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">City
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="city" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">Mandal
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="mandal" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">District
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="district" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">State
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="state" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">Country
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="country" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">Pincode
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="pincode" />
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group text-center space-20">
+                                                                            <button uiSref="personal" type="button"
+                                                                                class="btn btn-raised btn-secondary mr-1"
+                                                                                awPreviousStep>
+                                                                                <span style="margin-right:10px;">
+                                                                                    <i
+                                                                                        class="feather ft-chevron-left"></i>
+                                                                                </span> Previous</button>
+                                                                            <button uiSref="address" type="button"
+                                                                                class="btn btn-raised btn-info"
+                                                                                [disabled]="iconTab.valid" awNextStep>
+                                                                                Next
+                                                                                <span style="margin-left:10px;">
+                                                                                    <i
+                                                                                        class="feather ft-chevron-right"></i>
+                                                                                </span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </aw-wizard-step>
+                                                                <!-- end Address Info -->
+
+                                                                <!-- documents Info -->
+                                                                <aw-wizard-step [stepTitle]="'Documents'"
+                                                                    [navigationSymbol]="{ symbol: '&#xf03e;', fontFamily: 'FontAwesome' }">
+                                                                    <div>
+                                                                        <div class="row" formGroupName="documents">
+                                                                            <div class='col-md-6'>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">logo
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="file"
+                                                                                        formControlName="logo" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">Banner
+                                                                                        :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="file"
+                                                                                        formControlName="banner">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group text-center space-20">
+                                                                            <button uiSref="personal" type="button"
+                                                                                class="btn btn-raised btn-secondary mr-1"
+                                                                                awPreviousStep>
+                                                                                <span style="margin-right:10px;">
+                                                                                    <i
+                                                                                        class="feather ft-chevron-left"></i>
+                                                                                </span> Previous</button>
+                                                                            <button uiSref="address" type="button"
+                                                                                class="btn btn-raised btn-info"
+                                                                                [disabled]="iconTab.valid"
+                                                                                (click)="check()">
+                                                                                Submit
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </aw-wizard-step>
+                                                                <!-- end of documents Info -->
+                                                            </aw-wizard>
+                                                        </div>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

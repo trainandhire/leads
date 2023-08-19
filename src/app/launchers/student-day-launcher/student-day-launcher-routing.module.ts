@@ -26,6 +26,9 @@ const routes: Routes = [
       {
         path: 'users',loadChildren: () => import('../../../app/features/users/users.module').then(m=>m.UsersModule),     
       },
+      {
+        path: 'institutes',loadChildren: () => import('../../../app/features/institute-on-bording/institute-on-bording.module').then(m=>m.InstituteOnBordingModule  ),     
+      },
       {path:'', pathMatch:'full', redirectTo:'typing'}
   ]},
   // {path:'', pathMatch:'full', redirectTo:'student-day-launcher'}
