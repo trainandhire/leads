@@ -92,6 +92,15 @@ const appRoutes: Routes = [
         , canActivate: [AuthGuard]
       },
       {
+        path: 'users',loadChildren: () => import('../app/features/users/users.module').then(m=>m.UsersModule),     
+      },
+      {
+        path: 'institutes',loadChildren: () => import('../app/features/institute-on-bording/institute-on-bording.module').then(m=>m.InstituteOnBordingModule  ),     
+      },
+      {
+        path: 'students',loadChildren: () => import('../app/features/students/students.module').then(m=>m.StudentsModule),
+      },
+      {
         path: 'kanban', loadChildren: () => import('../app/content/applications/kanban/kanban.module').then(m => m.KanbanModule)
         , canActivate: [AuthGuard]
       },

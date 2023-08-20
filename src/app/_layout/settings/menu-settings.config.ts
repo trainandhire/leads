@@ -4,6 +4,7 @@ export interface MenuItem {
   title: string;
   icon: string;
   page: string;
+  permissions?: number[],
   isExternalLink?: boolean;
   issupportExternalLink?: boolean;
   isStarterkitExternalLink?: boolean;
@@ -901,7 +902,37 @@ export const MenuSettingsConfig: MenuConfig = {
           ],
         },
       },
-       {
+      {
+        title: "Institutes Management",
+        icon: "la-book",
+        page: "null",
+        permissions:[5000],
+        submenu: {
+          items: [
+            {
+              title: "Create institute",
+              page: "/institutes/institute-onboarding",
+              permissions: [5000]
+            },
+          ],
+        },
+      },
+      {
+        title: "User Management",
+        icon: "la-book",
+        page: "null",
+        permissions:[6000],
+        submenu: {
+          items: [
+            {
+              title: "Roles & Permissions",
+              page: "/users/role-management",
+              permissions: [6000]
+            },
+          ],
+        },
+      },
+      {
         title: "Courses",
         icon: "la-book",
         page: "null",
@@ -910,10 +941,12 @@ export const MenuSettingsConfig: MenuConfig = {
             {
               title: "View Courses",
               page: "null",
+              permissions: [4000,4002]
             },
             {
               title: "Create Course",
               page: "/course",
+              permissions: [4001]
             }
           ],
         },
@@ -927,10 +960,12 @@ export const MenuSettingsConfig: MenuConfig = {
             {
               title: "View Tasks",
               page: "/tasks",
+              permissions: [3000, 3001, 3002]
             },
             {
               title: "Task Evaluation",
               page: "/tasks/task-evaluation",
+              permissions: [3004]
             }
           ],
         },
@@ -944,10 +979,12 @@ export const MenuSettingsConfig: MenuConfig = {
             {
               title: "Playground",
               page: "/typing",
+              permissions: [1000,1001,1002,1003]
             },
             {
               title: "Trainer Summary",
               page: "/typing/typing-trainer-summery",
+              permissions: [1004]
             }
           ],
         },
@@ -961,10 +998,12 @@ export const MenuSettingsConfig: MenuConfig = {
             {
               title: "Playground",
               page: "/mail-test/create-mail",
+              permissions: [2000,20001,2002]
             },
             {
               title: "Evaluation",
               page: "/mail-test/mail-evaluation",
+              permissions: [2004]
             }
           ],
         },

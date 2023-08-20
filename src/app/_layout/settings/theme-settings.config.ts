@@ -8,7 +8,7 @@ export const ThemeSettingsConfig = {
   },
   menuColor: "menu-dark", // Vertical: [menu-dark, menu-light] , Horizontal: [navbar-dark, navbar-light]
   navigation: "menu-collapsible", // menu-collapsible, menu-accordation
-  menu: "collapse", // collapse, expand
+  menu: "expand", // collapse, expand
   header: "fix", // fix, static
   footer: "static", // fix, static
   customizer: "off", // on,off

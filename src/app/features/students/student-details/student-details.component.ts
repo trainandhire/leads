@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 @Component({
@@ -20,7 +21,7 @@ export class StudentDetailsComponent {
 
   public students: any = [];
 
-  constructor(private _httpclient: HttpClient) {
+  constructor(private _httpclient: HttpClient, private router:Router) {
     this.getStudentDetails();
   }
 
@@ -33,6 +34,10 @@ export class StudentDetailsComponent {
         alert("internal server error")
       }
     )
+  }
+
+  edit(){
+    this.router.navigate(['/students/student-registration']);
   }
 
   reloadImageGallery() {

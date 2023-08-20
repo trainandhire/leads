@@ -25,6 +25,11 @@ export class PermissionsDirective {
 
   ngOnInit() {
 
+    if( !this.permissions || !this.permissions.length){
+      this.view.createEmbeddedView(this.template);
+      return;
+    }
+
     this.authenticationService.isLogged$
       .pipe(
         switchMapTo(this.authenticationService.permissions$),
@@ -33,6 +38,7 @@ export class PermissionsDirective {
       )
       .subscribe((allPermissions:number[]) => {
        
+
         // Checking does user have requried permissions
         let isAllowed:boolean = false;
         for(let i=0; i<this.permissions.length; i++){
@@ -41,7 +47,7 @@ export class PermissionsDirective {
             break;
           }
         }
-       
+        console.log("--- isAllowed",isAllowed, this.permissions);
         if (isAllowed) {
           this.view.createEmbeddedView(this.template);
         } else {
