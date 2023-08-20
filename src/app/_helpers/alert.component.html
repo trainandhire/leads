@@ -1,4 +1,6 @@
-﻿<div *ngIf !="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success',
+﻿<!-- #CONFIG: position -->
+<div style="display: inline-block; position: fixed; top:30px; right: 10px" 
+    *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success',
             'alert-danger': message.type === 'error' }">
     {{message.text}}
 </div>

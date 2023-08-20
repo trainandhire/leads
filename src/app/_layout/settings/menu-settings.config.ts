@@ -901,6 +901,74 @@ export const MenuSettingsConfig: MenuConfig = {
           ],
         },
       },
+       {
+        title: "Courses",
+        icon: "la-book",
+        page: "null",
+        submenu: {
+          items: [
+            {
+              title: "View Courses",
+              page: "null",
+            },
+            {
+              title: "Create Course",
+              page: "/course",
+            }
+          ],
+        },
+      },
+      {
+        title: "Tasks",
+        icon: "la-tasks",
+        page: "null",
+        submenu: {
+          items: [
+            {
+              title: "View Tasks",
+              page: "/tasks",
+            },
+            {
+              title: "Task Evaluation",
+              page: "/tasks/task-evaluation",
+            }
+          ],
+        },
+      },
+      {
+        title: "Typing",
+        icon: "la-keyboard-o",
+        page: "null",
+        submenu: {
+          items: [
+            {
+              title: "Playground",
+              page: "/typing",
+            },
+            {
+              title: "Trainer Summary",
+              page: "/typing/typing-trainer-summery",
+            }
+          ],
+        },
+      },
+      {
+        title: "Email",
+        icon: "la-envelope-o",
+        page: "null",
+        submenu: {
+          items: [
+            {
+              title: "Playground",
+              page: "/mail-test/create-mail",
+            },
+            {
+              title: "Evaluation",
+              page: "/mail-test/mail-evaluation",
+            }
+          ],
+        },
+      },
       // { section: "APPS", icon: "la-ellipsis-h" },
       // {
       //   title: "To Do",

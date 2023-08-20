@@ -68,6 +68,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { UserService } from './_api/user/user.service';
 import { PrivacyPolicyComponent } from './login/privacy-policy/privacy-policy.component';
 import { TermsConditionComponent } from './login/terms-condition/terms-condition.component';
+import { RolesModule } from './shared/roles/roles.module';
 
 
 @NgModule({
@@ -94,7 +95,8 @@ import { TermsConditionComponent } from './login/terms-condition/terms-condition
     LoadingBarRouterModule,
     BlockUIModule.forRoot({
       template: BlockTemplateComponent
-    })
+    }),
+    RolesModule
   ],
   declarations: [
     AppComponent,

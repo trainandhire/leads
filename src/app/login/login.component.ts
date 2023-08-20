@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../_services/auth.service';
 import { AlertService } from '../_services/alert.service';
+import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
   templateUrl: 'login.component.html',
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private alertService: AlertService,
     public authService: AuthService,
+    private authenticationService: AuthenticationService,
     private renderer: Renderer2
   ) {
     this.route.queryParams.subscribe(params => {
@@ -53,11 +55,9 @@ export class LoginComponent implements OnInit {
   get f() {
     return this.loginForm.controls;
   }
-
   tryLogin() {
     this.submitted = true;
 
-    // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }
@@ -65,14 +65,15 @@ export class LoginComponent implements OnInit {
       email: this.f.email.value,
       password: this.f.password.value
     };
-    this.authService.doLogin(value).then(
-      res => {
+    this.authenticationService.doLogin(value).subscribe(
+      (data:any) => {
+        console.log(data);
         if (this.loginForm.controls['rememberMe'] && this.loginForm.controls['rememberMe'].value) {
           localStorage.setItem('remember', 'true');
         } else {
           localStorage.removeItem('remember');
         }
-        this.setUserInStorage(res);
+        this.setUserInStorage(data);
         localStorage.removeItem('currentLayoutStyle');
         let returnUrl = '/student-day-launcher/typing';
         if (this.returnUrl) {
@@ -81,11 +82,46 @@ export class LoginComponent implements OnInit {
         this.router.navigate([returnUrl]);
       },
       err => {
+        console.log(err);
         this.submitted = false;
-        this.alertService.error(err.message);
+        // alert("dfasdf");
+        this.alertService.error("Your are not registered");
       }
     );
   }
+
+  // tryLogin() {
+  //   this.submitted = true;
+
+  //   if (this.loginForm.invalid) {
+  //     return;
+  //   }
+  //   const value = {
+  //     email: this.f.email.value,
+  //     password: this.f.password.value
+  //   };
+  //   this.authService.doLogin(value).then(
+  //     res => {
+  //       console.log(res);
+  //       if (this.loginForm.controls['rememberMe'] && this.loginForm.controls['rememberMe'].value) {
+  //         localStorage.setItem('remember', 'true');
+  //       } else {
+  //         localStorage.removeItem('remember');
+  //       }
+  //       this.setUserInStorage(res);
+  //       localStorage.removeItem('currentLayoutStyle');
+  //       let returnUrl = '/student-day-launcher/typing';
+  //       if (this.returnUrl) {
+  //         returnUrl = this.returnUrl;
+  //       }
+  //       this.router.navigate([returnUrl]);
+  //     },
+  //     err => {
+  //       this.submitted = false;
+  //       this.alertService.error(err.message);
+  //     }
+  //   );
+  // }
 addCheckbox(event) {
   const toggle = document.getElementById('icheckbox');
   if (event.currentTarget.className === 'icheckbox_square-blue') {

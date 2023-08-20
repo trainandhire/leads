@@ -13,6 +13,7 @@ import { MatchHeightModule } from 'src/app/content/partials/general/match-height
 import { ArchwizardModule } from 'angular-archwizard';
 import { FormUtilitiesModule } from 'src/app/shared/form-utilities/form-utilities.module';
 import { StudentDetailsComponent } from './student-details/student-details.component';
+import { RolesModule } from 'src/app/shared/roles/roles.module';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
     MatchHeightModule,
     ArchwizardModule,
     FormsModule,
-    FormUtilitiesModule
+    FormUtilitiesModule,
+    RolesModule
   ]
 })
 export class StudentsModule { }
