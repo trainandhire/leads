@@ -55,6 +55,17 @@ export class MailEvaluationComponent {
     )
   }
 
+  createMail(){
+    this._mailTestService.CreateMail().subscribe(
+      (data:any) => {
+        alert("posted successfullly")
+      },
+      (err:any)=>{
+        alert("not posted")
+      }
+    )
+  }
+
     OneMailBody(OneMailBodyContent, body: string, index: number) {
     this.selectedBody = body;
     this.selectedMailIndex = index;
