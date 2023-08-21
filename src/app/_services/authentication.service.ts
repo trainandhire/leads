@@ -99,14 +99,14 @@ export class AuthenticationService {
       "uid": "Mhdse5jkdafCl0G7XZC7R4xcIJS2",
       "email": "akhilg.3m@gmail.com",
       "emailVerified": true,
-      "displayName": "Akhil Gangavarapu",
+      "displayName": "Chandra Shekar",
       "isAnonymous": false,
       "photoURL": "https://lh3.googleusercontent.com/a/AGNmyxZ9XpO-YsN2UqL_1FpDghPxU-Qv-1E6oA85bSxn=s96-c",
       "providerData": [
           {
               "providerId": "google.com",
               "uid": "100572988874272507079",
-              "displayName": "Akhil Gangavarapu",
+              "displayName": "Chandra Shekar",
               "email": "akhilg.3m@gmail.com",
               "phoneNumber": null,
               "photoURL": "https://lh3.googleusercontent.com/a/AAcHTtf-mbrBF6yUQHUofyKfFRfsWtd9S-hRc4zGhexDlSH-=s96-c"

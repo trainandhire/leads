@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
         }
         this.setUserInStorage(data);
         localStorage.removeItem('currentLayoutStyle');
-        let returnUrl = '/student-day-launcher/typing';
+        let returnUrl = '/dashboard/sales';
         if (this.returnUrl) {
           returnUrl = this.returnUrl;
         }
