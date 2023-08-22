@@ -220,135 +220,36 @@
         "age": 16,
         "framework": "javascript"
       }
-    ],
-    [
-      {
-        "name": "ravi",
-        "age": 25,
-        "class": "graduation"
-      },
-      {
-        "name": "Angular",
-        "age": 16,
-        "framework": "javascript"
-      }
-    ],
-    {
-      "name": "ravi",
-      "age": 25,
-      "class": "graduation",
-      "id": "rUTnlYN"
-    }
+    ]
   ],
-  "submittedEmails": [
+  "allPermissions": [
     {
-      "from": "a",
-      "to": "g",
-      "cc": "f",
-      "subject": "f",
-      "salutation": "g",
-      "body": "g",
-      "signature": "g",
-      "mailId": null,
-      "scores": {
-        "from": {
-          "isCorrect": true,
-          "points": 1
-        },
-        "to": {
-          "isCorrect": true,
-          "points": 1
-        },
-        "cc": {
-          "isCorrect": true,
-          "points": 1
-        },
-        "subject": {
-          "isCorrect": true,
-          "points": 1
-        },
-        "salutation": {
-          "isCorrect": true,
-          "points": 1
-        },
-        "body": {
-          "isCorrect": false,
-          "points": 4
-        },
-        "signature": {
-          "isCorrect": true,
-          "points": 1
-        },
-        "total": {
-          "points": 6
-        }
-      },
-      "emailId": "mailTest-1",
-      "id": "rCuzmzx"
-    },
-    {
-      "0": "M",
-      "1": "h",
-      "2": "d",
-      "3": "s",
-      "4": "e",
-      "5": "5",
-      "6": "j",
-      "7": "k",
-      "8": "d",
-      "9": "a",
-      "10": "f",
-      "11": "C",
-      "12": "l",
-      "13": "0",
-      "14": "G",
-      "15": "7",
-      "16": "X",
-      "17": "Z",
-      "18": "C",
-      "19": "7",
-      "20": "R",
-      "21": "4",
-      "22": "x",
-      "23": "c",
-      "24": "I",
-      "25": "J",
-      "26": "S",
-      "27": "2",
-      "scores": {
-        "from": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "to": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "cc": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "subject": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "salutation": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "body": {
-          "isCorrect": false,
-          "points": 4
-        },
-        "signature": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "total": {
-          "points": 0
-        }
-      },
-      "id": "YEITQXP"
+      "feature":{
+        "name": "Typing",
+        "label": "Typing Practice",
+        "permissions":[
+          {
+            "name": "TypingPlayGround",
+            "label": "Typing play ground",
+            "code": "1000"
+          },
+          {
+            "name": "TypingCreateNewContent",
+            "label": "Typing play ground",
+            "code": "1001"
+          },
+          {
+            "name": "TypingEditContent",
+            "label": "Typing play ground",
+            "code": "1002"
+          },
+          {
+            "name": "TypingDeleteContent",
+            "label": "Typing play ground",
+            "code": "1003"
+          }
+        ]
+      }
     }
   ]
 }
