@@ -59,6 +59,10 @@ export class StudetDayLauncherComponent implements OnInit {
     {
       title: "institute on boarding",
       routerLink : "institutes/institute-onboarding"
+    },
+    {
+      title: "features&permissions",
+      routerLink : "institutes/features-permissions"
     }
   ];
 
