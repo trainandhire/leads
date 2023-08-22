@@ -1,5 +1,10 @@
-.icon-adjust i{
+.icon-adjust i {
     position: relative;
     top: 1px;
     margin-right: 1.5px;
+}
+
+/* Model z-index */
+::ng-deep ngb-modal-window {
+    z-index: 2000 !important;
 }
