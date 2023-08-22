@@ -12,11 +12,13 @@ import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatchHeightModule } from 'src/app/content/partials/general/match-height/match-height.module';
 import { ArchwizardModule } from 'angular-archwizard';
 import { FormUtilitiesModule } from 'src/app/shared/form-utilities/form-utilities.module';
+import { FeaturesPermissionsComponent } from './features-permissions/features-permissions.component';
 
 
 @NgModule({
   declarations: [
-    InstituteRegistrationFormComponent
+    InstituteRegistrationFormComponent,
+    FeaturesPermissionsComponent
   ],
   imports: [
     CommonModule,
