@@ -84,12 +84,14 @@
                                                                     <div>
                                                                         <div class="row" formGroupName="addressDetails">
                                                                             <div class='col-md-12'>
-                                                                                <button class="btn btn-primary mb-3" (click)="addBranches()">Add Branch Address</button>
                                                                                 <div formArrayName="Branches">
-                                                                                    <div *ngFor="let branch of branchesFormArray.controls; let i=index">
-                                                                                        <div formGroupName="{{i}}" class="branch row">
+                                                                                    <div
+                                                                                        *ngFor="let branch of branchesFormArray.controls; let i=index">
+                                                                                        <div formGroupName="{{i}}"
+                                                                                            class="branch row">
                                                                                             <h3>Branch {{i+1}}</h3>
-                                                                                            <div class="form-group col-sm-6">
+                                                                                            <div
+                                                                                                class="form-group col-sm-6">
                                                                                                 <label
                                                                                                     class="form-control-label">House
                                                                                                     No :</label>
@@ -98,7 +100,8 @@
                                                                                                     type="text"
                                                                                                     formControlName="houseNo" />
                                                                                             </div>
-                                                                                            <div class="form-group col-sm-6">
+                                                                                            <div
+                                                                                                class="form-group col-sm-6">
                                                                                                 <label
                                                                                                     class="form-control-label">City
                                                                                                     :</label>
@@ -107,7 +110,8 @@
                                                                                                     type="text"
                                                                                                     formControlName="city" />
                                                                                             </div>
-                                                                                            <div class="form-group col-sm-6">
+                                                                                            <div
+                                                                                                class="form-group col-sm-6">
                                                                                                 <label
                                                                                                     class="form-control-label">Mandal
                                                                                                     :</label>
@@ -116,7 +120,8 @@
                                                                                                     type="text"
                                                                                                     formControlName="mandal" />
                                                                                             </div>
-                                                                                            <div class="form-group col-sm-6">
+                                                                                            <div
+                                                                                                class="form-group col-sm-6">
                                                                                                 <label
                                                                                                     class="form-control-label">District
                                                                                                     :</label>
@@ -125,7 +130,8 @@
                                                                                                     type="text"
                                                                                                     formControlName="district" />
                                                                                             </div>
-                                                                                            <div class="form-group col-sm-6">
+                                                                                            <div
+                                                                                                class="form-group col-sm-6">
                                                                                                 <label
                                                                                                     class="form-control-label">State
                                                                                                     :</label>
@@ -134,7 +140,8 @@
                                                                                                     type="text"
                                                                                                     formControlName="state" />
                                                                                             </div>
-                                                                                            <div class="form-group  col-sm-6">
+                                                                                            <div
+                                                                                                class="form-group  col-sm-6">
                                                                                                 <label
                                                                                                     class="form-control-label">Country
                                                                                                     :</label>
@@ -143,7 +150,8 @@
                                                                                                     type="text"
                                                                                                     formControlName="country" />
                                                                                             </div>
-                                                                                            <div class="form-group col-sm-6">
+                                                                                            <div
+                                                                                                class="form-group col-sm-6">
                                                                                                 <label
                                                                                                     class="form-control-label">Pincode
                                                                                                     :</label>
@@ -152,14 +160,26 @@
                                                                                                     type="number"
                                                                                                     formControlName="pincode" />
                                                                                             </div>
-                                                                                            <div class="form-group col-sm-2">
-                                                                                            <button class="btn btn-danger mt-2" (click)="delete(i)">  <i _ngcontent-tve-c62="" class="feather ft-trash-2"></i>Delete</button>
+                                                                                            <div
+                                                                                                class="form-group col-sm-2">
+                                                                                                <button
+                                                                                                    class="btn btn-danger mt-2"
+                                                                                                    (click)="delete(i)">
+                                                                                                    <i _ngcontent-tve-c62=""
+                                                                                                        class="feather ft-trash-2"></i>Delete</button>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+
+                                                                        <div class="text-center">
+                                                                            <button class="btn btn-primary mb-3" (click)="addBranches()">
+                                                                                <i class="la la-plus"></i>Add one more address
+                                                                            </button>
+                                                                        </div>
+
                                                                         <div class="form-group text-center space-20">
                                                                             <button uiSref="personal" type="button"
                                                                                 class="btn btn-raised btn-secondary mr-1"

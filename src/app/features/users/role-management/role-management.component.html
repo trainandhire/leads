@@ -106,13 +106,10 @@
 <ng-template class="modal text-left" #RoleModelContent let-c="close" let-d="dismiss">
     <div class="modal-lg ">
         <div class="modal-header">
-            <h6 id="myModalLabel23">
-                <input type="checkbox" [(ngModel)]="isAllBodyChecked" (click)="allBodyChanged()">&nbsp;
-                Roles
-            </h6>
-            <div>
-                <button type="button" class="btn grey btn-outline-secondary" (click)="d('Close modal')">Close</button>
-            </div>
+            <h1 id="myModalLabel23">
+                Permissions for XXXXX role.
+            </h1>
+            <button type="button" class="btn grey btn-outline-secondary" (click)="d('Close modal')">Close</button>
         </div>
         <div class="modal-body">
             <ng-container *ngFor="let feature of featuresAndPermissions">
@@ -122,8 +119,10 @@
                     <ng-container *ngFor="let permission of feature.permissions">
                         <div class="col-sm-6">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" name="customCheck" id="{{permission.code}}" class="custom-control-input">
-                                <label for="{{permission.code}}" class="custom-control-label">{{permission.label}}</label>
+                                <input type="checkbox" name="customCheck" id="{{permission.code}}"
+                                    class="custom-control-input">
+                                <label for="{{permission.code}}"
+                                    class="custom-control-label">{{permission.label}}</label>
                             </div>
                             <!-- <input type="checkbox">
                             <label></label> -->

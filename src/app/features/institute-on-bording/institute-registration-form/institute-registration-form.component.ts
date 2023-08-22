@@ -34,7 +34,6 @@ export class InstituteRegistrationFormComponent {
       email: new FormControl(),
       phone: new FormControl(),
       prefix: new FormControl()
-
     }),
     addressDetails: new FormGroup({
       Branches: new FormArray([]),
@@ -52,6 +51,8 @@ export class InstituteRegistrationFormComponent {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
     });
+
+    this.addBranches();
   }
 
   get branchesFormArray(){
