@@ -222,62 +222,58 @@
       }
     ]
   ],
-  "allPermissions": [
+  "allFeaturesAndPermissions": [
     {
-      "feature":{
-        "name": "Typing",
-        "label": "Typing Practice",
-        "permissions":[
-          {
-            "name": "TypingPlayGround",
-            "label": "Typing play ground",
-            "code": "1000"
-          },
-          {
-            "name": "TypingCreateNewContent",
-            "label": "Typing play ground",
-            "code": "1001"
-          },
-          {
-            "name": "TypingEditContent",
-            "label": "Typing play ground",
-            "code": "1002"
-          },
-          {
-            "name": "TypingDeleteContent",
-            "label": "Typing play ground",
-            "code": "1003"
-          }
-        ]
-      }
+      "name": "Typing",
+      "label": "Typing Practice",
+      "permissions": [
+        {
+          "name": "TypingPlayGround",
+          "label": "Typing play ground",
+          "code": "1000"
+        },
+        {
+          "name": "TypingCreateNewContent",
+          "label": "Typing play ground",
+          "code": "1001"
+        },
+        {
+          "name": "TypingEditContent",
+          "label": "Typing play ground",
+          "code": "1002"
+        },
+        {
+          "name": "TypingDeleteContent",
+          "label": "Typing play ground",
+          "code": "1003"
+        }
+      ]
     },
     {
-      "feature":{
-        "name": "Email",
-        "label": "Email Practice",
-        "permissions":[
-          {
-            "name": "EmailPlayGround",
-            "label": "Email play ground",
-            "code": "2000"
-          },
-          {
-            "name": "EmailCreateNewContent",
-            "label": "Email play ground",
-            "code": "2001"
-          },
-          {
-            "name": "EmailEditContent",
-            "label": "Email play ground",
-            "code": "2002"
-          },
-          {
-            "name": "EmailDeleteContent",
-            "label": "Email play ground",
-            "code": "2003"
-          }
-        ]
-      }
+      "name": "Email",
+      "label": "Email Practice",
+      "permissions": [
+        {
+          "name": "EmailPlayGround",
+          "label": "Email play ground",
+          "code": "2000"
+        },
+        {
+          "name": "EmailCreateNewContent",
+          "label": "Email play ground",
+          "code": "2001"
+        },
+        {
+          "name": "EmailEditContent",
+          "label": "Email play ground",
+          "code": "2002"
+        },
+        {
+          "name": "EmailDeleteContent",
+          "label": "Email play ground",
+          "code": "2003"
+        }
+      ]
     }
   ]
 }
