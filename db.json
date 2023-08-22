@@ -221,5 +221,64 @@
         "framework": "javascript"
       }
     ]
+  ],
+  "allFeaturesAndPermissions": [
+    {
+      "name": "Typing",
+      "label": "Typing practice",
+      "permissions":[
+        {
+          "name": "TypingPlayGround",
+          "label": "Typing play ground",
+          "code": "1000"
+        },
+        {
+          "name": "TypingCreateNewContent",
+          "label": "TypingCreateNewContent",
+          "code": "1001"
+        },
+        {
+          "name": "TypingEditContent",
+          "label": "TypingEditContent",
+          "code": "1002"
+        },
+        {
+          "name": "TypingDeleteContent",
+          "label": "TypingDeleteContent",
+          "code": "1003"
+        }
+      ]
+    },
+    {
+      "name": "Email",
+      "label": "Email Practice",
+      "permissions":[
+        {
+          "name": "EmailPlayGround",
+          "label": "Email play ground",
+          "code": "2000"
+        },
+        {
+          "name": "EmailCreateNewContent",
+          "label": "Email play ground",
+          "code": "2001"
+        },
+        {
+          "name": "EmailEditContent",
+          "label": "Email play ground",
+          "code": "2002"
+        },
+        {
+          "name": "EmailDeleteContent",
+          "label": "Email play ground",
+          "code": "2003"
+        },
+        {
+          "name": "EmailEvaluation",
+          "label": "Email evaluation",
+          "code": "2004"
+        }
+      ]
+    }
   ]
 }

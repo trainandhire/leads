@@ -904,7 +904,7 @@ export const MenuSettingsConfig: MenuConfig = {
       },
       {
         title: "Institutes Management",
-        icon: "la-book",
+        icon: "la-bank",
         page: "null",
         permissions:[5000],
         submenu: {
@@ -919,7 +919,7 @@ export const MenuSettingsConfig: MenuConfig = {
       },
       {
         title: "User Management",
-        icon: "la-book",
+        icon: "la-users",
         page: "null",
         permissions:[6000],
         submenu: {

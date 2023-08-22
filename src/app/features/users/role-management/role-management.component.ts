@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { PermissionsService } from 'src/app/_api/roles and permissions/permissions.service';
 import { TypingService } from 'src/app/_api/typing/typing.service';
 
 @Component({
@@ -18,34 +19,27 @@ export class RoleManagementComponent {
     reload: true
   };
 
-  public roles:any = [
-    {role:'edit user', code:201},
-    {role:'create user', code:201},
-    {role:'View eamil', code:201},
-    {role:'Evalueate emails', code:201},
-    {role:'edit user', code:201},
-    {role:'edit user', code:201},
-    {role:'edit user', code:201},
-  ]
+  public featuresAndPermissions: any = [];
 
   @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
 
-   public rolesForm:FormGroup=new FormGroup({
-      roleManagement:new FormArray([])
-   })
-   
-   get roleManagementFormArray() {
+  public rolesForm: FormGroup = new FormGroup({
+    roleManagement: new FormArray([])
+  })
+
+  get roleManagementFormArray() {
     return this.rolesForm.get("roleManagement") as FormArray;
-   }
+  }
 
-   public typingResults:any;
+  public typingResults: any;
 
-   constructor( private modalService: NgbModal, private _typingService: TypingService){
+  constructor(private modalService: NgbModal, private _typingService: TypingService, private _permissionsService:PermissionsService) {
     this.getTypingPrograss();
-   }
+    this.getAllPermissions();
+  }
 
 
-   getTypingPrograss() {
+  getTypingPrograss() {
     this._typingService.getTypingTrainerSummery().subscribe(
       (data: any) => {
         this.typingResults = data;
@@ -56,27 +50,33 @@ export class RoleManagementComponent {
     )
   }
 
-   EditModel(EditModelContent) {
+  EditModel(EditModelContent) {
     this.modalService.open(EditModelContent, { windowClass: 'animated fadeInDown', size: 'lg' });
   }
-    RoleModel(RoleModelContent) {
+  RoleModel(RoleModelContent) {
     this.modalService.open(RoleModelContent, { windowClass: 'animated fadeInDown', size: 'lg' });
   }
 
+  getAllPermissions(){
+    this._permissionsService.getAllFeaturesAndPermissions().subscribe(
+      (data:any)=>{
+        this.featuresAndPermissions = data;
+      }
+    )
+  }
 
-
-   add() {
+  add() {
     this.roleManagementFormArray.push(
       new FormGroup({
-       name:new FormControl(),
-       role:new FormControl(),
-       mobilenumber:new FormControl(),
-       email:new FormControl()
+        name: new FormControl(),
+        role: new FormControl(),
+        mobilenumber: new FormControl(),
+        email: new FormControl()
       })
     )
   }
-   
- 
+
+
   reloadImageGallery() {
     this.blockUIImageGallery.start('Loading..');
 

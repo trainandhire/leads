@@ -115,9 +115,21 @@
             </div>
         </div>
         <div class="modal-body">
-            <ng-container *ngFor="let role of roles">
-                <input type="checkbox">
-                <label>{{role.role}}</label>
+            <ng-container *ngFor="let feature of featuresAndPermissions">
+                <h3>{{feature.label}}</h3>
+                <hr>
+                <div class="row">
+                    <ng-container *ngFor="let permission of feature.permissions">
+                        <div class="col-sm-6">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="customCheck" id="{{permission.code}}" class="custom-control-input">
+                                <label for="{{permission.code}}" class="custom-control-label">{{permission.label}}</label>
+                            </div>
+                            <!-- <input type="checkbox">
+                            <label></label> -->
+                        </div>
+                    </ng-container>
+                </div>
                 <br>
             </ng-container>
         </div>
