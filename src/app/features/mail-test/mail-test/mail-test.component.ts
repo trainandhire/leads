@@ -3,6 +3,7 @@ import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { MailTestService } from 'src/app/_api/mail-test/mail-test.service';
 import { UserService } from 'src/app/_api/user/user.service';
+import { AlertService } from 'src/app/_services/alert.service';
 
 @Component({
   selector: 'app-mail-test',
@@ -38,7 +39,7 @@ export class MailTestComponent {
     salutation: new FormControl(),
     body: new FormControl(),
     signature: new FormControl(),
-    id: new FormControl(),
+    mailId: new FormControl(),
     scores: new FormGroup({})
   })
 
@@ -48,7 +49,10 @@ export class MailTestComponent {
 
   @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
 
-  constructor(private _mailTestService: MailTestService, private _userService: UserService){
+  constructor(private _mailTestService: MailTestService, 
+              private _userService: UserService,
+              private _alertService: AlertService
+              ){
 
     this._mailTestService.getMailTestMenu().subscribe(
       (data:any)=>{
@@ -56,13 +60,12 @@ export class MailTestComponent {
       }
     );
 
-    this._mailTestService.getmailSubmissions(this._userService.getCurrentUserId()).subscribe(
+    this._mailTestService.createMail(this._userService.getCurrentUserId()).subscribe(
       (res:any)=>{
         this.mailSubmissionData = res.payload.data();
-        console.log(this.mailSubmissionData);
       },
       (err:any)=>{
-        console.log(err);
+        
       }
     );
 
@@ -90,21 +93,19 @@ export class MailTestComponent {
   }
 
   sendEmail(){
-    console.log(this.emailTestForm.value);
-    this.emailTestForm.value.id = this.selectedEamilId;
-    if(this.mailSubmissionData){
-      this.mailSubmissionData['submittedMails'].push(this.emailTestForm.value);
-    }
-    else{
-      this.mailSubmissionData = {
-        'submittedMails' : [this.emailTestForm.value]
-      }
-    }
+    this.emailTestForm.value.emailId = this.selectedEamilId;
     
-    let result = this._mailTestService.mailSubmission(this._userService.getCurrentUserId(),this.mailSubmissionData);
+    
+    let result = this._mailTestService.createMail(this.emailTestForm.value).subscribe(
+      (data:any)=>{
+        this._alertService.success("Mail submitted successfully");
+      },
+      (err:any)=>{
+        this._alertService.error("Error")
+      }
+    )
 
     this.reset();
-    console.log("result---------",result);
   }
 
   reset(){
@@ -113,7 +114,4 @@ export class MailTestComponent {
     this.selectedEamilId = "";
     this.mailDesc = "";
   }
-
-  
-
 }
