@@ -2,6 +2,7 @@ import { Component, DoCheck } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { MailTestService } from 'src/app/_api/mail-test/mail-test.service';
+import { AlertService } from 'src/app/_services/alert.service';
 
 @Component({
   selector: 'app-mail-evaluation',
@@ -23,6 +24,8 @@ export class MailEvaluationComponent {
   public isAllSignatureChecked: boolean = false;
   public isAllBodyChecked: boolean = false;
 
+  public data: any;
+
   public options = {
     close: true,
     expand: true,
@@ -32,7 +35,9 @@ export class MailEvaluationComponent {
 
   @BlockUI('submittedMailTableCard') blockUISubmittedMailTableCard: NgBlockUI;
 
-  constructor(private _mailTestService: MailTestService, private modalService: NgbModal) {
+  constructor(private _mailTestService: MailTestService,
+    private modalService: NgbModal,
+    private _alertservice: AlertService) {
     this.getSubmittedMails();
   }
 
@@ -50,29 +55,29 @@ export class MailEvaluationComponent {
         this.submittedMails = data
       },
       (err: any) => {
-        alert("internal server error")
+        this._alertservice.error("internal server error")
       }
     )
   }
 
-  createMail(){
-    this._mailTestService.CreateMail().subscribe(
-      (data:any) => {
-        alert("posted successfullly")
+  createMail() {
+    this._mailTestService.createMail(this.data).subscribe(
+      (data: any) => {
+        this._alertservice.success("Mail Submitted successfullly")
       },
-      (err:any)=>{
-        alert("not posted")
+      (err: any) => {
+        this._alertservice.error("Mail Not Submitted")
       }
     )
   }
 
-    OneMailBody(OneMailBodyContent, body: string, index: number) {
+  OneMailBody(OneMailBodyContent, body: string, index: number) {
     this.selectedBody = body;
     this.selectedMailIndex = index;
     this.modalService.open(OneMailBodyContent, { windowClass: 'animated fadeInDown', size: 'lg' });
   }
 
-    AllMailBodies(AllMailBodiesContent) {
+  AllMailBodies(AllMailBodiesContent) {
     this.modalService.open(AllMailBodiesContent, { windowClass: 'animated fadeInDown', size: 'lg' });
   }
 
@@ -81,6 +86,7 @@ export class MailEvaluationComponent {
       this.submittedMails[i].scores.from.isCorrect = !this.isAllFromChecked;
     }
     this.calculateScoresForAllMails();
+
   }
 
   allToChanged() {
@@ -139,7 +145,7 @@ export class MailEvaluationComponent {
     this.submittedMails = [...this.submittedMails];
   }
 
-  calculateScoreForOneMail(i: number) {
+  calculateScoreForOneMail(i: any) {
     let total = 0;
     for (let key in this.submittedMails[i].scores) {
       if (key != 'total' && this.submittedMails[i].scores[key]?.isCorrect) {
@@ -150,7 +156,13 @@ export class MailEvaluationComponent {
     this.submittedMails[i].scores.total.points = total;
 
     this.submittedMails = [...this.submittedMails];
+    this._mailTestService.updateMail(this.submittedMails[i]).subscribe(
+      (data: any) => {
+        this._alertservice.success("Score Updated")
+      },
+      (err: any) => {
+        this._alertservice.error("Score Not Updated")
+      }
+    )
   }
-
-
 }
