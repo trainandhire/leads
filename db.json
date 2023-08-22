@@ -222,6 +222,53 @@
       }
     ]
   ],
+  "submittedEmails": [
+    {
+      "from": "m",
+      "to": "m",
+      "cc": "m",
+      "subject": "m",
+      "salutation": "m",
+      "body": "m",
+      "signature": "m",
+      "mailId": null,
+      "scores": {
+        "from": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "to": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "cc": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "subject": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "salutation": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "body": {
+          "isCorrect": false,
+          "points": 4
+        },
+        "signature": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "total": {
+          "points": 0
+        }
+      },
+      "emailId": "mailTest-1",
+      "id": 1
+    }
+  ],
   "allFeaturesAndPermissions": [
     {
       "name": "Typing",
