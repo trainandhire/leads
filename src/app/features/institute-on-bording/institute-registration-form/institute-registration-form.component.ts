@@ -37,24 +37,7 @@ export class InstituteRegistrationFormComponent {
 
     }),
     addressDetails: new FormGroup({
-      BranchOne: new FormGroup({
-        houseNo: new FormControl(),
-        city: new FormControl(),
-        mandal: new FormControl(),
-        district: new FormControl(),
-        state: new FormControl(),
-        country: new FormControl(),
-        pincode: new FormControl()
-      }),
-      BranchTwo: new FormGroup({
-        houseNo: new FormControl(),
-        city: new FormControl(),
-        mandal: new FormControl(),
-        district: new FormControl(),
-        state: new FormControl(),
-        country: new FormControl(),
-        pincode: new FormControl()
-      })
+      Branches: new FormArray([]),
     }),
     documents: new FormGroup({
       logo: new FormControl(),
@@ -71,6 +54,27 @@ export class InstituteRegistrationFormComponent {
     });
   }
 
+  get branchesFormArray(){
+    return this.instituteForm.get("addressDetails").get("Branches") as FormArray
+  }
+   
+  addBranches(){
+    this.branchesFormArray.push(
+      new FormGroup({
+        houseNo:new FormControl(),
+        city: new FormControl(),
+        mandal: new FormControl(),
+        district:new FormControl(),
+        state:new FormControl(),
+        country:new FormControl(),
+        pincode:new FormControl()
+      })
+    )
+  }
+
+  delete(i:number){
+    this.branchesFormArray.removeAt(i);
+  }
 
   reloadImageGallery() {
     this.blockUIImageGallery.start('Loading..');
