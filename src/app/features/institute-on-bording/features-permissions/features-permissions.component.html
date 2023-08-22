@@ -5,7 +5,35 @@
         </div>
         <div class="content-body">
             <section id="content-types">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12">
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    Features and Permissions
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        <div class="col-xl-6 col-md-6 col-sm-6">
+                                            <!-- dropdown for batch-id and chapter -->
+                                            <ng-select [items]="multipleSelectArray" [multiple]="true"
+                                                bindLabel="item_text" placeholder="Select Features"
+                                                [(ngModel)]="multipleMultiSelect">
+                                            </ng-select>
 
+                                            <ng-select [items]="multipleChapterSelectArray" [multiple]="true"
+                                                bindLabel="item_text" placeholder="Select permissions"
+                                                [(ngModel)]="multipleChapterMultiSelect" class="mt-1">
+                                            </ng-select>
+                                            <!-- / -->
+                                        </div>
+                                        <br>
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12">
                         <ng-container *ngFor="let feature of featuresAndPermissions;let i=index">
@@ -13,7 +41,8 @@
                                 <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
                                     <ng-container mCardHeaderTitle>
                                         Feature {{i+1}}: {{feature.label}}
-                                        <button class="btn btn-outline-primary icon-adjust mr-1">
+                                        <button class="btn btn-outline-primary icon-adjust mr-1"
+                                            (click)="EditFeature(EditFeatureContent)">
                                             <i class="la la-pencil"></i>Edit Feature
                                         </button>
                                         <button class="btn btn-outline-primary icon-adjust">
@@ -38,11 +67,12 @@
                                                             <td>{{permission.name}}</td>
                                                             <td>{{permission.label}}</td>
                                                             <td>
-                                                                <button type="submit" class="btn btn-primary mr-1">
-                                                                    <i class="la la-pencil"></i> Edit 
+                                                                <button type="submit" class="btn btn-primary mr-1"
+                                                                    (click)="AllMailBodies(AllMailBodiesContent)">
+                                                                    <i class="la la-pencil"></i> Edit
                                                                 </button>
                                                                 <button type="submit" class="btn btn-danger mr-1">
-                                                                    <i class="la la-trash"></i> Delete 
+                                                                    <i class="la la-trash"></i> Delete
                                                                 </button>
                                                             </td>
                                                         </tr>
@@ -62,3 +92,72 @@
     </div>
 </div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+
+<!-- edit permissions  -->
+<ng-template class="modal text-left" #AllMailBodiesContent let-c="close" let-d="dismiss">
+    <div class="modal-lg">
+        <div class="modal-header">
+            <h6 id="myModalLabel23">
+                Permissions
+            </h6>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" class="p-4">
+            <div class="form-group">
+                <label class="form-control-label">
+                    Permission Code :</label>
+                <input class="form-control" type="text" formControlName="permissionCode" />
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" for="phone">Permission Name :</label>
+                <input class="form-control" type="text" formControlName="permissionName" />
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" for="phone">Permission Label :</label>
+                <input class="form-control" type="text" formControlName="permissionLabel" />
+            </div>
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save </button>
+            <button type="button" class="btn grey btn-outline-secondary" (click)="d('Close modal')">Close</button>
+
+        </div>
+    </div>
+</ng-template>
+<!--/  -->
+
+<!-- edit features -->
+<ng-template class="modal text-left" #EditFeatureContent let-c="close" let-d="dismiss">
+    <div class="modal-lg">
+        <div class="modal-header">
+            <h6 id="myModalLabel23">
+                Features
+            </h6>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" class="p-4">
+            <div class="form-group">
+                <label class="form-control-label">
+                    Features Name :</label>
+                <input class="form-control" type="text" formControlName="featuresLabel" />
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" for="phone">Feature Label :</label>
+                <input class="form-control" type="text" formControlName="featureName" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save </button>
+            <button type="button" class="btn grey btn-outline-secondary" (click)="d('Close modal')">Close</button>
+
+        </div>
+    </div>
+</ng-template>
+<!--  -->

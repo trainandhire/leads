@@ -8,11 +8,13 @@ import { BlockTemplateComponent } from 'src/app/_layout/blockui/block-template.c
 import { CardModule } from 'src/app/content/partials/general/card/card.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BreadcrumbModule } from 'src/app/_layout/breadcrumb/breadcrumb.module';
-import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MatchHeightModule } from 'src/app/content/partials/general/match-height/match-height.module';
 import { ArchwizardModule } from 'angular-archwizard';
 import { FormUtilitiesModule } from 'src/app/shared/form-utilities/form-utilities.module';
 import { FeaturesPermissionsComponent } from './features-permissions/features-permissions.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { FeaturesPermissionsComponent } from './features-permissions/features-pe
     MatchHeightModule,
     ArchwizardModule,
     FormsModule,
-    FormUtilitiesModule
+    FormUtilitiesModule,
+    NgSelectModule,
+    NgbModule
   ]
 })
 export class InstituteOnBordingModule { }
