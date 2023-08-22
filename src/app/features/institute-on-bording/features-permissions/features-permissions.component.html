@@ -4,38 +4,60 @@
             <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
         </div>
         <div class="content-body">
-
-            <!-- Content types section start -->
             <section id="content-types">
 
                 <div class="row">
-                    <div class="col-xl-9 col-md-9 col-sm-9">
-                       <!-- Mail Description -->
-                       <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
-                        <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
-                            <ng-container mCardHeaderTitle>
-                                text
-                            </ng-container>
-                            <ng-container mCardContent>
-                                <div class="card-body">
-                                    sdfgsdfg
-                                </div>
-                            </ng-container>
-                        </m-card>
-                    </section>
-                    <!--/ Mail Description -->
-
+                    <div class="col-xl-12 col-md-12 col-sm-12">
+                        <ng-container *ngFor="let feature of featuresAndPermissions;let i=index">
+                            <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                                <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                    <ng-container mCardHeaderTitle>
+                                        Feature {{i+1}}: {{feature.label}}
+                                        <button class="btn btn-outline-primary icon-adjust mr-1">
+                                            <i class="la la-pencil"></i>Edit Feature
+                                        </button>
+                                        <button class="btn btn-outline-primary icon-adjust">
+                                            <i class="la la-plus"></i>Add New Permission
+                                        </button>
+                                    </ng-container>
+                                    <ng-container mCardContent>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Permission Code</th>
+                                                            <th>Permission Name</th>
+                                                            <th>Permission Label</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let permission of feature.permissions">
+                                                            <td>{{permission.code}}</td>
+                                                            <td>{{permission.name}}</td>
+                                                            <td>{{permission.label}}</td>
+                                                            <td>
+                                                                <button type="submit" class="btn btn-primary mr-1">
+                                                                    <i class="la la-pencil"></i> Edit 
+                                                                </button>
+                                                                <button type="submit" class="btn btn-danger mr-1">
+                                                                    <i class="la la-trash"></i> Delete 
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    </ng-container>
+                                </m-card>
+                            </section>
+                        </ng-container>
                     </div>
-
-                    <!-- Mail Menu -->
-                    <div class="col-xl-3 col-md-3 col-sm-3">
-                        mmmmmmmm
-                    </div>
-
                 </div>
             </section>
-            <!-- Content types section end -->
-
         </div>
     </div>
 </div>

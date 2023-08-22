@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { PermissionsService } from 'src/app/_api/roles and permissions/permissions.service';
 
 @Component({
   selector: 'app-features-permissions',
@@ -15,7 +16,21 @@ export class FeaturesPermissionsComponent {
     reload: true
   };
 
+  public featuresAndPermissions:any = [];
+
   @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
+
+  constructor(private _permissionsService:PermissionsService){
+    this.getAllFeaturesAndPermissions();
+  }
+
+  getAllFeaturesAndPermissions(){
+    this._permissionsService.getAllFeaturesAndPermissions().subscribe(
+      (data:any)=>{
+        this.featuresAndPermissions = data;
+      }
+    )
+  }
 
   reloadImageGallery() {
     this.blockUIImageGallery.start('Loading..');
@@ -24,5 +39,7 @@ export class FeaturesPermissionsComponent {
       this.blockUIImageGallery.stop();
     }, 2500);
   }
+
+
 
 }

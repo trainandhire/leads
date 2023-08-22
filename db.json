@@ -267,6 +267,134 @@
       },
       "emailId": "mailTest-1",
       "id": 1
+    },
+    {
+      "0": "M",
+      "1": "h",
+      "2": "d",
+      "3": "s",
+      "4": "e",
+      "5": "5",
+      "6": "j",
+      "7": "k",
+      "8": "d",
+      "9": "a",
+      "10": "f",
+      "11": "C",
+      "12": "l",
+      "13": "0",
+      "14": "G",
+      "15": "7",
+      "16": "X",
+      "17": "Z",
+      "18": "C",
+      "19": "7",
+      "20": "R",
+      "21": "4",
+      "22": "x",
+      "23": "c",
+      "24": "I",
+      "25": "J",
+      "26": "S",
+      "27": "2",
+      "scores": {
+        "from": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "to": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "cc": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "subject": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "salutation": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "body": {
+          "isCorrect": false,
+          "points": 4
+        },
+        "signature": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "total": {
+          "points": 0
+        }
+      },
+      "id": 2
+    },
+    {
+      "0": "M",
+      "1": "h",
+      "2": "d",
+      "3": "s",
+      "4": "e",
+      "5": "5",
+      "6": "j",
+      "7": "k",
+      "8": "d",
+      "9": "a",
+      "10": "f",
+      "11": "C",
+      "12": "l",
+      "13": "0",
+      "14": "G",
+      "15": "7",
+      "16": "X",
+      "17": "Z",
+      "18": "C",
+      "19": "7",
+      "20": "R",
+      "21": "4",
+      "22": "x",
+      "23": "c",
+      "24": "I",
+      "25": "J",
+      "26": "S",
+      "27": "2",
+      "scores": {
+        "from": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "to": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "cc": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "subject": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "salutation": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "body": {
+          "isCorrect": false,
+          "points": 4
+        },
+        "signature": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "total": {
+          "points": 0
+        }
+      },
+      "id": 3
     }
   ],
   "allFeaturesAndPermissions": [
@@ -281,17 +409,17 @@
         },
         {
           "name": "TypingCreateNewContent",
-          "label": "Typing play ground",
+          "label": "Typing Create New content",
           "code": "1001"
         },
         {
           "name": "TypingEditContent",
-          "label": "Typing play ground",
+          "label": "TypingEditContent",
           "code": "1002"
         },
         {
           "name": "TypingDeleteContent",
-          "label": "Typing play ground",
+          "label": "TypingDeleteContent",
           "code": "1003"
         }
       ]
