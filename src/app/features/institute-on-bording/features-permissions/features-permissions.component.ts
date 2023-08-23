@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { PermissionsService } from 'src/app/_api/roles and permissions/permissions.service';
@@ -30,30 +31,43 @@ export class FeaturesPermissionsComponent {
 
   @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
 
-  constructor(private _permissionsService: PermissionsService, private _alertService:AlertService, private modalService: NgbModal) {
+
+  public featureForm: FormGroup = new FormGroup({
+    name: new FormControl(),
+    label: new FormControl()
+  });
+
+  public permissionForm: FormGroup = new FormGroup({
+    name: new FormControl(),
+    label: new FormControl(),
+    code: new FormControl(),
+  })
+
+
+  constructor(private _permissionsService: PermissionsService, private _alertService: AlertService, private modalService: NgbModal) {
     this.multipleChapterMultiSelect = [];
     this.getAllFeaturesAndPermissions();
     this.multipleSelectArray = [
       {
-        "item_id": 1, "item_text": "S21"
+        "item_id": 1, "feature_name": "S21"
       },
       {
-        "item_id": 2, "item_text": "S22"
+        "item_id": 2, "feature_name": "S22"
       },
       {
-        "item_id": 3, "item_text": "S23"
+        "item_id": 3, "feature_name": "S23"
       },
       {
-        "item_id": 4, "item_text": "S24"
+        "item_id": 4, "feature_name": "S24"
       },
       {
-        "item_id": 5, "item_text": "S25"
+        "item_id": 5, "feature_name": "S25"
       },
       {
-        "item_id": 6, "item_text": "S26"
+        "item_id": 6, "feature_name": "S26"
       },
       {
-        "item_id": 7, "item_text": "S27"
+        "item_id": 7, "feature_name": "S27"
       }
     ]
     this.multipleChapterSelectArray = [
@@ -78,6 +92,8 @@ export class FeaturesPermissionsComponent {
     ]
   }
 
+
+
   getAllFeaturesAndPermissions() {
     this._permissionsService.getAllFeaturesAndPermissions().subscribe(
       (data: any) => {
@@ -87,7 +103,7 @@ export class FeaturesPermissionsComponent {
     )
   }
 
-  filterFeatures(){
+  filterFeatures() {
     this._permissionsService.filterFeatures(this.selectedFeaturesForFilter).subscribe(
       (data: any) => {
         this.featuresAndPermissions = data;
@@ -95,20 +111,30 @@ export class FeaturesPermissionsComponent {
     )
   }
 
-  AllMailBodies(AllMailBodiesContent) {
-    this.modalService.open(AllMailBodiesContent, { windowClass: 'animated fadeInDown', size: 'lg' });
+
+
+  AddNewPermissions(AddNewPermissionsContent) {
+    this.modalService.open(AddNewPermissionsContent, { windowClass: 'animated fadeInDown', size: 'lg' });
+  }
+
+  EditPermission(EditPermisssionContent) {
+    this.modalService.open(EditPermisssionContent, { windowClass: 'animated fadeInDown', size: 'lg' });
+  }
+
+  AddFeature(AddFeatureContent) {
+    this.modalService.open(AddFeatureContent, { windowClass: 'animated fadeInDown', size: 'lg' });
   }
 
   EditFeature(EditFeatureContent) {
     this.modalService.open(EditFeatureContent, { windowClass: 'animated fadeInDown', size: 'lg' });
   }
 
-  deletePermission(feature:any, permission:any){
-    this._permissionsService.deletePermission(feature,permission).subscribe(
-      (data:any)=>{
+  deletePermission(feature: any, permission: any) {
+    this._permissionsService.deletePermission(feature, permission).subscribe(
+      (data: any) => {
         this._alertService.success("Permission deleted");
       },
-      (err:any)=>{
+      (err: any) => {
         this._alertService.error("Permission deletion failed.")
       }
     )

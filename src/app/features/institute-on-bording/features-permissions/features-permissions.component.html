@@ -26,6 +26,11 @@
                                                 [(ngModel)]="multipleChapterMultiSelect" class="mt-1">
                                             </ng-select> -->
                                             <!-- / -->
+                                            <button class="btn btn-outline-primary icon-adjust mt-2"
+                                                (click)="AddFeature(AddFeatureContent)">
+                                                <i class="la la-plus"></i>Add Feature
+                                            </button>
+
                                         </div>
                                         <br>
                                     </div>
@@ -45,7 +50,8 @@
                                             (click)="EditFeature(EditFeatureContent)">
                                             <i class="la la-pencil"></i>Edit Feature
                                         </button>
-                                        <button class="btn btn-outline-primary icon-adjust">
+                                        <button class="btn btn-outline-primary icon-adjust"
+                                            (click)="AddNewPermissions(AddNewPermissionsContent)">
                                             <i class="la la-plus"></i>Add New Permission
                                         </button>
                                     </ng-container>
@@ -67,8 +73,8 @@
                                                             <td>{{permission.name}}</td>
                                                             <td>{{permission.label}}</td>
                                                             <td>
-                                                                <button type="submit" class="btn btn-outline-primary mr-1"
-                                                                    (click)="AllMailBodies(AllMailBodiesContent)">
+                                                                <button type="submit" class="btn btn-primary mr-1"
+                                                                    (click)="EditPermission(EditPermisssionContent)">
                                                                     <i class="la la-pencil"></i> Edit
                                                                 </button>
                                                                 <button type="submit" class="btn btn-outline-danger mr-1" (click)="deletePermission(feature,permission)">
@@ -95,7 +101,8 @@
 
 
 <!-- edit permissions  -->
-<ng-template class="modal text-left" #AllMailBodiesContent let-c="close" let-d="dismiss">
+
+<ng-template class="modal text-left" #EditPermisssionContent let-c="close" let-d="dismiss">
     <div class="modal-lg">
         <div class="modal-header">
             <h6 id="myModalLabel23">
@@ -151,6 +158,72 @@
             <div class="form-group">
                 <label class="form-control-label" for="phone">Feature Label :</label>
                 <input class="form-control" type="text" formControlName="featureName" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save </button>
+            <button type="button" class="btn grey btn-outline-secondary" (click)="d('Close modal')">Close</button>
+
+        </div>
+    </div>
+</ng-template>
+<!--  -->
+
+<!-- Add features -->
+<ng-template class="modal text-left" #AddFeatureContent let-c="close" let-d="dismiss">
+    <div class="modal-lg">
+        <div class="modal-header">
+            <h6 id="myModalLabel23">
+                Features
+            </h6>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" class="p-4" [formGroup]="featureForm">
+            <div class="form-group">
+                <label class="form-control-label">
+                    Features Name :</label>
+                <input class="form-control" type="text" formControlName="name" />
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" for="phone">Feature Label :</label>
+                <input class="form-control" type="text" formControlName="label" />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save </button>
+            <button type="button" class="btn grey btn-outline-secondary" (click)="d('Close modal')">Close</button>
+
+        </div>
+    </div>
+</ng-template>
+<!--  -->
+
+<!-- Add new Permissions -->
+<ng-template class="modal text-left" #AddNewPermissionsContent let-c="close" let-d="dismiss">
+    <div class="modal-lg">
+        <div class="modal-header">
+            <h6 id="myModalLabel23">
+                Permissions
+            </h6>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" class="p-4" [formGroup]="permissionForm">
+            <div class="form-group">
+                <label class="form-control-label">
+                    Permission Code :</label>
+                <input class="form-control" type="text" formControlName="name" />
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" for="phone">Permission Name :</label>
+                <input class="form-control" type="text" formControlName="label" />
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" for="phone">Permission Label :</label>
+                <input class="form-control" type="text" formControlName="code" />
             </div>
         </div>
         <div class="modal-footer">
