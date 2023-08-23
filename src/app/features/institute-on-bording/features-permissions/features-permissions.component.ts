@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { PermissionsService } from 'src/app/_api/roles and permissions/permissions.service';
+import { AlertService } from 'src/app/_services/alert.service';
 
 @Component({
   selector: 'app-features-permissions',
@@ -18,9 +19,10 @@ export class FeaturesPermissionsComponent {
     reload: true
   };
 
+  public AllFeaturesAndPermissions: any = [];
   public featuresAndPermissions: any = [];
+  public selectedFeaturesForFilter: any = [];
 
-  public multipleMultiSelect: any = [];
   public multipleChapterMultiSelect: any = [];
 
   public multipleSelectArray: any;
@@ -28,8 +30,7 @@ export class FeaturesPermissionsComponent {
 
   @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
 
-  constructor(private _permissionsService: PermissionsService, private modalService: NgbModal) {
-    this.multipleMultiSelect = [];
+  constructor(private _permissionsService: PermissionsService, private _alertService:AlertService, private modalService: NgbModal) {
     this.multipleChapterMultiSelect = [];
     this.getAllFeaturesAndPermissions();
     this.multipleSelectArray = [
@@ -80,6 +81,15 @@ export class FeaturesPermissionsComponent {
   getAllFeaturesAndPermissions() {
     this._permissionsService.getAllFeaturesAndPermissions().subscribe(
       (data: any) => {
+        this.AllFeaturesAndPermissions = data;
+        this.featuresAndPermissions = data;
+      }
+    )
+  }
+
+  filterFeatures(){
+    this._permissionsService.filterFeatures(this.selectedFeaturesForFilter).subscribe(
+      (data: any) => {
         this.featuresAndPermissions = data;
       }
     )
@@ -91,6 +101,17 @@ export class FeaturesPermissionsComponent {
 
   EditFeature(EditFeatureContent) {
     this.modalService.open(EditFeatureContent, { windowClass: 'animated fadeInDown', size: 'lg' });
+  }
+
+  deletePermission(feature:any, permission:any){
+    this._permissionsService.deletePermission(feature,permission).subscribe(
+      (data:any)=>{
+        this._alertService.success("Permission deleted");
+      },
+      (err:any)=>{
+        this._alertService.error("Permission deletion failed.")
+      }
+    )
   }
 
   reloadImageGallery() {

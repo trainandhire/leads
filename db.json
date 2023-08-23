@@ -401,6 +401,7 @@
     {
       "name": "Typing",
       "label": "Typing Practice",
+      "id": 1,
       "permissions": [
         {
           "name": "TypingPlayGround",
@@ -427,6 +428,7 @@
     {
       "name": "Email",
       "label": "Email Practice",
+      "id": 2,
       "permissions": [
         {
           "name": "EmailPlayGround",
@@ -442,11 +444,6 @@
           "name": "EmailEditContent",
           "label": "Email play ground",
           "code": "2002"
-        },
-        {
-          "name": "EmailDeleteContent",
-          "label": "Email play ground",
-          "code": "2003"
         }
       ]
     }

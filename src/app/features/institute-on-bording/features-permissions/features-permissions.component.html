@@ -16,15 +16,15 @@
                                     <div class="card-body">
                                         <div class="col-xl-6 col-md-6 col-sm-6">
                                             <!-- dropdown for batch-id and chapter -->
-                                            <ng-select [items]="multipleSelectArray" [multiple]="true"
-                                                bindLabel="item_text" placeholder="Select Features"
-                                                [(ngModel)]="multipleMultiSelect">
+                                            <ng-select [items]="AllFeaturesAndPermissions" [multiple]="true"
+                                                bindLabel="label" bindValue="id" placeholder="Select Features"
+                                                [(ngModel)]="selectedFeaturesForFilter" (change)="filterFeatures()">
                                             </ng-select>
 
-                                            <ng-select [items]="multipleChapterSelectArray" [multiple]="true"
+                                            <!-- <ng-select [items]="multipleChapterSelectArray" [multiple]="true"
                                                 bindLabel="item_text" placeholder="Select permissions"
                                                 [(ngModel)]="multipleChapterMultiSelect" class="mt-1">
-                                            </ng-select>
+                                            </ng-select> -->
                                             <!-- / -->
                                         </div>
                                         <br>
@@ -67,11 +67,11 @@
                                                             <td>{{permission.name}}</td>
                                                             <td>{{permission.label}}</td>
                                                             <td>
-                                                                <button type="submit" class="btn btn-primary mr-1"
+                                                                <button type="submit" class="btn btn-outline-primary mr-1"
                                                                     (click)="AllMailBodies(AllMailBodiesContent)">
                                                                     <i class="la la-pencil"></i> Edit
                                                                 </button>
-                                                                <button type="submit" class="btn btn-danger mr-1">
+                                                                <button type="submit" class="btn btn-outline-danger mr-1" (click)="deletePermission(feature,permission)">
                                                                     <i class="la la-trash"></i> Delete
                                                                 </button>
                                                             </td>
