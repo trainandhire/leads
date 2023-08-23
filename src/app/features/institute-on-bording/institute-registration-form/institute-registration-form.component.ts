@@ -87,8 +87,8 @@ export class InstituteRegistrationFormComponent {
     }, 2500);
   }
 
-  submit() {
-    this._instituteService.postInstituteForm(this.instituteForm.value).subscribe(
+  createInstitute() {
+    this._instituteService.createInstitute(this.instituteForm.value).subscribe(
       (data: any) => {
         this._alertservice.success("Form Submitted successfullly")
       },
@@ -96,8 +96,6 @@ export class InstituteRegistrationFormComponent {
         this._alertservice.error("Form Not Submitted")
       }
     )
-
-
   }
 
 }

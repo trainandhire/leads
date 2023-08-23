@@ -919,6 +919,11 @@ export const MenuSettingsConfig: MenuConfig = {
               page: "/institutes/features-permissions",
               permissions: [5000]
             },
+            {
+              title: "All Institutes",
+              page : "/institutes/all-institutes",
+              permissions: [5000]
+            }
           ],
         },
       },

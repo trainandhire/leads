@@ -7,11 +7,16 @@ import { Observable } from 'rxjs';
 })
 export class InstituteService {
 
-  constructor(private _httpClient:HttpClient) { }
+  constructor(private _httpClient: HttpClient) { }
 
-   postInstituteForm(data:any):Observable<any>{
-    return this._httpClient.post("http://localhost:3000/institutes",data)
-   }
+  getInstitutes():Observable<any>{
+   return  this._httpClient.get("http://localhost:3000/institutes")
+  }
+
+  createInstitute(data: any): Observable<any> {
+    return this._httpClient.post("http://localhost:3000/institutes", data)
+  }
+
 
 
 

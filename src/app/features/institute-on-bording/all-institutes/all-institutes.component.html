@@ -1,0 +1,49 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row mb-1">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+        </div>
+        <div class="content-body">
+            <!-- Content types section start -->
+            <section id="content-types">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12">
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    All Institute Details
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Mobile Number</th>
+                                                    <th>Prefix</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let institute of institutes">
+                                                    <td>{{institute.instituteInfo?.name}}</td>
+                                                    <td>{{institute.instituteInfo?.email}}</td>
+                                                    <td>{{institute.instituteInfo?.phone}}</td>
+                                                    <td>{{institute.instituteInfo?.prefix}}</td>
+                                                    <td><button class="btn btn-primary">View</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <!-- Content types section end -->
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->

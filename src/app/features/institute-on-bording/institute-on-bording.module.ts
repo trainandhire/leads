@@ -15,12 +15,14 @@ import { FormUtilitiesModule } from 'src/app/shared/form-utilities/form-utilitie
 import { FeaturesPermissionsComponent } from './features-permissions/features-permissions.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AllInstitutesComponent } from './all-institutes/all-institutes.component';
 
 
 @NgModule({
   declarations: [
     InstituteRegistrationFormComponent,
-    FeaturesPermissionsComponent
+    FeaturesPermissionsComponent,
+    AllInstitutesComponent
   ],
   imports: [
     CommonModule,
