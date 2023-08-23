@@ -23,6 +23,7 @@ export class FeaturesPermissionsComponent {
   public AllFeaturesAndPermissions: any = [];
   public featuresAndPermissions: any = [];
   public selectedFeaturesForFilter: any = [];
+  public selectedFeature:any = {};
 
   public multipleChapterMultiSelect: any = [];
 
@@ -92,8 +93,6 @@ export class FeaturesPermissionsComponent {
     ]
   }
 
-
-
   getAllFeaturesAndPermissions() {
     this._permissionsService.getAllFeaturesAndPermissions().subscribe(
       (data: any) => {
@@ -111,21 +110,94 @@ export class FeaturesPermissionsComponent {
     )
   }
 
+  createFeature(){
+    this._permissionsService.createFeature(this.featureForm.value).subscribe(
+      (data: any) => {
+        this._alertService.success("Feature Created.");
+        this.modalService.dismissAll();
+        this.getAllFeaturesAndPermissions();
+      },
+      (err: any) => {
+        this._alertService.error("Feature Creation failed.")
+      }
+    )
+  }
+
+  editFeature(){
+    this._permissionsService.editFeature(this.featureForm.value, this.selectedFeature).subscribe(
+      (data: any) => {
+        this._alertService.success("Feature Edited Successfully.");
+        this.modalService.dismissAll();
+        this.getAllFeaturesAndPermissions();
+      },
+      (err: any) => {
+        this._alertService.error("Feature Creation failed.")
+      }
+    )
+  }
+
+  deleteFeature(feature){
+    this._permissionsService.deleteFeature(feature).subscribe(
+      (data: any) => {
+        this._alertService.success("Feature Delted..");
+        this.modalService.dismissAll();
+        this.getAllFeaturesAndPermissions();
+      },
+      (err: any) => {
+        this._alertService.error("Feature Deletion Failed.")
+      }
+    )
+  }
 
 
-  AddNewPermissions(AddNewPermissionsContent) {
+  createPermission(){
+    this._permissionsService.createPermission(this.permissionForm.value,this.selectedFeature).subscribe(
+      (data: any) => {
+        this._alertService.success("Feature Created.");
+        this.modalService.dismissAll();
+        this.getAllFeaturesAndPermissions();
+      },
+      (err: any) => {
+        this._alertService.error("Feature Creation failed.")
+      }
+    )
+  }
+
+  editPermission(){
+    this._permissionsService.editPermission(this.permissionForm.value,this.selectedFeature).subscribe(
+      (data: any) => {
+        this._alertService.success("Permission updated.");
+        this.modalService.dismissAll();
+        this.getAllFeaturesAndPermissions();
+      },
+      (err: any) => {
+        this._alertService.error("Permission updation failed.")
+      }
+    )
+  }
+
+
+
+  AddNewPermissions(AddNewPermissionsContent:any, feature:any) {
+    this.selectedFeature = feature;
+    this.permissionForm.reset();
     this.modalService.open(AddNewPermissionsContent, { windowClass: 'animated fadeInDown', size: 'lg' });
   }
 
-  EditPermission(EditPermisssionContent) {
+  editPermissionModelOpen(EditPermisssionContent,feature,permission) {
+    this.selectedFeature = feature;
+    this.permissionForm.patchValue(permission);
     this.modalService.open(EditPermisssionContent, { windowClass: 'animated fadeInDown', size: 'lg' });
   }
 
   AddFeature(AddFeatureContent) {
+    this.featureForm.reset();
     this.modalService.open(AddFeatureContent, { windowClass: 'animated fadeInDown', size: 'lg' });
   }
 
-  EditFeature(EditFeatureContent) {
+  editFeatureModelOpen(EditFeatureContent:any, feature:any) {
+    this.selectedFeature = feature;
+    this.featureForm.patchValue(feature);
     this.modalService.open(EditFeatureContent, { windowClass: 'animated fadeInDown', size: 'lg' });
   }
 
@@ -148,3 +220,5 @@ export class FeaturesPermissionsComponent {
     }, 2500);
   }
 }
+
+

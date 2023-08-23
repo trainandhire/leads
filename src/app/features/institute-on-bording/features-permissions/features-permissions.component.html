@@ -10,7 +10,11 @@
                         <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
                             <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
                                 <ng-container mCardHeaderTitle>
-                                    Features and Permissions
+                                    All Features and Permissions
+                                    <button class="btn btn-outline-primary icon-adjust ml-2"
+                                        (click)="AddFeature(AddFeatureContent)">
+                                        <i class="la la-plus"></i>Add New Feature
+                                    </button>
                                 </ng-container>
                                 <ng-container mCardContent>
                                     <div class="card-body">
@@ -20,16 +24,6 @@
                                                 bindLabel="label" bindValue="id" placeholder="Select Features"
                                                 [(ngModel)]="selectedFeaturesForFilter" (change)="filterFeatures()">
                                             </ng-select>
-
-                                            <!-- <ng-select [items]="multipleChapterSelectArray" [multiple]="true"
-                                                bindLabel="item_text" placeholder="Select permissions"
-                                                [(ngModel)]="multipleChapterMultiSelect" class="mt-1">
-                                            </ng-select> -->
-                                            <!-- / -->
-                                            <button class="btn btn-outline-primary icon-adjust mt-2"
-                                                (click)="AddFeature(AddFeatureContent)">
-                                                <i class="la la-plus"></i>Add Feature
-                                            </button>
 
                                         </div>
                                         <br>
@@ -46,13 +40,17 @@
                                 <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
                                     <ng-container mCardHeaderTitle>
                                         Feature {{i+1}}: {{feature.label}}
-                                        <button class="btn btn-outline-primary icon-adjust mr-1"
-                                            (click)="EditFeature(EditFeatureContent)">
+                                        <button class="btn btn-outline-primary icon-adjust ml-2 mr-1"
+                                            (click)="editFeatureModelOpen(EditFeatureContent,feature)">
                                             <i class="la la-pencil"></i>Edit Feature
                                         </button>
-                                        <button class="btn btn-outline-primary icon-adjust"
-                                            (click)="AddNewPermissions(AddNewPermissionsContent)">
+                                        <button class="btn btn-outline-primary icon-adjust mr-1"
+                                            (click)="AddNewPermissions(AddNewPermissionsContent, feature)">
                                             <i class="la la-plus"></i>Add New Permission
+                                        </button>
+                                        <button class="btn btn-outline-danger icon-adjust"
+                                            (click)="deleteFeature(feature)">
+                                            <i class="la la-trash"></i>Delete Feature
                                         </button>
                                     </ng-container>
                                     <ng-container mCardContent>
@@ -74,10 +72,12 @@
                                                             <td>{{permission.label}}</td>
                                                             <td>
                                                                 <button type="submit" class="btn btn-primary mr-1"
-                                                                    (click)="EditPermission(EditPermisssionContent)">
+                                                                    (click)="editPermissionModelOpen(EditPermisssionContent,feature,permission)">
                                                                     <i class="la la-pencil"></i> Edit
                                                                 </button>
-                                                                <button type="submit" class="btn btn-outline-danger mr-1" (click)="deletePermission(feature,permission)">
+                                                                <button type="submit"
+                                                                    class="btn btn-outline-danger mr-1"
+                                                                    (click)="deletePermission(feature,permission)">
                                                                     <i class="la la-trash"></i> Delete
                                                                 </button>
                                                             </td>
@@ -101,7 +101,6 @@
 
 
 <!-- edit permissions  -->
-
 <ng-template class="modal text-left" #EditPermisssionContent let-c="close" let-d="dismiss">
     <div class="modal-lg">
         <div class="modal-header">
@@ -112,25 +111,25 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="modal-body" class="p-4">
+        <div class="modal-body" class="p-4" [formGroup]="permissionForm">
             <div class="form-group">
                 <label class="form-control-label">
                     Permission Code :</label>
-                <input class="form-control" type="text" formControlName="permissionCode" />
+                <input class="form-control" type="text" formControlName="code" />
             </div>
             <div class="form-group">
                 <label class="form-control-label" for="phone">Permission Name :</label>
-                <input class="form-control" type="text" formControlName="permissionName" />
+                <input class="form-control" type="text" formControlName="name" />
             </div>
             <div class="form-group">
                 <label class="form-control-label" for="phone">Permission Label :</label>
-                <input class="form-control" type="text" formControlName="permissionLabel" />
+                <input class="form-control" type="text" formControlName="label" />
             </div>
 
 
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Save </button>
+            <button type="button" class="btn btn-primary" (click)="editPermission()">Update Permission</button>
             <button type="button" class="btn grey btn-outline-secondary" (click)="d('Close modal')">Close</button>
 
         </div>
@@ -149,19 +148,19 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="modal-body" class="p-4">
+        <div class="modal-body" class="p-4" [formGroup]="featureForm">
             <div class="form-group">
                 <label class="form-control-label">
                     Features Name :</label>
-                <input class="form-control" type="text" formControlName="featuresLabel" />
+                <input class="form-control" type="text" formControlName="name" />
             </div>
             <div class="form-group">
                 <label class="form-control-label" for="phone">Feature Label :</label>
-                <input class="form-control" type="text" formControlName="featureName" />
+                <input class="form-control" type="text" formControlName="label" />
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Save </button>
+            <button type="button" class="btn btn-primary" (click)="editFeature()">Edit Feature</button>
             <button type="button" class="btn grey btn-outline-secondary" (click)="d('Close modal')">Close</button>
 
         </div>
@@ -192,7 +191,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Save </button>
+            <button type="button" class="btn btn-primary" (click)="createFeature()">Create Feature</button>
             <button type="button" class="btn grey btn-outline-secondary" (click)="d('Close modal')">Close</button>
 
         </div>
@@ -227,7 +226,7 @@
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Save </button>
+            <button type="button" class="btn btn-primary" (click)="createPermission()">Create Permission</button>
             <button type="button" class="btn grey btn-outline-secondary" (click)="d('Close modal')">Close</button>
 
         </div>
