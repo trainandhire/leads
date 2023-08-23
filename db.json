@@ -447,5 +447,33 @@
         }
       ]
     }
+  ],
+  "institutes": [
+    {
+      "instituteInfo": {
+        "name": "h",
+        "email": "h",
+        "phone": "h",
+        "prefix": "h"
+      },
+      "addressDetails": {
+        "Branches": [
+          {
+            "houseNo": "j",
+            "city": "j",
+            "mandal": "j",
+            "district": "j",
+            "state": "j",
+            "country": "j",
+            "pincode": 66
+          }
+        ]
+      },
+      "documents": {
+        "logo": "C:\\fakepath\\images.jfif",
+        "banner": "C:\\fakepath\\images.jfif"
+      },
+      "id": 3
+    }
   ]
 }
