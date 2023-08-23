@@ -37,7 +37,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     FormUtilitiesModule,
     NgSelectModule,
-    NgbModule
+    NgbModule,
+   
   ]
 })
 export class InstituteOnBordingModule { }
