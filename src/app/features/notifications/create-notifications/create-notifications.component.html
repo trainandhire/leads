@@ -1,0 +1,181 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row mb-1">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+            <h1>Create Notification</h1>
+        </div>
+        <div class="content-body">
+
+            <!-- Content types section start -->
+            <section id="content-types">
+                <div class="row" [formGroup]="notificationInfo">
+                    <div class="col-xl-8 col-md-8 col-sm-8">
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    Notification content
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        <!-- Notification Form -->
+                                        <form [formGroup]="notificationInfo">
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 mb-2">
+                                                        <label>Type</label>
+                                                        <ng-select [items]="AllFeaturesAndPermissions" [multiple]="true"
+                                                            bindLabel="label" bindValue="id" placeholder="Select Type"
+                                                            [(ngModel)]="selectedFeaturesForFilter"
+                                                            (change)="filterFeatures()" formControlName="type">
+                                                        </ng-select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label>Header </label>
+                                                            <input type="text" class="form-control"
+                                                                formControlName="header"
+                                                                placeholder=" Notification Header" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2">Body</label>
+                                                            <textarea id="projectinput8" rows="8" class="form-control"
+                                                                formControlName="body"
+                                                                placeholder="Discrpitions"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+                    </div>
+                    <div class="col-xl-4 col-md-4 col-sm-4">
+
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    Attachements
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        <!-- attachment Form -->
+                                        <form>
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <div class="form-group  file-repeater"
+                                                                [formGroup]="uploadFileForm">
+                                                                <div class="" formArrayName="fileArray">
+                                                                    <div class="row">
+                                                                        <div class="col-10"
+                                                                            *ngFor="let file of fileArray?.controls; let i = index;">
+                                                                            <div class="repeater-default">
+                                                                                <div [formGroupName]="i" class="">
+                                                                                    <div class="row mb-1">
+                                                                                        <div class="col-9 col-xl-10">
+                                                                                            <label
+                                                                                                class="file center-block">
+                                                                                                <input type="file"
+                                                                                                    id="file"
+                                                                                                    formControlName="attachments"
+                                                                                                    (change)="onFileChange($event)">
+                                                                                                <span
+                                                                                                    class="file-custom"></span>
+                                                                                            </label>
+                                                                                        </div>
+                                                                                        <div class="col-2 col-xl-2">
+                                                                                            <button type="button"
+                                                                                                class="btn btn-icon btn-danger "
+                                                                                                (click)="removeFile(i)"><i
+                                                                                                    class="feather ft-x"></i></button>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <button type="button" class="btn btn-primary "
+                                                                        (click)="addFile()">
+                                                                        <i class="feather ft-plus"></i> Add new file
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    Who Can See
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        <!-- Notification Form -->
+                                        <form [formGroup]="notificationInfo">
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <div class="row">
+                                                                <div class="col-md-12 mb-1">
+                                                                    <ng-select [items]="AllFeaturesAndPermissions"
+                                                                        [multiple]="true" bindLabel="label"
+                                                                        bindValue="id" placeholder="Select Roles"
+                                                                        [(ngModel)]="selectedFeaturesForFilter"
+                                                                        (change)="filterFeatures()"
+                                                                        formControlName="roles">
+                                                                    </ng-select>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <ng-select [items]="AllFeaturesAndPermissions"
+                                                                        [multiple]="true" bindLabel="label"
+                                                                        bindValue="id" placeholder="Select Batches"
+                                                                        [(ngModel)]="selectedFeaturesForFilter"
+                                                                        (change)="filterFeatures()"
+                                                                        formControlName="Batches">
+                                                                    </ng-select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+                    </div>
+                    <div class="form-actions" class="">
+
+                        <button type="submit" class="btn btn-primary" (click)="submit()">
+                            <i class="la la-check"></i> Publish
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->

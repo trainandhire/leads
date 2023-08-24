@@ -1022,6 +1022,20 @@ export const MenuSettingsConfig: MenuConfig = {
           ],
         },
       },
+      {
+        title: "Notifications",
+        icon: "la-bell",
+        page: "null",
+        submenu: {
+          items: [
+            {
+              title: "Create Notifications",
+              page: "/notifications/create-notifications",
+              permissions: [6000]
+            },
+          ],
+        },
+      },
       // { section: "APPS", icon: "la-ellipsis-h" },
       // {
       //   title: "To Do",
