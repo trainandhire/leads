@@ -923,6 +923,10 @@ export const MenuSettingsConfig: MenuConfig = {
               title: "All Institutes",
               page : "/institutes/all-institutes",
               permissions: [5000]
+            },
+            {
+              page: "institutes/institute-details",
+              permissions:[5000]
             }
           ],
         },
@@ -1015,6 +1019,20 @@ export const MenuSettingsConfig: MenuConfig = {
               page: "/mail-test/mail-evaluation",
               permissions: [2004]
             }
+          ],
+        },
+      },
+      {
+        title: "Notifications",
+        icon: "la-bell",
+        page: "null",
+        submenu: {
+          items: [
+            {
+              title: "Create Notifications",
+              page: "/notifications/create-notifications",
+              permissions: [6000]
+            },
           ],
         },
       },

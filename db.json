@@ -349,262 +349,6 @@
         }
       },
       "id": 3
-    },
-    {
-      "0": "M",
-      "1": "h",
-      "2": "d",
-      "3": "s",
-      "4": "e",
-      "5": "5",
-      "6": "j",
-      "7": "k",
-      "8": "d",
-      "9": "a",
-      "10": "f",
-      "11": "C",
-      "12": "l",
-      "13": "0",
-      "14": "G",
-      "15": "7",
-      "16": "X",
-      "17": "Z",
-      "18": "C",
-      "19": "7",
-      "20": "R",
-      "21": "4",
-      "22": "x",
-      "23": "c",
-      "24": "I",
-      "25": "J",
-      "26": "S",
-      "27": "2",
-      "scores": {
-        "from": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "to": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "cc": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "subject": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "salutation": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "body": {
-          "isCorrect": false,
-          "points": 4
-        },
-        "signature": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "total": {
-          "points": 0
-        }
-      },
-      "id": 4
-    },
-    {
-      "0": "M",
-      "1": "h",
-      "2": "d",
-      "3": "s",
-      "4": "e",
-      "5": "5",
-      "6": "j",
-      "7": "k",
-      "8": "d",
-      "9": "a",
-      "10": "f",
-      "11": "C",
-      "12": "l",
-      "13": "0",
-      "14": "G",
-      "15": "7",
-      "16": "X",
-      "17": "Z",
-      "18": "C",
-      "19": "7",
-      "20": "R",
-      "21": "4",
-      "22": "x",
-      "23": "c",
-      "24": "I",
-      "25": "J",
-      "26": "S",
-      "27": "2",
-      "scores": {
-        "from": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "to": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "cc": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "subject": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "salutation": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "body": {
-          "isCorrect": false,
-          "points": 4
-        },
-        "signature": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "total": {
-          "points": 0
-        }
-      },
-      "id": 5
-    },
-    {
-      "0": "M",
-      "1": "h",
-      "2": "d",
-      "3": "s",
-      "4": "e",
-      "5": "5",
-      "6": "j",
-      "7": "k",
-      "8": "d",
-      "9": "a",
-      "10": "f",
-      "11": "C",
-      "12": "l",
-      "13": "0",
-      "14": "G",
-      "15": "7",
-      "16": "X",
-      "17": "Z",
-      "18": "C",
-      "19": "7",
-      "20": "R",
-      "21": "4",
-      "22": "x",
-      "23": "c",
-      "24": "I",
-      "25": "J",
-      "26": "S",
-      "27": "2",
-      "scores": {
-        "from": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "to": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "cc": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "subject": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "salutation": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "body": {
-          "isCorrect": false,
-          "points": 4
-        },
-        "signature": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "total": {
-          "points": 0
-        }
-      },
-      "id": 6
-    },
-    {
-      "0": "M",
-      "1": "h",
-      "2": "d",
-      "3": "s",
-      "4": "e",
-      "5": "5",
-      "6": "j",
-      "7": "k",
-      "8": "d",
-      "9": "a",
-      "10": "f",
-      "11": "C",
-      "12": "l",
-      "13": "0",
-      "14": "G",
-      "15": "7",
-      "16": "X",
-      "17": "Z",
-      "18": "C",
-      "19": "7",
-      "20": "R",
-      "21": "4",
-      "22": "x",
-      "23": "c",
-      "24": "I",
-      "25": "J",
-      "26": "S",
-      "27": "2",
-      "scores": {
-        "from": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "to": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "cc": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "subject": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "salutation": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "body": {
-          "isCorrect": false,
-          "points": 4
-        },
-        "signature": {
-          "isCorrect": false,
-          "points": 1
-        },
-        "total": {
-          "points": 0
-        }
-      },
-      "id": 7
     }
   ],
   "allFeaturesAndPermissions": [
@@ -741,6 +485,128 @@
         "banner": "C:\\fakepath\\images.jfif"
       },
       "id": 3
+    },
+    {
+      "instituteInfo": {
+        "name": "VedhaIT",
+        "email": "vedha@gamil.com",
+        "phone": "959493833",
+        "prefix": "VIT"
+      },
+      "addressDetails": {
+        "Branches": [
+          {
+            "houseNo": "bb",
+            "city": "bb",
+            "mandal": "bb",
+            "district": "bb",
+            "state": "bb",
+            "country": "bb",
+            "pincode": 77
+          }
+        ]
+      },
+      "documents": {
+        "logo": "C:\\fakepath\\images.jfif",
+        "banner": "C:\\fakepath\\Code.exe"
+      },
+      "id": 4
+    },
+    {
+      "instituteInfo": {
+        "name": "h",
+        "email": "h",
+        "phone": "h",
+        "prefix": "h"
+      },
+      "addressDetails": {
+        "Branches": [
+          {
+            "houseNo": "g",
+            "city": "g",
+            "mandal": "g",
+            "district": "g",
+            "state": "g",
+            "country": "g",
+            "pincode": 77
+          }
+        ]
+      },
+      "socialMediaInfo": {
+        "website": "h",
+        "twitter": "h",
+        "instagram": "h",
+        "facebook": "h"
+      },
+      "documents": {
+        "logo": "C:\\fakepath\\images.jfif",
+        "banner": "C:\\fakepath\\images.jfif"
+      },
+      "id": 5
+    },
+    {
+      "instituteInfo": {
+        "name": "hhh",
+        "email": "h",
+        "phone": "h",
+        "prefix": "h"
+      },
+      "addressDetails": {
+        "Branches": [
+          {
+            "houseNo": "nhv",
+            "city": "jh",
+            "mandal": "jhv",
+            "district": "jhv",
+            "state": "jh",
+            "country": "vjhv",
+            "pincode": 666
+          }
+        ]
+      },
+      "socialMediaInfo": {
+        "website": "nb",
+        "twitter": "mnb",
+        "instagram": "mnb",
+        "facebook": "https://www.facebook.com/"
+      },
+      "documents": {
+        "logo": null,
+        "banner": null
+      },
+      "id": 6
+    },
+    {
+      "instituteInfo": {
+        "name": "mohith it",
+        "email": "mohith@gmail.com",
+        "phone": "998989898",
+        "prefix": "MIT"
+      },
+      "addressDetails": {
+        "Branches": [
+          {
+            "houseNo": "59-12-4",
+            "city": "Hydearabad",
+            "mandal": "hyderabad",
+            "district": "hyderabad",
+            "state": "telangana",
+            "country": "andhra pradesh",
+            "pincode": 599123
+          }
+        ]
+      },
+      "socialMediaInfo": {
+        "website": "https://www.mohithit.com/",
+        "twitter": "https://twitter.com/",
+        "instagram": "https://www.instagram.com/mohith_it/",
+        "facebook": "https://www.facebook.com/public/Mohit-Mohit-Hit"
+      },
+      "documents": {
+        "logo": "data:image/png;base64,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",
+        "banner": "C:\\fakepath\\education-logo-template-design-icon-illustration-vector.jpg"
+      },
+      "id": 7
     }
   ]
 }

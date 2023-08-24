@@ -16,13 +16,15 @@ import { FeaturesPermissionsComponent } from './features-permissions/features-pe
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AllInstitutesComponent } from './all-institutes/all-institutes.component';
+import { InstituteDetailsComponent } from './institute-details/institute-details.component';
 
 
 @NgModule({
   declarations: [
     InstituteRegistrationFormComponent,
     FeaturesPermissionsComponent,
-    AllInstitutesComponent
+    AllInstitutesComponent,
+    InstituteDetailsComponent
   ],
   imports: [
     CommonModule,
