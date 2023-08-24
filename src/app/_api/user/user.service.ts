@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import firebase from 'firebase/compat/app';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,8 @@ export class UserService {
   }
 
   getCurrentUser(userId): Observable<any> {
-    return this.firestore.collection('users', ref => ref.where('uid', '==', userId)).snapshotChanges();
+    return of("")
+    // return this.firestore.collection('users', ref => ref.where('uid', '==', userId)).snapshotChanges();
   }
 
   createUser(user) {
@@ -27,6 +28,10 @@ export class UserService {
   // User details from local storage
   getCurrentUserId(){
     return JSON.parse(localStorage.getItem("currentUser")).uid;
+  }
+
+  getCid(){
+    return JSON.parse(localStorage.getItem("currentUser")).cid;
   }
 
 }

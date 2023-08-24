@@ -53,6 +53,38 @@
       "email": "admin@gmail.com",
       "password": "adminn",
       "role": "admin",
+      "cid": 1,
+      "permissions": [
+        1000,
+        1001,
+        1002,
+        1003,
+        1004,
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        3000,
+        3001,
+        3002,
+        3003,
+        3004,
+        4000,
+        4001,
+        4002,
+        4003,
+        4004,
+        6000
+      ],
+      "id": 2
+    },
+    {
+      "firstName": "admin2",
+      "email": "admin2@gmail.com",
+      "password": "adminn2",
+      "role": "admin",
+      "cid": 2,
       "permissions": [
         1000,
         1001,
@@ -83,6 +115,7 @@
       "email": "trainer@gmail.com",
       "password": "trainer",
       "role": "trainer",
+      "cid": 1,
       "permissions": [
         1000,
         1001,
@@ -107,6 +140,7 @@
       "email": "student@gmail.com",
       "password": "student",
       "role": "student",
+      "cid": 1,
       "permissions": [
         1000,
         2000,
@@ -140,87 +174,7 @@
       "id": "s45152",
       "wpm": "40WPM",
       "attempts": "5A"
-    },
-    {
-      "name": "vamshee",
-      "id": "s45152",
-      "wpm": "30WPM",
-      "attempts": "5A",
-      "add": {
-        "pin": 123
-      },
-      "phones": [
-        {
-          "num": 999
-        }
-      ]
-    },
-    {
-      "name": "varun",
-      "id": "s45152",
-      "wpm": "50WPM",
-      "attempts": "5A"
-    },
-    {
-      "name": "ravi",
-      "id": "f24564",
-      "wpm": "70WPM",
-      "attempts": "9A"
-    },
-    {
-      "name": "praneeth",
-      "id": "s45sdf",
-      "wpm": "40WPM",
-      "attempts": "15A"
-    },
-    {
-      "name": "suresh",
-      "id": "s45152",
-      "wpm": "45WPM",
-      "attempts": "10A"
-    },
-    {
-      "name": "ravi",
-      "age": 25,
-      "class": "graduation",
-      "id": "O1gw_KN"
-    },
-    [
-      {
-        "name": "ravi",
-        "age": 25,
-        "class": "graduation"
-      },
-      {
-        "name": "Angular",
-        "age": 16,
-        "framework": "javascript"
-      }
-    ],
-    [
-      {
-        "name": "ravi",
-        "age": 25,
-        "class": "graduation"
-      },
-      {
-        "name": "Angular",
-        "age": 16,
-        "framework": "javascript"
-      }
-    ],
-    [
-      {
-        "name": "ravi",
-        "age": 25,
-        "class": "graduation"
-      },
-      {
-        "name": "Angular",
-        "age": 16,
-        "framework": "javascript"
-      }
-    ]
+    }
   ],
   "submittedEmails": [
     {
@@ -395,6 +349,262 @@
         }
       },
       "id": 3
+    },
+    {
+      "0": "M",
+      "1": "h",
+      "2": "d",
+      "3": "s",
+      "4": "e",
+      "5": "5",
+      "6": "j",
+      "7": "k",
+      "8": "d",
+      "9": "a",
+      "10": "f",
+      "11": "C",
+      "12": "l",
+      "13": "0",
+      "14": "G",
+      "15": "7",
+      "16": "X",
+      "17": "Z",
+      "18": "C",
+      "19": "7",
+      "20": "R",
+      "21": "4",
+      "22": "x",
+      "23": "c",
+      "24": "I",
+      "25": "J",
+      "26": "S",
+      "27": "2",
+      "scores": {
+        "from": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "to": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "cc": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "subject": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "salutation": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "body": {
+          "isCorrect": false,
+          "points": 4
+        },
+        "signature": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "total": {
+          "points": 0
+        }
+      },
+      "id": 4
+    },
+    {
+      "0": "M",
+      "1": "h",
+      "2": "d",
+      "3": "s",
+      "4": "e",
+      "5": "5",
+      "6": "j",
+      "7": "k",
+      "8": "d",
+      "9": "a",
+      "10": "f",
+      "11": "C",
+      "12": "l",
+      "13": "0",
+      "14": "G",
+      "15": "7",
+      "16": "X",
+      "17": "Z",
+      "18": "C",
+      "19": "7",
+      "20": "R",
+      "21": "4",
+      "22": "x",
+      "23": "c",
+      "24": "I",
+      "25": "J",
+      "26": "S",
+      "27": "2",
+      "scores": {
+        "from": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "to": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "cc": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "subject": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "salutation": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "body": {
+          "isCorrect": false,
+          "points": 4
+        },
+        "signature": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "total": {
+          "points": 0
+        }
+      },
+      "id": 5
+    },
+    {
+      "0": "M",
+      "1": "h",
+      "2": "d",
+      "3": "s",
+      "4": "e",
+      "5": "5",
+      "6": "j",
+      "7": "k",
+      "8": "d",
+      "9": "a",
+      "10": "f",
+      "11": "C",
+      "12": "l",
+      "13": "0",
+      "14": "G",
+      "15": "7",
+      "16": "X",
+      "17": "Z",
+      "18": "C",
+      "19": "7",
+      "20": "R",
+      "21": "4",
+      "22": "x",
+      "23": "c",
+      "24": "I",
+      "25": "J",
+      "26": "S",
+      "27": "2",
+      "scores": {
+        "from": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "to": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "cc": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "subject": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "salutation": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "body": {
+          "isCorrect": false,
+          "points": 4
+        },
+        "signature": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "total": {
+          "points": 0
+        }
+      },
+      "id": 6
+    },
+    {
+      "0": "M",
+      "1": "h",
+      "2": "d",
+      "3": "s",
+      "4": "e",
+      "5": "5",
+      "6": "j",
+      "7": "k",
+      "8": "d",
+      "9": "a",
+      "10": "f",
+      "11": "C",
+      "12": "l",
+      "13": "0",
+      "14": "G",
+      "15": "7",
+      "16": "X",
+      "17": "Z",
+      "18": "C",
+      "19": "7",
+      "20": "R",
+      "21": "4",
+      "22": "x",
+      "23": "c",
+      "24": "I",
+      "25": "J",
+      "26": "S",
+      "27": "2",
+      "scores": {
+        "from": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "to": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "cc": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "subject": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "salutation": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "body": {
+          "isCorrect": false,
+          "points": 4
+        },
+        "signature": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "total": {
+          "points": 0
+        }
+      },
+      "id": 7
     }
   ],
   "allFeaturesAndPermissions": [
@@ -432,18 +642,75 @@
       "permissions": [
         {
           "name": "EmailPlayGround",
-          "label": "Email play ground",
+          "label": "EmailPlayGround",
           "code": "2000"
         },
         {
           "name": "EmailCreateNewContent",
-          "label": "Email play ground",
+          "label": "EmailCreateNewContent",
           "code": "2001"
         },
         {
           "name": "EmailEditContent",
-          "label": "Email play ground",
+          "label": "EmailEditContent",
           "code": "2002"
+        },
+        {
+          "name": "EmailEvaluationContent",
+          "label": "EmailEvaluationContent",
+          "code": "2003"
+        }
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "cid": 1,
+      "roles": [
+        {
+          "name": "Admin",
+          "permissions": [
+            2000,
+            2002,
+            1001,
+            1003
+          ]
+        },
+        {
+          "name": "Trainer",
+          "permissions": [
+            1000,
+            1001,
+            2001
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "cid": 2,
+      "roles": [
+        {
+          "name": "Admin",
+          "permissions": [
+            1000,
+            2002,
+            1002,
+            2001,
+            2003,
+            1001
+          ]
+        },
+        {
+          "name": "Trainer",
+          "permissions": [
+            1000,
+            1001,
+            2001,
+            2003,
+            2000
+          ]
         }
       ]
     }

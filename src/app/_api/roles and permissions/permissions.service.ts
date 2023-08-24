@@ -55,13 +55,12 @@ export class PermissionsService {
     return this._httpClient.put("http://localhost:3000/allFeaturesAndPermissions/"+feature.id,feature);
   }
 
-
   deletePermission(feature:any,permission:any):Observable<any>{
     // return this._httpClient.delete("http://localhost:3000/allFeaturesAndPermissions")
     feature.permissions = feature.permissions.filter((value:any)=>value.code!=permission.code);
     return this._httpClient.put("http://localhost:3000/allFeaturesAndPermissions/"+feature.id, feature);
   }
 
-
+    
 
 }

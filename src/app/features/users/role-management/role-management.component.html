@@ -1,80 +1,70 @@
 <div class="app-content content">
     <div class="content-wrapper">
         <div class="content-header row mb-1">
-            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+            <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
+                <h3 class="content-header-title mb-0 d-inline-block">Roles And Permissions Management Center</h3>
+            </div>
+            <div class="content-header-right col-md-4 col-12">
+                <div class="d-inline-block float-md-right" ngbDropdown>
+                    <button type="button" class="btn mb-1 btn-primary">
+                        <i class="la la-plus"></i>Add New Role
+                    </button>
+                </div>
+            </div>
         </div>
         <div class="content-body">
 
             <!-- Content types section start -->
             <section id="content-types">
 
-                <div class="row" [formGroup]="rolesForm">
-                    <div class="col-xl-9 col-md-9 col-sm-9">
-                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
-                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
-                                <ng-container mCardHeaderTitle>
-                                    Add roles
-                                </ng-container>
-                                <ng-container mCardContent>
-                                    <div class="card-body">
-                                        <button (click)="add()" class="btn btn-primary">+</button>
-                                    </div>
-                                </ng-container>
-                            </m-card>
-                        </section>
-                        <div formArrayName="roleManagement">
-                            <div *ngFor="let role of roleManagementFormArray.controls; let i = index">
-                                <div formGroupName="{{i}}">
-                                    <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
-                                        <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
-                                            <ng-container mCardHeaderTitle>
-                                                NewRole{{i+1}}
-                                                <button class="btn btn-outline-primary"
-                                                    (click)="EditModel(EditModelContent)">
-                                                    edit
-                                                </button>
-                                                <button class="btn btn-primary ml-1"
-                                                    (click)="RoleModel(RoleModelContent)">Manage roles</button>
-                                            </ng-container>
-                                            <ng-container mCardContent>
-                                                <div class="card-body">
-                                                    <!-- table -->
-                                                    <table class="table table-bordered">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Student Name</th>
-                                                                <th>Student Id</th>
-                                                                <th>WPM</th>
-                                                                <th>Attempts</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr *ngFor="let result of typingResults">
-                                                                <td>{{result.name}}</td>
-                                                                <td>{{result.id}}</td>
-                                                                <td>{{result.wpm}}</td>
-                                                                <td>{{result.attempts}}</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                    <!-- / -->
-                                                    <!-- pagination -->
-                                                    <nav aria-label="Page navigation">
-                                                        <ul
-                                                            class="pagination justify-content-center pagination-separate pagination-flat">
-                                                            <ngb-pagination [collectionSize]="70"
-                                                                [boundaryLinks]="true"></ngb-pagination>
-                                                        </ul>
-                                                    </nav>
-                                                    <!-- / -->
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12">
 
-                                                </div>
-                                            </ng-container>
-                                        </m-card>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
+                        <ng-container *ngFor="let role of rolesAndPermissions.roles; let i = index">
+                            <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                                <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                    <ng-container mCardHeaderTitle>
+                                        {{role.name}}
+                                        <button class="btn btn-outline-primary ml-2"
+                                            (click)="EditModel(EditModelContent)">
+                                            edit
+                                        </button>
+                                        <button class="btn btn-outline-primary ml-1"
+                                            (click)="manageRolesModel(RoleModelContent,role)">Manage roles</button>
+                                    </ng-container>
+                                    <!-- <ng-container mCardContent>
+                                        <div class="card-body">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Student Name</th>
+                                                        <th>Student Id</th>
+                                                        <th>WPM</th>
+                                                        <th>Attempts</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let result of typingResults">
+                                                        <td>{{result.name}}</td>
+                                                        <td>{{result.id}}</td>
+                                                        <td>{{result.wpm}}</td>
+                                                        <td>{{result.attempts}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <nav aria-label="Page navigation">
+                                                <ul
+                                                    class="pagination justify-content-center pagination-separate pagination-flat">
+                                                    <ngb-pagination [collectionSize]="70"
+                                                        [boundaryLinks]="true"></ngb-pagination>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </ng-container> -->
+                                </m-card>
+                            </section>
+                        </ng-container>
+
                     </div>
                 </div>
             </section>
@@ -106,21 +96,22 @@
 <ng-template class="modal text-left" #RoleModelContent let-c="close" let-d="dismiss">
     <div class="modal-lg ">
         <div class="modal-header">
-            <h1 id="myModalLabel23">
-                Permissions for XXXXX role.
-            </h1>
+            <h2 id="myModalLabel23">
+                Permissions for {{selectedRoleNameForManage}} role.
+            </h2>
             <button type="button" class="btn grey btn-outline-secondary" (click)="d('Close modal')">Close</button>
         </div>
         <div class="modal-body">
             <ng-container *ngFor="let feature of featuresAndPermissions">
-                <h3>{{feature.label}}</h3>
+                <h4>{{feature.label}}</h4>
                 <hr>
                 <div class="row">
                     <ng-container *ngFor="let permission of feature.permissions">
                         <div class="col-sm-6">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" name="customCheck" id="{{permission.code}}"
-                                    class="custom-control-input">
+                                    class="custom-control-input" [(ngModel)]="permission.isAllow"
+                                    (change)="changeRolePermission(permission.code,permission.isAllow)">
                                 <label for="{{permission.code}}"
                                     class="custom-control-label">{{permission.label}}</label>
                             </div>

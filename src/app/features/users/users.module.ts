@@ -8,6 +8,7 @@ import { BlockTemplateComponent } from 'src/app/_layout/blockui/block-template.c
 import { CardModule } from 'src/app/content/partials/general/card/card.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
+import { BreadcrumbModule } from 'src/app/_layout/breadcrumb/breadcrumb.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
     CardModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbPagination
+    NgbPagination,
+    BreadcrumbModule
   ]
 })
 export class UsersModule { }
