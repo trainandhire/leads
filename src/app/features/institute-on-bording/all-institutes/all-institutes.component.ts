@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { InstituteService } from 'src/app/_api/institute/institute.service';
 import { AlertService } from 'src/app/_services/alert.service';
@@ -22,7 +23,7 @@ export class AllInstitutesComponent {
 
   public institutes: any;
 
-  constructor(private _instituteservice: InstituteService, private _alertservice: AlertService) {
+  constructor(private _instituteservice: InstituteService, private _alertservice: AlertService, private router:Router) {
     this.getInstitutes();
   }
 
@@ -37,7 +38,9 @@ export class AllInstitutesComponent {
     )
   }
 
-
+  instituteDetails(id:any){
+    this.router.navigateByUrl('/institutes/institute-details/'+id);
+  }
 
   reloadImageGallery() {
     this.blockUIImageGallery.start('Loading..');

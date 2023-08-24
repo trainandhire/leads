@@ -202,6 +202,64 @@
                                                                 </aw-wizard-step>
                                                                 <!-- end Address Info -->
 
+
+                                                               <!-- social media links -->
+                                                                <aw-wizard-step [stepTitle]="'Social Media Links'"
+                                                                    [navigationSymbol]="{ symbol: '&#xf01c;' ,fontFamily: 'FontAwesome' }">
+                                                                    <div>
+                                                                        <div class="row" formGroupName="socialMediaInfo">
+                                                                            <div class='col-md-6'>
+                                                                                <div class="form-group">
+                                                                                    <label class="form-control-label">
+                                                                                        Website :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="website" />
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label class="form-control-label"
+                                                                                        for="phone">Twitter :</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="twitter" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class='col-md-6'>
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label"> Instagram:</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="instagram" />
+                                                                                </div>
+
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="form-control-label">Facebook:</label>
+                                                                                    <input class="form-control"
+                                                                                        type="text"
+                                                                                        formControlName="facebook" />
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group text-center">
+                                                                            <button class="btn btn-info btn-raised"
+                                                                                [disabled]="" awNextStep>
+                                                                                Next
+                                                                                <span style="margin-left:10px;">
+                                                                                    <i
+                                                                                        class="feather ft-chevron-right"></i>
+                                                                                </span>
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </aw-wizard-step>
+
+                                                               
+
+
+
+
                                                                 <!-- documents Info -->
                                                                 <aw-wizard-step [stepTitle]="'Documents'"
                                                                     [navigationSymbol]="{ symbol: '&#xf03e;', fontFamily: 'FontAwesome' }">
