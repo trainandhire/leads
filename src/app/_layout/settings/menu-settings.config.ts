@@ -923,6 +923,10 @@ export const MenuSettingsConfig: MenuConfig = {
               title: "All Institutes",
               page : "/institutes/all-institutes",
               permissions: [5000]
+            },
+            {
+              page: "institutes/institute-details",
+              permissions:[5000]
             }
           ],
         },

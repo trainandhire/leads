@@ -40,6 +40,13 @@ export class InstituteRegistrationFormComponent {
     addressDetails: new FormGroup({
       Branches: new FormArray([]),
     }),
+
+    socialMediaInfo: new FormGroup({
+      website: new FormControl(),
+      twitter: new FormControl(),
+      instagram: new FormControl(),
+      facebook: new FormControl() 
+    }),
     documents: new FormGroup({
       logo: new FormControl(),
       banner: new FormControl(),

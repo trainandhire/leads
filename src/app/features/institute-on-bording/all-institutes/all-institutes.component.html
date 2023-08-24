@@ -31,7 +31,9 @@
                                                     <td>{{institute.instituteInfo?.email}}</td>
                                                     <td>{{institute.instituteInfo?.phone}}</td>
                                                     <td>{{institute.instituteInfo?.prefix}}</td>
-                                                    <td><button class="btn btn-primary">View</button></td>
+                                                    <td>
+                                                        <button class="btn btn-primary" (click)="instituteDetails(institute.id)">View</button>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
