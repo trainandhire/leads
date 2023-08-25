@@ -8,11 +8,13 @@ import { BlockTemplateComponent } from 'src/app/_layout/blockui/block-template.c
 import { CardModule } from 'src/app/content/partials/general/card/card.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 
 @NgModule({
   declarations: [
-    CreateNotificationsComponent
+    CreateNotificationsComponent,
+    NotificationsComponent
   ],
   imports: [
     CommonModule,
