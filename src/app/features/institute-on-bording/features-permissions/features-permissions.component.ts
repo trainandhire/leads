@@ -23,12 +23,10 @@ export class FeaturesPermissionsComponent {
   public AllFeaturesAndPermissions: any = [];
   public featuresAndPermissions: any = [];
   public selectedFeaturesForFilter: any = [];
-  public selectedFeature:any = {};
+  public selectedFeature: any = {};
 
   public multipleChapterMultiSelect: any = [];
 
-  public multipleSelectArray: any;
-  public multipleChapterSelectArray: any;
 
   @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
 
@@ -48,49 +46,7 @@ export class FeaturesPermissionsComponent {
   constructor(private _permissionsService: PermissionsService, private _alertService: AlertService, private modalService: NgbModal) {
     this.multipleChapterMultiSelect = [];
     this.getAllFeaturesAndPermissions();
-    this.multipleSelectArray = [
-      {
-        "item_id": 1, "feature_name": "S21"
-      },
-      {
-        "item_id": 2, "feature_name": "S22"
-      },
-      {
-        "item_id": 3, "feature_name": "S23"
-      },
-      {
-        "item_id": 4, "feature_name": "S24"
-      },
-      {
-        "item_id": 5, "feature_name": "S25"
-      },
-      {
-        "item_id": 6, "feature_name": "S26"
-      },
-      {
-        "item_id": 7, "feature_name": "S27"
-      }
-    ]
-    this.multipleChapterSelectArray = [
-      {
-        "item_id": 1, "item_text": "ASDF JKL"
-      },
-      {
-        "item_id": 2, "item_text": "ASDFG JKL"
-      },
-      {
-        "item_id": 3, "item_text": " RTYU VBN"
-      },
-      {
-        "item_id": 4, "item_text": "QWE IOP"
-      },
-      {
-        "item_id": 5, "item_text": " ZXC NM"
-      },
-      {
-        "item_id": 6, "item_text": "ALL LETTERS"
-      }
-    ]
+
   }
 
   getAllFeaturesAndPermissions() {
@@ -110,7 +66,7 @@ export class FeaturesPermissionsComponent {
     )
   }
 
-  createFeature(){
+  createFeature() {
     this._permissionsService.createFeature(this.featureForm.value).subscribe(
       (data: any) => {
         this._alertService.success("Feature Created.");
@@ -123,7 +79,7 @@ export class FeaturesPermissionsComponent {
     )
   }
 
-  editFeature(){
+  editFeature() {
     this._permissionsService.editFeature(this.featureForm.value, this.selectedFeature).subscribe(
       (data: any) => {
         this._alertService.success("Feature Edited Successfully.");
@@ -136,7 +92,7 @@ export class FeaturesPermissionsComponent {
     )
   }
 
-  deleteFeature(feature){
+  deleteFeature(feature) {
     this._permissionsService.deleteFeature(feature).subscribe(
       (data: any) => {
         this._alertService.success("Feature Delted..");
@@ -150,8 +106,8 @@ export class FeaturesPermissionsComponent {
   }
 
 
-  createPermission(){
-    this._permissionsService.createPermission(this.permissionForm.value,this.selectedFeature).subscribe(
+  createPermission() {
+    this._permissionsService.createPermission(this.permissionForm.value, this.selectedFeature).subscribe(
       (data: any) => {
         this._alertService.success("Feature Created.");
         this.modalService.dismissAll();
@@ -163,8 +119,8 @@ export class FeaturesPermissionsComponent {
     )
   }
 
-  editPermission(){
-    this._permissionsService.editPermission(this.permissionForm.value,this.selectedFeature).subscribe(
+  editPermission() {
+    this._permissionsService.editPermission(this.permissionForm.value, this.selectedFeature).subscribe(
       (data: any) => {
         this._alertService.success("Permission updated.");
         this.modalService.dismissAll();
@@ -178,13 +134,13 @@ export class FeaturesPermissionsComponent {
 
 
 
-  AddNewPermissions(AddNewPermissionsContent:any, feature:any) {
+  AddNewPermissions(AddNewPermissionsContent: any, feature: any) {
     this.selectedFeature = feature;
     this.permissionForm.reset();
     this.modalService.open(AddNewPermissionsContent, { windowClass: 'animated fadeInDown', size: 'lg' });
   }
 
-  editPermissionModelOpen(EditPermisssionContent,feature,permission) {
+  editPermissionModelOpen(EditPermisssionContent, feature, permission) {
     this.selectedFeature = feature;
     this.permissionForm.patchValue(permission);
     this.modalService.open(EditPermisssionContent, { windowClass: 'animated fadeInDown', size: 'lg' });
@@ -195,7 +151,7 @@ export class FeaturesPermissionsComponent {
     this.modalService.open(AddFeatureContent, { windowClass: 'animated fadeInDown', size: 'lg' });
   }
 
-  editFeatureModelOpen(EditFeatureContent:any, feature:any) {
+  editFeatureModelOpen(EditFeatureContent: any, feature: any) {
     this.selectedFeature = feature;
     this.featureForm.patchValue(feature);
     this.modalService.open(EditFeatureContent, { windowClass: 'animated fadeInDown', size: 'lg' });

@@ -1,38 +1,27 @@
 <div class="app-content content">
     <div class="content-wrapper">
+        <!-- Header -->
         <div class="content-header row mb-1">
             <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+            <div class="content-header-left col-md-5 col-sm-12 mb-2 breadcrumb-new">
+                <h3 class="content-header-title mb-0 d-inline-block">All Features And Permissions</h3>
+            </div>
+            <div class="content-header-right col-md-7 col-sm-12">
+                <div class="d-flex align-content-center float-md-right" ngbDropdown>
+                    <ng-select [items]="AllFeaturesAndPermissions" [multiple]="true" bindLabel="label" bindValue="id"
+                        placeholder="Select Features" [(ngModel)]="selectedFeaturesForFilter"
+                        (change)="filterFeatures()">
+                    </ng-select>
+                    <button class="btn btn-outline-primary icon-adjust ml-2" (click)="AddFeature(AddFeatureContent)">
+                        <i class="la la-plus"></i>Add New Feature
+                    </button>
+                </div>
+            </div>
         </div>
+        <!-- End of Header -->
+
         <div class="content-body">
             <section id="content-types">
-                <div class="row">
-                    <div class="col-xl-12 col-md-12 col-sm-12">
-                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
-                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
-                                <ng-container mCardHeaderTitle>
-                                    All Features and Permissions
-                                    <button class="btn btn-outline-primary icon-adjust ml-2"
-                                        (click)="AddFeature(AddFeatureContent)">
-                                        <i class="la la-plus"></i>Add New Feature
-                                    </button>
-                                </ng-container>
-                                <ng-container mCardContent>
-                                    <div class="card-body">
-                                        <div class="col-xl-6 col-md-6 col-sm-6">
-                                            <!-- dropdown for batch-id and chapter -->
-                                            <ng-select [items]="AllFeaturesAndPermissions" [multiple]="true"
-                                                bindLabel="label" bindValue="id" placeholder="Select Features"
-                                                [(ngModel)]="selectedFeaturesForFilter" (change)="filterFeatures()">
-                                            </ng-select>
-
-                                        </div>
-                                        <br>
-                                    </div>
-                                </ng-container>
-                            </m-card>
-                        </section>
-                    </div>
-                </div>
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12">
                         <ng-container *ngFor="let feature of featuresAndPermissions;let i=index">
