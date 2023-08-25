@@ -23,11 +23,9 @@
                                                 <div class="row">
                                                     <div class="col-md-12 mb-2">
                                                         <label>Type</label>
-                                                        <ng-select [items]="AllFeaturesAndPermissions" [multiple]="true"
-                                                            bindLabel="label" bindValue="id" placeholder="Select Type"
-                                                            [(ngModel)]="selectedFeaturesForFilter"
-                                                            (change)="filterFeatures()" formControlName="type">
-                                                        </ng-select>
+                                                        <ng-select [items]="multipleSelectArray" [multiple]="false" bindLabel="item_text"
+                                                            placeholder="Select Batches" [(ngModel)]="multipleMultiSelect" formControlName="type">
+                                                      </ng-select>
                                                     </div>
                                                 </div>
 
@@ -74,8 +72,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <div class="form-group  file-repeater"
-                                                                [formGroup]="uploadFileForm">
+                                                            <div class="form-group  file-repeater" [formGroup]="notificationInfo">
                                                                 <div class="" formArrayName="fileArray">
                                                                     <div class="row">
                                                                         <div class="col-10"
@@ -88,7 +85,7 @@
                                                                                                 class="file center-block">
                                                                                                 <input type="file"
                                                                                                     id="file"
-                                                                                                    formControlName="attachments"
+                                                                                                    formControlName="file"
                                                                                                     (change)="onFileChange($event)">
                                                                                                 <span
                                                                                                     class="file-custom"></span>
@@ -138,21 +135,15 @@
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <div class="col-md-12 mb-1">
-                                                                    <ng-select [items]="AllFeaturesAndPermissions"
-                                                                        [multiple]="true" bindLabel="label"
-                                                                        bindValue="id" placeholder="Select Roles"
-                                                                        [(ngModel)]="selectedFeaturesForFilter"
-                                                                        (change)="filterFeatures()"
-                                                                        formControlName="roles">
+                                                                    <ng-select [items]="notifications"
+                                                                        [multiple]="true" bindLabel="roles"
+                                                                        placeholder="Select Roles" [(ngModel)]="rolesmultiselect" formControlName="roles">
                                                                     </ng-select>
                                                                 </div>
                                                                 <div class="col-md-12">
-                                                                    <ng-select [items]="AllFeaturesAndPermissions"
-                                                                        [multiple]="true" bindLabel="label"
-                                                                        bindValue="id" placeholder="Select Batches"
-                                                                        [(ngModel)]="selectedFeaturesForFilter"
-                                                                        (change)="filterFeatures()"
-                                                                        formControlName="Batches">
+                                                                    <ng-select [items]="batchesArray"
+                                                                        [multiple]="true" bindLabel="batches"
+                                                                       placeholder="Select Batches" [(ngModel)]="batchesMultiSelect" formControlName="batches">
                                                                     </ng-select>
                                                                 </div>
                                                             </div>
@@ -168,7 +159,7 @@
                     </div>
                     <div class="form-actions" class="">
 
-                        <button type="submit" class="btn btn-primary" (click)="submit()">
+                        <button type="submit" class="btn btn-primary" (click)="createnotification()">
                             <i class="la la-check"></i> Publish
                         </button>
                     </div>

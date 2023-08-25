@@ -1,0 +1,50 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row mb-1">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+        </div>
+        <div class="content-body">
+
+            <!-- Content types section start -->
+            <section id="content-types" *ngFor="let notification of notifications">
+
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12">
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    {{notification.header}}
+                                    <hr>
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        {{notification.body}}
+                                        <div class="mt-2 ">
+                                            <ng-container *ngFor="let image of notification.fileArray">
+                                                <a href="{{image.file}}"><img src="{{image.file}}" alt="" width="300px"
+                                                        height="300px" class="mr-2"></a>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                                <ng-container mCardFooter>
+                                    <div *ngFor="let permission of notification?.roles"
+                                        class="badge badge-pill badge-secondary fs-6  ml-1">
+                                        {{permission?.roles}}
+                                    </div>
+                                    <div *ngFor="let batches of notification?.batches"
+                                        class="badge badge-pill badge-secondary fs-6 ml-1">
+                                        {{batches?.batches}}
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+                    </div>
+                </div>
+            </section>
+            <!-- Content types section end -->
+
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->
