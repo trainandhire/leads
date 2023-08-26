@@ -21,20 +21,20 @@ export class CreateNotificationsComponent {
 
   @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
 
-  public multipleSelectArray: any; 
+  public multipleSelectArray: any;
   public multipleMultiSelect: any = [];
 
-  public notifications:any;
-  public batchesArray:any;
-  public rolesmultiselect:any=[];
-  public batchesMultiSelect:any=[];
+  public notifications: any;
+  public batchesArray: any;
+  public rolesmultiselect: any = [];
+  public batchesMultiSelect: any = [];
 
   public notificationInfo: FormGroup = new FormGroup({
     header: new FormControl(),
     body: new FormControl(),
-    type:new FormControl(),
-    roles:new FormControl(),
-    batches:new FormControl(),
+    type: new FormControl(),
+    roles: new FormControl(),
+    batches: new FormControl(),
     fileArray: new FormArray([])
   })
 
@@ -42,7 +42,7 @@ export class CreateNotificationsComponent {
     return this.notificationInfo.get('fileArray') as FormArray;
   }
 
-  constructor(private _notificationserver:NotificationsService,private _alertservice:AlertService) {
+  constructor(private _notificationserver: NotificationsService, private _alertservice: AlertService) {
     this.multipleMultiSelect = [];
     this.addFile();
     this.multipleSelectArray = [
@@ -55,9 +55,9 @@ export class CreateNotificationsComponent {
       {
         "item_id": 3, "item_text": "message"
       },
-      
+
     ]
-    this.notifications=[
+    this.notifications = [
       {
         "item_id": 1, "roles": "Admin"
       },
@@ -68,7 +68,7 @@ export class CreateNotificationsComponent {
         "item_id": 2, "roles": "Sub-Instructor"
       }
     ]
-    this.batchesArray=[
+    this.batchesArray = [
       {
         "item_id": 1, "batches": "B1"
       },
@@ -83,12 +83,12 @@ export class CreateNotificationsComponent {
 
   }
 
-  createnotification(){
+  createnotification() {
     this._notificationserver.createNotification(this.notificationInfo.value).subscribe(
-      (data:any)=>{
+      (data: any) => {
         this._alertservice.success("Notification Created Succussfully")
       },
-      (err:any)=>{
+      (err: any) => {
         this._alertservice.error("Notification Not Created")
       }
     )
@@ -101,6 +101,7 @@ export class CreateNotificationsComponent {
       })
     )
   }
+  
   removeFile(i: number) {
     this.fileArray.removeAt(i);
   }

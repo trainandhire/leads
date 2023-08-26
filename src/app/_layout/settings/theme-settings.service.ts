@@ -46,6 +46,7 @@ export class ThemeSettingsService {
   }
 
   set config(value) {
+    
     // Get the value from the behavior subject
     let config = this._configSubject.getValue();
 
@@ -57,6 +58,8 @@ export class ThemeSettingsService {
   }
 
   get config(): any | Observable<any> {
+    // this._defaultConfig.brand.brand_name = "vedha it";
+    // this.config(this._defaultConfig);
     return this._configSubject.asObservable();
   }
 

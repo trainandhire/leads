@@ -1,1 +1,146 @@
-<p>create task works!</p>
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+        </div>
+        <div class="content-body">
+
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12" [formGroup]="createTask">
+
+                    <!-- Description -->
+                    <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                        <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                            <ng-container mCardHeaderTitle>
+                                Create Task
+                            </ng-container>
+                            <ng-container mCardContent>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class='col-md-12'>
+                                            <div class="form-group col-md-6">
+                                                <label class="form-control-label">
+                                                    Title </label>
+                                                <input class="form-control" type="text" formControlName="header" />
+                                            </div>
+                                            <div class='col-md-6'>
+                                                <div class="form-group">
+                                                    <label class="form-control-label">
+                                                        Discription </label>
+                                                    <textarea rows="10" cols="12" class="form-control"
+                                                        formControlName="body" placeholder="Discrpitions"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </m-card>
+                    </section>
+                    <!--/ Description -->
+
+                    <!-- Expected Output -->
+                    <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                        <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                            <ng-container mCardHeaderTitle>
+                                Expected Output
+                            </ng-container>
+                            <ng-container mCardContent>
+                                <div class="card-body my-gallery">
+                                    <div class="row">
+                                        <div class='col-md-6'>
+                                            <button (click)="addFile()" class="btn btn-outline-primary">
+                                                <i class="feather ft-plus"></i> Add Output</button>
+                                            <div formArrayName="fileArray">
+                                                <div *ngFor="let file of fileArray?.controls; let i=index">
+                                                    <div formGroupName="{{i}}">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label mt-2">
+                                                                Title </label>
+                                                            <input class="form-control" type="text"
+                                                                formControlName="outputHeader" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">
+                                                                Discription </label>
+                                                            <input class="form-control" type="text"
+                                                                formControlName="outputBody" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">
+                                                                File </label>
+                                                            <input class="form-control" type="file"
+                                                                formControlName="file" />
+                                                        </div>
+                                                        <button (click)="delete(i)"
+                                                            class="btn btn-danger">Delete</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </m-card>
+                    </section>
+                    <!--/ Expected Output -->
+
+                    <!-- Points Segragation -->
+                    <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                        <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                            <ng-container mCardHeaderTitle>
+                                Evaluation & Submission
+                            </ng-container>
+                            <ng-container mCardContent>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button (click)="addMarks()" class="btn btn-outline-primary mb-1">
+                                                <i class="feather ft-plus"></i> Add Marks</button>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Section</th>
+                                                        <th>Marks</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody formArrayName="marks">
+                                                    <ng-container
+                                                        *ngFor="let section of marksArray.controls;let i=index">
+                                                        <tr formGroupName="{{i}}">
+                                                            <td>
+                                                                <input class="form-control" type="text"
+                                                                    formControlName="section" />
+                                                            </td>
+                                                            <td>
+                                                                <input class="form-control" type="text"
+                                                                    formControlName="marks" />
+                                                            </td>
+                                                            <td>
+                                                                <button class="btn btn-outline-danger"
+                                                                    (click)="deleteMarks(i)"><i class="la la-trash"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-container>
+                                                    <tr>
+                                                        <th>Total</th>
+                                                        <th>50</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <button class="btn btn-primary" (click)="createTasks()">submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </m-card>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
