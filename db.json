@@ -188,35 +188,35 @@
       "mailId": null,
       "scores": {
         "from": {
-          "isCorrect": false,
+          "isCorrect": true,
           "points": 1
         },
         "to": {
-          "isCorrect": false,
+          "isCorrect": true,
           "points": 1
         },
         "cc": {
-          "isCorrect": false,
+          "isCorrect": true,
           "points": 1
         },
         "subject": {
-          "isCorrect": false,
+          "isCorrect": true,
           "points": 1
         },
         "salutation": {
-          "isCorrect": false,
+          "isCorrect": true,
           "points": 1
         },
         "body": {
-          "isCorrect": false,
+          "isCorrect": true,
           "points": 4
         },
         "signature": {
-          "isCorrect": false,
+          "isCorrect": true,
           "points": 1
         },
         "total": {
-          "points": 0
+          "points": 10
         }
       },
       "emailId": "mailTest-1",
@@ -257,7 +257,7 @@
           "points": 1
         },
         "to": {
-          "isCorrect": false,
+          "isCorrect": true,
           "points": 1
         },
         "cc": {
@@ -281,7 +281,7 @@
           "points": 1
         },
         "total": {
-          "points": 0
+          "points": 1
         }
       },
       "id": 2
@@ -349,6 +349,134 @@
         }
       },
       "id": 3
+    },
+    {
+      "0": "M",
+      "1": "h",
+      "2": "d",
+      "3": "s",
+      "4": "e",
+      "5": "5",
+      "6": "j",
+      "7": "k",
+      "8": "d",
+      "9": "a",
+      "10": "f",
+      "11": "C",
+      "12": "l",
+      "13": "0",
+      "14": "G",
+      "15": "7",
+      "16": "X",
+      "17": "Z",
+      "18": "C",
+      "19": "7",
+      "20": "R",
+      "21": "4",
+      "22": "x",
+      "23": "c",
+      "24": "I",
+      "25": "J",
+      "26": "S",
+      "27": "2",
+      "scores": {
+        "from": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "to": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "cc": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "subject": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "salutation": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "body": {
+          "isCorrect": false,
+          "points": 4
+        },
+        "signature": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "total": {
+          "points": 0
+        }
+      },
+      "id": 4
+    },
+    {
+      "0": "M",
+      "1": "h",
+      "2": "d",
+      "3": "s",
+      "4": "e",
+      "5": "5",
+      "6": "j",
+      "7": "k",
+      "8": "d",
+      "9": "a",
+      "10": "f",
+      "11": "C",
+      "12": "l",
+      "13": "0",
+      "14": "G",
+      "15": "7",
+      "16": "X",
+      "17": "Z",
+      "18": "C",
+      "19": "7",
+      "20": "R",
+      "21": "4",
+      "22": "x",
+      "23": "c",
+      "24": "I",
+      "25": "J",
+      "26": "S",
+      "27": "2",
+      "scores": {
+        "from": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "to": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "cc": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "subject": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "salutation": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "body": {
+          "isCorrect": false,
+          "points": 4
+        },
+        "signature": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "total": {
+          "points": 0
+        }
+      },
+      "id": 5
     }
   ],
   "allFeaturesAndPermissions": [
@@ -723,6 +851,26 @@
       ],
       "uid": "Mhdse5jkdafCl0G7XZC7R4xcIJS2",
       "id": 9
+    }
+  ],
+  "tasks": [
+    {
+      "header": "masbdfj",
+      "body": "kdjfhds",
+      "fileArray": [
+        {
+          "outputHeader": "sdmfn",
+          "outputBody": "sdlkfj",
+          "file": "C:\\fakepath\\education-logo-template-design-icon-illustration-vector.jpg"
+        }
+      ],
+      "marks": [
+        {
+          "section": "66",
+          "marks": "66"
+        }
+      ],
+      "id": 1
     }
   ]
 }

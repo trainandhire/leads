@@ -968,9 +968,15 @@ export const MenuSettingsConfig: MenuConfig = {
         submenu: {
           items: [
             {
+              title : "Create Tasks",
+              page : "/tasks/create-task" ,
+              permissions : [3001]
+
+            },
+            {
               title: "View Tasks",
               page: "/tasks",
-              permissions: [3000, 3001, 3002]
+              permissions: [3000, 3002]
             },
             {
               title: "Task Evaluation",
@@ -1027,13 +1033,13 @@ export const MenuSettingsConfig: MenuConfig = {
             {
               title: "Create Notifications",
               page: "/notifications/create-notifications",
-              permissions: [6000]
+              permissions: [7001]
             },
             {
               
                 title: "Notifications",
                 page: "/notifications/notification",
-                permissions: [6000]
+                permissions: [7000]
               
             },
           ],
