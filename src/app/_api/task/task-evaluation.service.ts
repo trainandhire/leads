@@ -16,7 +16,6 @@ export class TaskEvaluationService {
 
   getTask(id:any):Observable<any>{
     return this._httpClient.get("http://localhost:3000/tasks/" + id);
-
   }
 
   createTask(data: any): Observable<any> {

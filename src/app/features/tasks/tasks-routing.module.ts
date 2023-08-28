@@ -6,6 +6,7 @@ import { TaskEvaluationComponent } from './task-evaluation/task-evaluation.compo
 
 const routes: Routes = [
   {path:'', component: ViewTaskComponent},
+  {path:'view', component: ViewTaskComponent},
   {path:'view/:id', component: ViewTaskComponent},
   {path:'create-task', component: CreateTaskComponent},
   {path:'task-evaluation',component:TaskEvaluationComponent}
