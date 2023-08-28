@@ -7,19 +7,17 @@
 
             <div class="row">
                 <div class="col-xl-8 col-md-8 col-sm-8">
-                    
+
                     <!-- Description -->
                     <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
                         <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
                             <ng-container mCardHeaderTitle>
-                                Description
+                                {{task.header}}
                             </ng-container>
                             <ng-container mCardContent>
                                 <div class="card-body">
                                     <p>
-                                        A paragraph is a series of sentences that are organized and coherent,
-                                        and are all related to a single topic. Almost every piece of writing you
-                                        do that is longer than a few sentences should be organized into paragraphs.
+                                        {{task.body}}
                                     </p>
                                 </div>
                             </ng-container>
@@ -34,25 +32,21 @@
                                 Expected Output
                             </ng-container>
                             <ng-container mCardContent>
-                                <div class="card-body my-gallery">
+                                <div class="card-body my-gallery" *ngFor="let task of task?.fileArray">
                                     <div class="row">
                                         <div class="card card-img-top border-grey border-lighten-2 col-md-6">
-                                            <a2p-gallery>
-                                                <ngxps-gallery [images]="image1"></ngxps-gallery>
-                                            </a2p-gallery>
+                                            <img src="{{task.file}}" alt="">
                                             <div class="card-body px-0">
-                                                <h4 class="card-title">Card title 1</h4>
-                                                <p class="card-text">This is a longer card with supporting text below.
+                                                <h4 class="card-title">{{task.outputHeader}}</h4>
+                                                <p class="card-text">{{task.outputBody}}
                                                 </p>
                                             </div>
                                         </div>
                                         <div class="card card-img-top border-grey border-lighten-2 col-md-6">
-                                            <a2p-gallery>
-                                                <ngxps-gallery [images]="image2"></ngxps-gallery>
-                                            </a2p-gallery>
+                                            <img src="{{task.file}}" alt="">
                                             <div class="card-body px-0">
-                                                <h4 class="card-title">Card title 2</h4>
-                                                <p class="card-text">This is a longer card with supporting text below.
+                                                <h4 class="card-title">{{task.outputHeader}}</h4>
+                                                <p class="card-text">{{task.outputBody}}
                                                 </p>
                                             </div>
                                         </div>
@@ -82,7 +76,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let section of marksSection; let i=index">
+                                                    <tr *ngFor="let section of task.marks; let i=index">
                                                         <td>{{section.section}}</td>
                                                         <td>{{section.marks}}</td>
                                                     </tr>
@@ -104,30 +98,37 @@
 
                                             <div class="form-group mb-2 file-repeater" [formGroup]="uploadFileForm">
                                                 <div class="" formArrayName="fileArray">
-                                                  <div class="row">
-                                                    <div class="col-12" *ngFor="let file of fileArray?.controls; let i = index;">
-                                                      <div class="repeater-default">
-                                                        <div [formGroupName]="i" class="">
-                                                          <div class="row mb-1">
-                                                            <div class="col-9 col-xl-10">
-                                                              <label class="file center-block">
-                                                                <input type="file" id="file" formControlName="file" (change)="onFileChange($event)">
-                                                                <span class="file-custom"></span>
-                                                              </label>
+                                                    <div class="row">
+                                                        <div class="col-12"
+                                                            *ngFor="let file of fileArray?.controls; let i = index;">
+                                                            <div class="repeater-default">
+                                                                <div [formGroupName]="i" class="">
+                                                                    <div class="row mb-1">
+                                                                        <div class="col-9 col-xl-10">
+                                                                            <label class="file center-block">
+                                                                                <input type="file" id="file"
+                                                                                    formControlName="file"
+                                                                                    (change)="onFileChange($event)">
+                                                                                <span class="file-custom"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="col-2 col-xl-2">
+                                                                            <button type="button"
+                                                                                class="btn btn-icon btn-danger mr-1"
+                                                                                (click)="removeFile(i)"><i
+                                                                                    class="feather ft-x"></i></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div class="col-2 col-xl-2">
-                                                              <button type="button" class="btn btn-icon btn-danger mr-1" (click)="removeFile(i)"><i
-                                                                  class="feather ft-x"></i></button>
-                                                            </div>
-                                                          </div>
                                                         </div>
-                                                      </div>
                                                     </div>
-                                                  </div>
                                                 </div>
-                            
-                                                <div class="form-actions text-center" *ngIf="fileArray?.controls?.length>0">
-                                                    <button type="button" class="btn btn-warning mr-1" (click)="emptyFileArray()">
+
+                                                <div class="form-actions text-center"
+                                                    *ngIf="fileArray?.controls?.length>0">
+                                                    <button type="button" class="btn btn-warning mr-1"
+                                                        (click)="emptyFileArray()">
                                                         <i class="feather ft-x"></i> Cancel
                                                     </button>
                                                     <button type="submit" class="btn btn-primary">
@@ -166,7 +167,6 @@
                                                 </a>
                                             </div>
                                         </ng-container>
-
                                     </nav>
                                 </div>
                                 <h6 class="border-top-grey border-top-lighten-2 p-1 mt-1 mb-0">
@@ -180,15 +180,9 @@
                     <!--/ Tasks Menu -->
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
 
 
 <router-outlet></router-outlet>
-
-
-
-

@@ -477,6 +477,70 @@
         }
       },
       "id": 5
+    },
+    {
+      "0": "M",
+      "1": "h",
+      "2": "d",
+      "3": "s",
+      "4": "e",
+      "5": "5",
+      "6": "j",
+      "7": "k",
+      "8": "d",
+      "9": "a",
+      "10": "f",
+      "11": "C",
+      "12": "l",
+      "13": "0",
+      "14": "G",
+      "15": "7",
+      "16": "X",
+      "17": "Z",
+      "18": "C",
+      "19": "7",
+      "20": "R",
+      "21": "4",
+      "22": "x",
+      "23": "c",
+      "24": "I",
+      "25": "J",
+      "26": "S",
+      "27": "2",
+      "scores": {
+        "from": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "to": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "cc": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "subject": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "salutation": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "body": {
+          "isCorrect": false,
+          "points": 4
+        },
+        "signature": {
+          "isCorrect": false,
+          "points": 1
+        },
+        "total": {
+          "points": 0
+        }
+      },
+      "id": 6
     }
   ],
   "allFeaturesAndPermissions": [
@@ -861,7 +925,7 @@
         {
           "outputHeader": "sdmfn",
           "outputBody": "sdlkfj",
-          "file": "C:\\fakepath\\education-logo-template-design-icon-illustration-vector.jpg"
+          "file": "https://d33wubrfki0l68.cloudfront.net/a446da54752a65600b467fc3afacfe2b42dbaa51/4eb70/lesson-images/inline-2-terrain.png"
         }
       ],
       "marks": [
@@ -871,6 +935,72 @@
         }
       ],
       "id": 1
+    },
+    {
+      "header": "masbdfj",
+      "body": "kdjfhds",
+      "fileArray": [
+        {
+          "outputHeader": "sdmfn",
+          "outputBody": "sdlkfj",
+          "file": "https://d33wubrfki0l68.cloudfront.net/4c3760f9341ec07761c95fb5f03e033fa73d206d/057ff/lesson-images/inline-1-heat.png"
+        }
+      ],
+      "marks": [
+        {
+          "section": "66",
+          "marks": "66"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "header": "masbdfj",
+      "body": "kdjfhds",
+      "fileArray": [
+        {
+          "outputHeader": "sdmfn",
+          "outputBody": "sdlkfj",
+          "file": "https://d33wubrfki0l68.cloudfront.net/a446da54752a65600b467fc3afacfe2b42dbaa51/4eb70/lesson-images/inline-2-terrain.png"
+        }
+      ],
+      "marks": [
+        {
+          "section": "66",
+          "marks": "66"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "header": "Assaignment-1",
+      "body": "complete angular project using http client service with rest api. create multiple modules use reactive forms for forms module and upload it to api and using get api method get all the users data and implement view method for induvidual users.",
+      "fileArray": [
+        {
+          "outputHeader": "Assaignment-1",
+          "outputBody": "see the  output of the image complete it by 2 days",
+          "file": "https://c8.alamy.com/comp/ECMD14/hand-pushing-virtual-security-button-on-digital-background-ECMD14.jpg"
+        }
+      ],
+      "marks": [
+        {
+          "section": "view",
+          "marks": "40"
+        },
+        {
+          "section": "code",
+          "marks": "59"
+        },
+        {
+          "section": "naming",
+          "marks": "66"
+        },
+        {
+          "section": "Clean Code",
+          "marks": "44"
+        }
+      ],
+      "id": 4
     }
   ]
 }

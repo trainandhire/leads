@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { id } from '@swimlane/ngx-datatable';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { MailTestService } from 'src/app/_api/mail-test/mail-test.service';
+import { TaskEvaluationService } from 'src/app/_api/task/task-evaluation.service';
 import { UserService } from 'src/app/_api/user/user.service';
+import { AlertService } from 'src/app/_services/alert.service';
 
 @Component({
   selector: 'app-view-task',
@@ -19,15 +23,63 @@ export class ViewTaskComponent {
     { section: 'clean code', marks: 10 }
   ];
 
-  public uploadFileForm:FormGroup = new FormGroup({
+  public uploadFileForm: FormGroup = new FormGroup({
     fileArray: new FormArray([])
   })
 
-  get fileArray(){
+  get fileArray() {
     return this.uploadFileForm.get('fileArray') as FormArray;
   }
 
-  addFile(){
+  options = {
+    close: true,
+    expand: false,
+    minimize: false,
+    reload: true
+  };
+  imageOptions = {
+    close: true,
+    expand: true,
+    minimize: true,
+    reload: true
+  };
+
+  public menu: any = [];
+
+  @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
+
+  public task: any;
+  public id: any = '';
+
+  constructor(private _mailTestService: MailTestService, private _task: TaskEvaluationService, private _userService: UserService, private _alertsServices: AlertService, private _activatedRoute: ActivatedRoute) {
+
+    this._mailTestService.getMailTestMenu().subscribe(
+      (data: any) => {
+        this.menu = data;
+      }
+    )
+
+    this._activatedRoute.params.subscribe(
+      (data: any) => {
+        this.id = data.id;
+      }
+    )
+    this.getTask();
+  }
+
+
+  getTask() {
+    this._task.getTask(this.id).subscribe(
+      (data: any) => {
+        this.task = data;
+      },
+      (err: any) => {
+        this._alertsServices.error("server error")
+      }
+    )
+  }
+
+  addFile() {
     this.fileArray.push(
       new FormGroup({
         file: new FormControl()
@@ -35,12 +87,12 @@ export class ViewTaskComponent {
     )
   }
 
-  removeFile(i:number){
+  removeFile(i: number) {
     this.fileArray.removeAt(i);
   }
 
-  emptyFileArray(){
-    for(let i=this.fileArray.length; i>=0; i--){
+  emptyFileArray() {
+    for (let i = this.fileArray.length; i >= 0; i--) {
       this.fileArray.removeAt(i);
       this.fileArray.updateValueAndValidity();
     }
@@ -61,110 +113,6 @@ export class ViewTaskComponent {
     }
   }
 
-  image1 = [
-    {
-      img: '../../../../assets/images/gallery/1.jpg',
-      thumb: '../../../../assets/images/gallery/1.jpg',
-      description: 'Image 1'
-    }]
-  image2 = [{
-    img: '../../../../assets/images/gallery/2.jpg',
-    thumb: '../../../../assets/images/gallery/2.jpg',
-    description: 'Image 2'
-  }]
-  image3 = [{
-    img: '../../../../assets/images/gallery/3.jpg',
-    thumb: '../../../../assets/images/gallery/3.jpg',
-    description: 'Image 3'
-  }]
-  image4 = [{
-    img: '../../../../assets/images/gallery/4.jpg',
-    thumb: '../../../../assets/images/gallery/4.jpg',
-    description: 'Image 4'
-  }]
-  image5 = [{
-    img: '../../../../assets/images/gallery/5.jpg',
-    thumb: '../../../../assets/images/gallery/5.jpg',
-    description: 'Image 5'
-  }
-  ]
-  image6 = [
-    {
-      img: '../../../../assets/images/gallery/6.jpg',
-      thumb: '../../../../assets/images/gallery/6.jpg',
-      description: 'Image 6'
-    }
-  ]
-  image7 = [
-    {
-      img: '../../../../assets/images/gallery/7.jpg',
-      thumb: '../../../../assets/images/gallery/7.jpg',
-      description: 'Image 7'
-    }
-  ]
-  image8 = [
-    {
-      img: '../../../../assets/images/gallery/8.jpg',
-      thumb: '../../../../assets/images/gallery/8.jpg',
-      description: 'Image 8'
-    }
-  ]
-  image9 = [
-    {
-      img: '../../../../assets/images/gallery/9.jpg',
-      thumb: '../../../../assets/images/gallery/9.jpg',
-      description: 'Image 9'
-    }
-  ]
-  image10 = [
-    {
-      img: '../../../../assets/images/gallery/10.jpg',
-      thumb: '../../../../assets/images/gallery/10.jpg',
-      description: 'Image 10'
-    }
-  ]
-  image11 =
-    [
-      {
-        img: '../../../../assets/images/gallery/11.jpg',
-        thumb: '../../../../assets/images/gallery/11.jpg',
-        description: 'Image 11'
-      }
-    ];
-  image12 =
-    [
-      {
-        img: '../../../../assets/images/gallery/12.jpg',
-        thumb: '../../../../assets/images/gallery/12.jpg',
-        description: 'Image 12'
-      }
-    ];
-
-  options = {
-    close: true,
-    expand: false,
-    minimize: false,
-    reload: true
-  };
-  imageOptions = {
-    close: true,
-    expand: true,
-    minimize: true,
-    reload: true
-  };
-
-  public menu:any = [];
-
-  @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
-
-  constructor(private _mailTestService: MailTestService, private _userService: UserService) {
-
-    this._mailTestService.getMailTestMenu().subscribe(
-      (data: any) => {
-        this.menu = data;
-      }
-    );
-  }
 
   ngOnInit() {
 
