@@ -32,7 +32,14 @@ export enum Permissions {
     InstituteCreate = 5000,
 
     // 6. Users Management
-    UserRolesCreate = 6000
+    UserRolesCreate = 6000,
+
+    // 7. Notifications
+    NotificationView= 7000,
+    NotificationCreate = 7001,
+    NotificationEdit = 7003,
+    NotificationDelete = 7004
+
 }
 
 // 1) Typing

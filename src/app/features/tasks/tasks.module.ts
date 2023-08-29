@@ -11,6 +11,7 @@ import { NgxMasonryModule } from 'ngx-masonry';
 import { CardModule } from 'src/app/content/partials/general/card/card.module';
 import { TaskEvaluationComponent } from './task-evaluation/task-evaluation.component';
 import {  NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +29,9 @@ import {  NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CardModule,
     NgxPhotoswipeModule,
     NgxMasonryModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class TasksModule { }
