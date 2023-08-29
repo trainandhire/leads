@@ -1045,6 +1045,20 @@ export const MenuSettingsConfig: MenuConfig = {
           ],
         },
       },
+      {
+        title: "Tests",
+        icon: "la-bell",
+        page: "null",
+        submenu: {
+          items: [
+            {
+              title: "Create Tests",
+              page: "/tests/create-tests",
+              permissions: []
+            },
+          ],
+        },
+      },
       // { section: "APPS", icon: "la-ellipsis-h" },
       // {
       //   title: "To Do",
