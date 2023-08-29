@@ -8,6 +8,7 @@ import { ChangelogComponent } from './changelog/changelog.component';
 import { FullLayoutComponent } from './_layout/full-layout/full-layout.component';
 import { PrivacyPolicyComponent } from './login/privacy-policy/privacy-policy.component';
 import { TermsConditionComponent } from './login/terms-condition/terms-condition.component';
+import { ThemeGuard } from './_guards/theme.guard';
 const appRoutes: Routes = [
   { path: 'privacypolicy', component: PrivacyPolicyComponent },
   { path: 'termCondition', component: TermsConditionComponent },
@@ -50,7 +51,7 @@ const appRoutes: Routes = [
       { path: 'changelog', component: ChangelogComponent, canActivate: [AuthGuard] },
       {
         path: 'dashboard', loadChildren: () => import('../app/content/dashboard/dashboard.module').then(m => m.DashboardModule)
-        , canActivate: [AuthGuard]
+        ,canActivate: [AuthGuard], resolve:[ ThemeGuard ]
       },
       {
         path: 'components', loadChildren: () => import('../app/content/ngbbootstrap/components.module').then(m => m.ComponentsModule),
