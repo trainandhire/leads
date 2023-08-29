@@ -6,7 +6,7 @@ export const ThemeSettingsConfig = {
     style: "vertical", // style: 'vertical', horizontal,
     pattern: "fixed", // fixed, boxed, static
   },
-  menuColor: "menu-dark", // Vertical: [menu-dark, menu-light] , Horizontal: [navbar-dark, navbar-light]
+  menuColor: "nav-light", // Vertical: [menu-dark, menu-light] , Horizontal: [navbar-dark, navbar-light]
   navigation: "menu-collapsible", // menu-collapsible, menu-accordation
   menu: "expand", // collapse, expand
   header: "fix", // fix, static

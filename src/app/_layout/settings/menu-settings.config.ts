@@ -863,28 +863,28 @@ export const MenuSettingsConfig: MenuConfig = {
   },
   vertical_menu: {
     items: [
-      // {
-      //   title: "Dashboard",
-      //   icon: "la-home",
-      //   page: "null",
-      //   badge: { type: "badge-info", value: "3" },
-      //   submenu: {
-      //     items: [
-      //       {
-      //         title: "Sales",
-      //         page: "/dashboard/sales",
-      //       },
-      //       {
-      //         title: "Ecommerce",
-      //         page: "/dashboard/ecommerce",
-      //       },
-      //       {
-      //         title: "Hospital",
-      //         page: "/dashboard/hospital",
-      //       },
-      //     ],
-      //   },
-      // },
+      {
+        title: "Dashboard",
+        icon: "la-home",
+        page: "null",
+        badge: { type: "badge-info", value: "3" },
+        submenu: {
+          items: [
+            {
+              title: "Sales",
+              page: "/dashboard/sales",
+            },
+            {
+              title: "Ecommerce",
+              page: "/dashboard/ecommerce",
+            },
+            {
+              title: "Hospital",
+              page: "/dashboard/hospital",
+            },
+          ],
+        },
+      },
       {
         title: "Templates",
         icon: "la-television",
