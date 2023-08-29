@@ -63,7 +63,7 @@ export class CreateNotificationsComponent {
       },
       {
         "item_id": 2, "roles": "Instructor"
-      },
+        },
       {
         "item_id": 2, "roles": "Sub-Instructor"
       }

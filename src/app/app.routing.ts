@@ -80,10 +80,13 @@ const appRoutes: Routes = [
           path: 'text',loadChildren: () => import('../app/features/text/text.module').then(m=>m.TextModule),
       },
       {
+        path: 'tasks',loadChildren: () => import('../app/features/tasks/tasks.module').then(m=>m.TasksModule),
+    },
+      {
         path:"notifications",loadChildren: () => import('../app/features/notifications/notifications.module').then(m=>m.NotificationsModule ),
       },
       {
-        path: 'tasks', loadChildren: () => import('../app/features/tasks/tasks.module').then(m => m.TasksModule),
+        path: 'tests', loadChildren: () => import('../app/features/tests/tests.module').then(m => m.TestsModule),
         canActivate: [AuthGuard]
       },
       {

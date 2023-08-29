@@ -1033,14 +1033,28 @@ export const MenuSettingsConfig: MenuConfig = {
             {
               title: "Create Notifications",
               page: "/notifications/create-notifications",
-              permissions: [7001]
+              permissions: []
             },
             {
               
                 title: "Notifications",
                 page: "/notifications/notification",
-                permissions: [7000]
+                permissions: []
               
+            },
+          ],
+        },
+      },
+      {
+        title: "Tests",
+        icon: "la-bell",
+        page: "null",
+        submenu: {
+          items: [
+            {
+              title: "Create Tests",
+              page: "/tests/create-tests",
+              permissions: []
             },
           ],
         },

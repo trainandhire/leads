@@ -1,0 +1,104 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row mb-1">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+            <h1>Create Test</h1>
+        </div>
+        <div class="content-body">
+
+            <!-- Content types section start -->
+            <section id="content-types">
+
+                <div class="row" [formGroup]="testForm">
+                    <div class="col-xl-9 col-md-9 col-sm-9">
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    create test
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body col-md-12">
+                                        <div formArrayName="testArray">
+                                            <div *ngFor="let question of testArray.controls; let i=index">
+                                                <div formGroupName="{{i}}">
+                                                    <div class="form-group d-flex justify-content-between">
+                                                        <div>
+                                                            <textarea cols="65" rows="2" class="form-control"
+                                                                placeholder="Question"
+                                                                formControlName="questions"></textarea>
+
+                                                        </div>
+                                                        <div [formGroup]="testForm">
+                                                            <ng-select [items]="multipleSelectArray" [multiple]="false"
+                                                                bindLabel="item_text" placeholder="Select Type"
+                                                                [(ngModel)]="multipleMultiSelect"
+                                                                formControlName="type">
+                                                            </ng-select>
+                                                        </div>
+                                                    </div>
+
+                                                    <br>
+                                                    <button type="button" class="btn btn-outline-primary  mb-1"
+                                                        (click)="addOptions(i)">
+                                                        <i class="feather ft-plus"></i> Add Options
+                                                    </button>
+                                                    <div formArrayName="optionArray">
+                                                        <div
+                                                            *ngFor="let options of getOptionArray(i).controls;let j = index">
+                                                            <div formGroupName="{{j}}">
+                                                                <div
+                                                                    class="form-group mt-1 d-flex justify-content-around  align-items-center">
+                                                                    <input type="checkbox">
+                                                                    <div>
+                                                                        <input class="form-control col-md-12"
+                                                                            type="text" formControlName="option" />
+                                                                    </div>
+                                                                    <div>
+                                                                        <button class="btn btn-outline-danger "
+                                                                            (click)="remove(j)"> <i
+                                                                                class="la la-trash"></i></button>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn btn-primary"
+                                                        (click)=" createTest()">submit</button>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+                    </div>
+
+                    <!-- Mail Menu -->
+                    <div class="col-xl-3 col-md-3 col-sm-3">
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    text
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        <button type="button" class="btn btn-outline-primary " (click)="addQuestions()">
+                                            <i class="feather ft-plus"></i> Add Question
+                                        </button>
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+                    </div>
+
+                </div>
+            </section>
+            <!-- Content types section end -->
+
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->
