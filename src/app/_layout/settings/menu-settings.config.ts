@@ -1033,13 +1033,13 @@ export const MenuSettingsConfig: MenuConfig = {
             {
               title: "Create Notifications",
               page: "/notifications/create-notifications",
-              permissions: [7001]
+              permissions: []
             },
             {
               
                 title: "Notifications",
                 page: "/notifications/notification",
-                permissions: [7000]
+                permissions: []
               
             },
           ],
