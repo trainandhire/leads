@@ -8,11 +8,13 @@ import { BlockTemplateComponent } from 'src/app/_layout/blockui/block-template.c
 import { CardModule } from 'src/app/content/partials/general/card/card.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { TestViewComponent } from './test-view/test-view.component';
 
 
 @NgModule({
   declarations: [
-    CreateTestComponent
+    CreateTestComponent,
+    TestViewComponent
   ],
   imports: [
     CommonModule,

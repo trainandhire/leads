@@ -1047,10 +1047,29 @@
   ],
   "tests": [
     {
-      "testArray": [
+      "questions": [
         {
-          "questions": "what is Angular",
-          "optionArray": [
+          "question": "what is Angular",
+          "type": "radio",
+          "options": [
+            {
+              "option": "framework"
+            },
+            {
+              "option": "library"
+            },
+            {
+              "option": "javascript"
+            },
+            {
+              "option": "return"
+            }
+          ]
+        },
+        {
+          "question": "what is Angular22222222",
+          "type": "checkbox",
+          "options": [
             {
               "option": "framework"
             },
@@ -1070,10 +1089,29 @@
       "id": 1
     },
     {
-      "testArray": [
+      "questions": [
         {
-          "questions": "asmndfb",
-          "optionArray": [
+          "question": "asmndfb",
+          "type": "radio",
+          "options": [
+            {
+              "option": "mb"
+            },
+            {
+              "option": "kjbn"
+            },
+            {
+              "option": "jkbn"
+            },
+            {
+              "option": "kjn"
+            }
+          ]
+        },
+        {
+          "question": "asmndfb",
+          "type": "checkbox",
+          "options": [
             {
               "option": "mb"
             },
@@ -1094,31 +1132,50 @@
       "id": 2
     },
     {
-      "testArray": [
+      "questions": [
         {
-          "questions": null,
-          "optionArray": [
+          "question": "a",
+          "options": [
             {
-              "option": null
+              "option": "s"
             },
             {
-              "option": null
+              "option": "s"
             },
             {
-              "option": null
+              "option": "s"
             },
             {
-              "option": null
+              "option": "s"
             }
           ]
         }
       ],
-      "type": {
-        "item_id": 1,
-        "item_text": "radio"
-      },
-      "cid": 1,
+      "type": [],
       "id": 3
+    },
+    {
+      "questions": [
+        {
+          "question": "asdf",
+          "options": [
+            {
+              "option": "d"
+            },
+            {
+              "option": "dd"
+            },
+            {
+              "option": "d"
+            },
+            {
+              "option": "d"
+            }
+          ]
+        }
+      ],
+      "type": "radio",
+      "id": 4
     }
   ]
 }

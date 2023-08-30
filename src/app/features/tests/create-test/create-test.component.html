@@ -18,19 +18,19 @@
                                 </ng-container>
                                 <ng-container mCardContent>
                                     <div class="card-body col-md-12">
-                                        <div formArrayName="testArray">
-                                            <div *ngFor="let question of testArray.controls; let i=index">
+                                        <div formArrayName="questions">
+                                            <div *ngFor="let question of questionsArray.controls; let i=index">
                                                 <div formGroupName="{{i}}">
                                                     <div class="form-group d-flex justify-content-between">
                                                         <div>
                                                             <textarea cols="65" rows="2" class="form-control"
                                                                 placeholder="Question"
-                                                                formControlName="questions"></textarea>
+                                                                formControlName="question"></textarea>
 
                                                         </div>
                                                         <div [formGroup]="testForm">
                                                             <ng-select [items]="multipleSelectArray" [multiple]="false"
-                                                                bindLabel="item_text" placeholder="Select Type"
+                                                                bindLabel="item_text" bindValue="item_text" placeholder="Select Type"
                                                                 [(ngModel)]="multipleMultiSelect"
                                                                 formControlName="type">
                                                             </ng-select>
@@ -42,7 +42,7 @@
                                                         (click)="addOptions(i)">
                                                         <i class="feather ft-plus"></i> Add Options
                                                     </button>
-                                                    <div formArrayName="optionArray">
+                                                    <div formArrayName="options">
                                                         <div
                                                             *ngFor="let options of getOptionArray(i).controls;let j = index">
                                                             <div formGroupName="{{j}}">

@@ -25,20 +25,20 @@ export class CreateTestComponent {
   public multipleMultiSelect: any = [];
 
   public testForm:FormGroup=new FormGroup({
-     testArray:new FormArray([]),
+     questions:new FormArray([]),
      type:new FormControl()
   })
 
-  get testArray(){
-    return this.testForm.get("testArray") as FormArray;
+  get questionsArray(){
+    return this.testForm.get("questions") as FormArray;
 
   }
   getOptionArray(i:any){
-    return this.testArray.controls[i].get('optionArray') as FormArray;
+    return this.questionsArray.controls[i].get('options') as FormArray;
   }  
    constructor(private _alertservice:AlertService, private _testService:TestService){
     this.multipleMultiSelect = [];
-    this.addQuestions();
+    this.addQuestion();
     this.multipleSelectArray = [
       {
         "item_id": 1, "item_text": "radio"
@@ -60,18 +60,18 @@ export class CreateTestComponent {
       )
     }
 
-  addQuestions(){
-    this.testArray.push(
+  addQuestion(){
+    this.questionsArray.push(
       new FormGroup({
-        questions: new FormControl(),
-        optionArray:new FormArray([])
+        question: new FormControl(),
+        options:new FormArray([])
       })
     );
 
-    this.addOptions(this.testArray.controls.length-1);
-    this.addOptions(this.testArray.controls.length-1);
-    this.addOptions(this.testArray.controls.length-1);
-    this.addOptions(this.testArray.controls.length-1);
+    this.addOptions(this.questionsArray.controls.length-1);
+    this.addOptions(this.questionsArray.controls.length-1);
+    this.addOptions(this.questionsArray.controls.length-1);
+    this.addOptions(this.questionsArray.controls.length-1);
     
   } 
 
