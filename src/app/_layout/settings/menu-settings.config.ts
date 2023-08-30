@@ -1,5 +1,7 @@
 // Default menu settings configurations
 
+import { id } from "@swimlane/ngx-datatable";
+
 export interface MenuItem {
   title: string;
   icon: string;
@@ -1056,6 +1058,11 @@ export const MenuSettingsConfig: MenuConfig = {
               page: "/tests/create-tests",
               permissions: []
             },
+            {
+              title: "Tests View",
+              page: "/tests/tests-view/1",
+              permissions: []
+            },  
           ],
         },
       },

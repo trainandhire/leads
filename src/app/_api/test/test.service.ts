@@ -16,4 +16,12 @@ export class TestService {
     data.cid = cid;
     return this._httpClient.post("http://localhost:3000/tests",data)
   }
+
+  getTest(id:any):Observable<any>{
+    return this._httpClient.get("http://localhost:3000/tests/" + id )
+  }
+  
+  getTests(){
+    return this._httpClient.get("http://localhost:3000/tests")
+  }
 }
