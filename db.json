@@ -1067,6 +1067,78 @@
           ]
         },
         {
+          "question": "what is Angular",
+          "type": "radio",
+          "options": [
+            {
+              "option": "framework"
+            },
+            {
+              "option": "library"
+            },
+            {
+              "option": "javascript"
+            },
+            {
+              "option": "return"
+            }
+          ]
+        },
+        {
+          "question": "what is Angular",
+          "type": "radio",
+          "options": [
+            {
+              "option": "framework"
+            },
+            {
+              "option": "library"
+            },
+            {
+              "option": "javascript"
+            },
+            {
+              "option": "return"
+            }
+          ]
+        },
+        {
+          "question": "what is Angular",
+          "type": "radio",
+          "options": [
+            {
+              "option": "framework"
+            },
+            {
+              "option": "library"
+            },
+            {
+              "option": "javascript"
+            },
+            {
+              "option": "return"
+            }
+          ]
+        },
+        {
+          "question": "what is Angular",
+          "type": "radio",
+          "options": [
+            {
+              "option": "framework"
+            },
+            {
+              "option": "library"
+            },
+            {
+              "option": "javascript"
+            },
+            {
+              "option": "return"
+            }
+          ]
+        },
+        {
           "question": "what is Angular22222222",
           "type": "checkbox",
           "options": [

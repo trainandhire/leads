@@ -26,6 +26,8 @@
                                     <span class="ml-2">{{option.option}}</span>
                                   </label>  
                                 </div>
+                                <button class="btn btn-outline-secondary ml-3" (click)="prev(selectedQuestionIndex)">Prev</button>
+                                <button class="btn btn-outline-primary ml-1" (click)="next(selectedQuestionIndex)">Next</button>
                             </ng-container>
                         </m-card>
                     </section>
@@ -42,7 +44,7 @@
                                 </ng-container>
                                 <ng-container mCardContent>
                                     <div class="card-body">
-                                        <button class="btn btn-icon btn-primary mr-1" (click)="selectedQuestion(i)" *ngFor="let item of [].constructor(test.questions.length); let i = index">
+                                        <button class="btn btn-icon mr-1 mb-1" [ngClass]="{'btn-primary':visitedQuestions.includes(i), 'btn-outline-primary':!visitedQuestions.includes(i)}" (click)="selectedQuestion(i)" *ngFor="let item of [].constructor(test.questions.length); let i = index">
                                             {{i+1}}
                                         </button>    
                                     </div>

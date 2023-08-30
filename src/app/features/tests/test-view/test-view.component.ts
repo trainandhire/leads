@@ -20,43 +20,61 @@ export class TestViewComponent {
 
   @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
 
-  public selectedQuestionIndex:any=[];
+  public selectedQuestionIndex: any = [];
 
-  public test:any={};
+  public test: any = {};
 
-  public id:any;
+  public id: any;
 
-  constructor(private _testService:TestService, private _alertService:AlertService,private _activatedRoute: ActivatedRoute){
-   
+  constructor(private _testService: TestService, private _alertService: AlertService, private _activatedRoute: ActivatedRoute) {
+
     this._activatedRoute.params.subscribe(
       (data: any) => {
         this.id = data.id;
         this.getTest(this.id);
       }
     )
+    this.selectedQuestion(0);
+
+
   }
 
-   getTest(id:any){
+  getTest(id: any) {
     this._testService.getTest(id).subscribe(
-    (data:any)=>{
-       this.test=data
-    },
-    (err:any)=>{
-      this._alertService.error("internal server error")
-    }
+      (data: any) => {
+        this.test = data
+      },
+      (err: any) => {
+        this._alertService.error("internal server error")
+      }
     )
-   }
+  }
 
-   selectedQuestion(i:any){
-    this.selectedQuestionIndex=i;
-    console.log(this.selectedQuestionIndex)
+  public visitedQuestions:any = [];
+  public answeredQuestions:any = [];
 
+  selectedQuestion(i: any) {
+    this.selectedQuestionIndex = i;
+    this.questionVisited(i)
+  }
 
-   }
+  next(i: any) {
+    if (i < this.test.questions.length - 1) {
+      this.selectedQuestionIndex++;
+      this.questionVisited(this.selectedQuestionIndex)
+    }
+  }
 
+  prev(i: any) {
+    if (this.selectedQuestionIndex > 0) {
+      this.selectedQuestionIndex--;
+      this.questionVisited(this.selectedQuestionIndex)
+    }
+  }
 
-
-
+  questionVisited(i){
+    this.visitedQuestions.push(i);
+  }
 
   reloadImageGallery() {
     this.blockUIImageGallery.start('Loading..');
@@ -67,3 +85,5 @@ export class TestViewComponent {
   }
 
 }
+
+
