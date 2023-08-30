@@ -18,12 +18,12 @@
                             </ng-container>
                             <ng-container mCardContent>
                                 <div class="card-body">
-                                    <!-- {{test.questions[selectedQuestionIndex]|json}} -->
-                                  <h2>{{selectedQuestionIndex+1+ " . "}}{{test.questions[selectedQuestionIndex]?.question}}</h2>
+                                  <h2 class="mb-1">{{selectedQuestionIndex+1+ " . "}}{{test.questions[selectedQuestionIndex]?.question}}</h2>
+                                 
                                   <label class=" option" for="{{i}}" *ngFor="let option of test.questions[selectedQuestionIndex]?.options;let i=index">
-                                    <input type="radio" id="{{i}}" name="selectedQuestionIndex" *ngIf="test.questions[selectedQuestionIndex]?.type=='radio'">
-                                    <input type="checkbox" id="{{i}}" *ngIf="test.questions[selectedQuestionIndex]?.type=='checkbox'">
-                                    <span class="ml-2">{{option.option}}</span>
+                                    <input class="" type="radio" id="{{i}}" name="selectedQuestionIndex" *ngIf="test.questions[selectedQuestionIndex]?.type=='radio'">
+                                    <input class="" type="checkbox" id="{{i}}" *ngIf="test.questions[selectedQuestionIndex]?.type=='checkbox'">
+                                    <span class="ml-2 ">{{option.option}}</span>
                                   </label>  
                                 </div>
                                 <button class="btn btn-outline-secondary ml-3" (click)="prev(selectedQuestionIndex)">Prev</button>
@@ -31,11 +31,8 @@
                             </ng-container>
                         </m-card>
                     </section>
-                    <!--/ Mail Description -->
-
                     </div>
 
-                    <!-- Mail Menu -->
                     <div class="col-xl-3 col-md-3 col-sm-3">
                         <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
                             <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
@@ -52,11 +49,8 @@
                             </m-card>
                         </section>
                     </div>
-
                 </div>
             </section>
-            <!-- Content types section end -->
-
         </div>
     </div>
 </div>
