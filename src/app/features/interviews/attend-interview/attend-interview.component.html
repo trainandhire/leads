@@ -1,0 +1,76 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row mb-1">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+        </div>
+        <div class="content-body">
+
+            <!-- Content types section start -->
+            <section id="content-types">
+
+                <div class="row">
+                    <div class="col-xl-9 col-md-9 col-sm-9">
+                       <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                        <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                            <ng-container mCardHeaderTitle>
+                                Interview Question
+                            </ng-container>
+                            <ng-container mCardContent>
+                            <div class="card-body">
+                             <h2 class="mb-1">{{selectedQuestionIndex+1+ " . "}}{{interview.questions[selectedQuestionIndex]?.question}}</h2>
+                            <!-- Audio recording -->
+                             <div>
+                                <button class="start-button" *ngIf="!isRecording && !blobUrl" (click)="startRecording()">Start Recording</button>
+                            
+                                <button class="stop-button" *ngIf="isRecording && !blobUrl" (click)="stopRecording()">Stop Recording</button>
+                            
+                                <button class="cancel-button" *ngIf="!isRecording && blobUrl" (click)="clearRecordedData()">Clear Recording</button>
+                            
+                                <br>
+                                <button class="cancel-button" *ngIf="!isRecording && blobUrl" (click)="download()">Download Recording</button>
+                            
+                                <div *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
+                                <div>
+                                    <audio *ngIf="!isRecording && blobUrl" controls>
+                                        <source [src]="blobUrl" type="audio/webm">
+                                    </audio>
+                                </div>
+                            </div>
+                            <!-- end of Audio Recording -->
+
+                               
+                                <button class="btn btn-outline-secondary ml-3" (click)="prev(selectedQuestionIndex)">Prev</button>
+                                <button class="btn btn-outline-primary ml-1" (click)="next(selectedQuestionIndex)">Next</button>
+                                <button class="btn btn-outline-primary ml-1" (click)="submitInterview()">Submit</button>
+                                </div>
+                            </ng-container>
+                        </m-card>
+                    </section>
+                    </div>
+
+                    <!-- Mail Menu -->
+                    <div class="col-xl-3 col-md-3 col-sm-3">
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    Questions
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        <button class="btn btn-primary mr-1 mb-1" (click)="selectedQuestion(i)" *ngFor="let item of [].constructor(interview.questions.length); let i = index">
+                                            {{i+1}}
+                                        </button> 
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+                    </div>
+
+                </div>
+            </section>
+            <!-- Content types section end -->
+
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->

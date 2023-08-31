@@ -29,10 +29,10 @@ export class CreateTestComponent {
      
   })
 
-  get questionsArray(){
-    return this.testForm.get("questions") as FormArray;
+    get questionsArray(){
+      return this.testForm.get("questions") as FormArray;
 
-  }
+    }
   getOptionArray(i:any){
     return this.questionsArray.controls[i].get('options') as FormArray;
   }  
