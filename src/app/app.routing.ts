@@ -87,6 +87,9 @@ const appRoutes: Routes = [
         path:"notifications",loadChildren: () => import('../app/features/notifications/notifications.module').then(m=>m.NotificationsModule ),
       },
       {
+        path:"interviews",loadChildren: () => import('../app/features/interviews/interviews.module').then(m=>m.InterviewsModule ),
+      },
+      {
         path: 'tests', loadChildren: () => import('../app/features/tests/tests.module').then(m => m.TestsModule),
         canActivate: [AuthGuard]
       },

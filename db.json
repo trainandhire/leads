@@ -1248,6 +1248,99 @@
       ],
       "type": "radio",
       "id": 4
+    },
+    {
+      "questions": [
+        {
+          "question": "what is css",
+          "type": "radio",
+          "options": [
+            {
+              "option": "style"
+            },
+            {
+              "option": "layout"
+            },
+            {
+              "option": "structure"
+            },
+            {
+              "option": "has jhsbdjhg jhagsdhga jahsgfjhsag ajshfajhgf ajshgasjhg ajhsdjashgd ajhsdgasjhdg ajshdgajhsdg jhasgdhgasd"
+            }
+          ]
+        }
+      ],
+      "type": "checkbox",
+      "id": 5
+    }
+  ],
+  "interviews": [
+    {
+      "questions": [
+        {
+          "question": "what is angular ?",
+          "attachment": "C:\\fakepath\\education-logo-template-design-icon-illustration-vector.jpg"
+        },
+        {
+          "question": "What is Javascript ?",
+          "attachment": "C:\\fakepath\\education-logo-template-design-icon-illustration-vector.jpg"
+        },
+        {
+          "question": "What is HTML ?",
+          "attachment": "C:\\fakepath\\education-logo-template-design-icon-illustration-vector.jpg"
+        },
+        {
+          "question": "What is CSS ?",
+          "attachment": "C:\\fakepath\\education-logo-template-design-icon-illustration-vector.jpg"
+        },
+        {
+          "question": "What is Bootstrap ?",
+          "attachment": "C:\\fakepath\\education-logo-template-design-icon-illustration-vector.jpg"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "questions": [
+        {
+          "question": "what is angular",
+          "attachment": "C:\\fakepath\\education-logo-template-design-icon-illustration-vector.jpg"
+        }
+
+      ],
+      "id": 2
+    },
+    {
+      "questions": [
+        {
+          "question": "what is angular ?",
+          "attachment": null
+        },
+        {
+          "question": "what is javascript ?",
+          "attachment": null
+        },
+        {
+          "question": "what is html ?",
+          "attachment": null
+        }
+      ],
+      "id": 3
+    },
+    {
+      "questions": [
+        {
+          "question": "what is CSS ?",
+          "attachment": null
+
+        },
+        {
+          "question": "What is FrameWork ?",
+          "attachment": null
+        }
+      ],
+      "id": 4
     }
   ]
+
 }

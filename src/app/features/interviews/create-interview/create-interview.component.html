@@ -8,47 +8,49 @@
             <!-- Content types section start -->
             <section id="content-types">
 
-                <div class="row">
+                <div class="row" [formGroup]="interviewForm">
                     <div class="col-xl-9 col-md-9 col-sm-9">
-                       <!-- Mail Description -->
                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
                         <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
                             <ng-container mCardHeaderTitle>
-                                Tests-View
+                                Create Interviews
                             </ng-container>
                             <ng-container mCardContent>
                                 <div class="card-body">
-                                  <h2 class="mb-1">{{selectedQuestionIndex+1+ " . "}}{{test.questions[selectedQuestionIndex]?.question}}</h2>
-                                 
-                                  <label class=" option" for="{{i}}" *ngFor="let option of test.questions[selectedQuestionIndex]?.options;let i=index">
-                                    <input class="" type="radio" id="{{i}}" name="selectedQuestionIndex" *ngIf="test.questions[selectedQuestionIndex]?.type=='radio'">
-                                    <input class="" type="checkbox" id="{{i}}" *ngIf="test.questions[selectedQuestionIndex]?.type=='checkbox'">
-                                    <span class="ml-2 ">{{option.option}}</span>
-                                  </label>  
+                                    <div formArrayName="questions">
+                                        <div *ngFor="let question of questionsArray.controls; let i=index">
+                                            <div formGroupName="{{i}}">
+                                                <div class="form-group col-md-8">
+                                                    <textarea cols="60" rows="4" formControlName="question" placeholder="Question"></textarea>
+                                                    <br>
+                                                    <input class="form-control" type="file" formControlName="attachment">  
+                                               </div>
+                                         </div>
+                                    </div>
                                 </div>
-                                <button class="btn btn-outline-secondary ml-3" (click)="prev(selectedQuestionIndex)">Prev</button>
-                                <button class="btn btn-outline-primary ml-1" (click)="next(selectedQuestionIndex)">Next</button>
+                                <button class="btn btn-primary" (click)="CreateInterview()">Create</button>
+                               </div>
                             </ng-container>
                         </m-card>
                     </section>
-                    </div>
-
+                        </div>
                     <div class="col-xl-3 col-md-3 col-sm-3">
                         <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
                             <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
                                 <ng-container mCardHeaderTitle>
-                                   question 
+                                Questions
                                 </ng-container>
                                 <ng-container mCardContent>
                                     <div class="card-body">
-                                        <button class="btn btn-icon mr-1 mb-1" [ngClass]="{'btn-primary':visitedQuestions.includes(i), 'btn-outline-primary':!visitedQuestions.includes(i)}" (click)="selectedQuestion(i)" *ngFor="let item of [].constructor(test.questions.length); let i = index">
-                                            {{i+1}}
-                                        </button>    
+                                        <button type="button" class="btn btn-outline-primary " (click)="addQuestions()">
+                                            <i class="feather ft-plus"></i> Add Question
+                                        </button>
                                     </div>
                                 </ng-container>
                             </m-card>
                         </section>
                     </div>
+
                 </div>
             </section>
         </div>

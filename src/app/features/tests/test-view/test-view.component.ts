@@ -28,12 +28,12 @@ export class TestViewComponent {
 
   constructor(private _testService: TestService, private _alertService: AlertService, private _activatedRoute: ActivatedRoute) {
 
-    this._activatedRoute.params.subscribe(
-      (data: any) => {
-        this.id = data.id;
-        this.getTest(this.id);
-      }
-    )
+      this._activatedRoute.params.subscribe(
+        (data: any) => {
+          this.id = data.id;
+          this.getTest(this.id);
+        }
+      )
     this.selectedQuestion(0);
 
 
