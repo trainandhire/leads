@@ -45,6 +45,7 @@
     "ajv-keywords": "^5.1.0",
     "angular-archwizard": "^7.0.0",
     "angular-calendar": "^0.31.0",
+    "angular-cd-timer": "^3.0.0",
     "angularx-flatpickr": "^7.0.0",
     "autolinker": "^4.0.0",
     "bootstrap": "^5.2.3",

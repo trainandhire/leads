@@ -18,30 +18,32 @@
                             <ng-container mCardContent>
                             <div class="card-body">
                              <h2 class="mb-1">{{selectedQuestionIndex+1+ " . "}}{{interview.questions[selectedQuestionIndex]?.question}}</h2>
-                            <!-- Audio recording -->
-                             <div>
-                                <button class="start-button" *ngIf="!isRecording && !blobUrl" (click)="startRecording()">Start Recording</button>
-                            
-                                <button class="stop-button" *ngIf="isRecording && !blobUrl" (click)="stopRecording()">Stop Recording</button>
-                            
-                                <button class="cancel-button" *ngIf="!isRecording && blobUrl" (click)="clearRecordedData()">Clear Recording</button>
-                            
-                                <br>
-                                <button class="cancel-button" *ngIf="!isRecording && blobUrl" (click)="download()">Download Recording</button>
-                            
-                                <div *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
-                                <div>
-                                    <audio *ngIf="!isRecording && blobUrl" controls>
-                                        <source [src]="blobUrl" type="audio/webm">
-                                    </audio>
-                                </div>
-                            </div>
-                            <!-- end of Audio Recording -->
-
+                
+                            <!-- text to speech -->
+                            <div class="m-5">
                                
+                                <button class="btn btn-success ml-3" (click)="startService()">Start</button>
+                                <button class="btn btn-danger ml-1" (click)="stopService()">Stop</button>
+                                <p>{{service.text}}</p>
+                            </div>
+
+                            <ul *ngIf="records$ | async as records; else noRecords">
+                                <li *ngFor="let record of records">
+                                  <div>{{ record.label }}</div>
+                                  <audio src="{{ record.audio }}" controls></audio>
+                                  <button (click)="onClick()">play</button>
+                                </li>
+                              </ul>
+                              
+                              <ng-template #noRecords>no records yet.</ng-template>
+
+                            <!-- /////////////////////////// -->
+
+                               <div class="mt-2">
                                 <button class="btn btn-outline-secondary ml-3" (click)="prev(selectedQuestionIndex)">Prev</button>
                                 <button class="btn btn-outline-primary ml-1" (click)="next(selectedQuestionIndex)">Next</button>
                                 <button class="btn btn-outline-primary ml-1" (click)="submitInterview()">Submit</button>
+                                </div>
                                 </div>
                             </ng-container>
                         </m-card>

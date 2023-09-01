@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
-import { AudioRecordingService } from 'src/app/_api/interviews/audio-recording.service';
 import { InterviewService } from 'src/app/_api/interviews/interview.service';
+import { VoiceService } from 'src/app/_api/interviews/voice.service';
 import { AlertService } from 'src/app/_services/alert.service';
 
 @Component({
@@ -23,15 +23,14 @@ export class AttendInterviewComponent {
 
   @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
 
-   public id:any;
-   public interview:any;
-   public selectedQuestionIndex: any = [];
+  public id: any;
+  public interview: any;
+  public selectedQuestionIndex: any = [];
 
-   showButton = false;
+  records$;
 
-  constructor(private _interviewService:InterviewService,private _alertService:AlertService,private _activatedRoute: ActivatedRoute,  private audioRecordingService: AudioRecordingService,
-    private sanitizer: DomSanitizer){
-   
+  constructor(private _interviewService: InterviewService, private _alertService: AlertService, private _activatedRoute: ActivatedRoute, public service: VoiceService, private sanitizer: DomSanitizer) {
+
     this._activatedRoute.params.subscribe(
       (data: any) => {
         this.id = data.id;
@@ -39,30 +38,21 @@ export class AttendInterviewComponent {
       }
     )
     this.selectedQuestion(0);
-    // --------------------------
-    this.audioRecordingService
-      .recordingFailed()
-      .subscribe(() => (this.isRecording = false));
-    this.audioRecordingService
-      .getRecordedTime()
-      .subscribe(time => (this.recordedTime = time));
-    this.audioRecordingService.getRecordedBlob().subscribe(data => {
-      this.teste = data;
-      this.blobUrl = this.sanitizer.bypassSecurityTrustUrl(
-        URL.createObjectURL(data.blob)
-      );
-      console.log("burl",this.blobUrl);
-    });
+
+    // -------------------
+
+    this.service.init();
+    this.records$ = this.service.getRecords();
   }
 
-  getInterviewQuestions(id:any){
+  getInterviewQuestions(id: any) {
     this._interviewService.getInterviewQuestions(id).subscribe(
-      (data:any)=>{
-        this.interview=data
+      (data: any) => {
+        this.interview = data
       },
-    (err:any)=>{
-      this._alertService.error("internal server error")
-    }
+      (err: any) => {
+        this._alertService.error("internal server error")
+      }
     )
   }
 
@@ -70,14 +60,14 @@ export class AttendInterviewComponent {
     this.selectedQuestionIndex = i;
   }
 
-  prev(){
+  prev() {
     if (this.selectedQuestionIndex > 0) {
       this.selectedQuestionIndex--;
-      
+
     }
   }
 
-  next(selectedQuestionIndex){
+  next(selectedQuestionIndex) {
     if (selectedQuestionIndex < this.interview.questions.length - 1) {
       this.selectedQuestionIndex++;
     }
@@ -94,54 +84,54 @@ export class AttendInterviewComponent {
 
   // -------------------------------------------------------
 
-  // audio recording
 
-  isRecording = false;
-  recordedTime;
-  blobUrl;
-  teste;
 
-  startRecording() {
-    if (!this.isRecording) {
-      this.isRecording = true;
-      this.audioRecordingService.startRecording();
-    }
+  // speech to text start---
+
+  recording = null;
+
+  mediaRecorder;
+  mediaObserver;
+  audio;
+  stream;
+
+
+  onRecord() {
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+      this.stream = stream;
+      this.mediaRecorder = new MediaRecorder(stream);
+      this.mediaRecorder.start();
+
+      const audioChunks = [];
+      this.mediaRecorder.addEventListener("dataavailable", event => {
+        audioChunks.push(event.data);
+      });
+
+      this.mediaRecorder.addEventListener("stop", () => {
+        const audioBlob = new Blob(audioChunks);
+        const audioUrl = URL.createObjectURL(audioBlob);
+        this.audio = new Audio(audioUrl);
+      });
+    });
   }
 
-  abortRecording() {
-    if (this.isRecording) {
-      this.isRecording = false;
-      this.audioRecordingService.abortRecording();
-    }
+  onStop() {
+    this.mediaRecorder.stop();
+    this.stream.getTracks().forEach(track => track.stop());
   }
 
-  stopRecording() {
-    if (this.isRecording) {
-      this.audioRecordingService.stopRecording();
-      this.isRecording = false;
-    }
+  onPlay() {
+    this.audio.play();
+    console.log("a", this.audio);
   }
 
-  clearRecordedData() {
-    this.blobUrl = null;
+  startService() {
+    this.service.start();
   }
 
-  ngOnDestroy(): void {
-    this.abortRecording();
+  stopService() {
+    this.service.stop();
   }
-
-  download(): void {
-    console.log(this.teste);
-    console.log(this.teste.blob);
-    console.log(window.URL.createObjectURL(this.teste.blob));
-    const url = window.URL.createObjectURL(this.teste.blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = this.teste.title;
-    link.click();
-  }
-
-// end of Audio recording
 
 }
 
