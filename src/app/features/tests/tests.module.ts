@@ -9,6 +9,7 @@ import { CardModule } from 'src/app/content/partials/general/card/card.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { TestViewComponent } from './test-view/test-view.component';
+import { CdTimerModule } from 'angular-cd-timer';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { TestViewComponent } from './test-view/test-view.component';
     CardModule,
     FormsModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    CdTimerModule
   ]
 })
 export class TestsModule { }

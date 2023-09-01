@@ -2,48 +2,70 @@
     <div class="content-wrapper">
         <div class="content-header row mb-1">
             <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+            <div class="content-header-left col-md-9 col-sm-12 mb-2 breadcrumb-new">
+                <h1>Test</h1>
+            </div>
+            <div class="content-header-right col-md-3 col-sm-12">
+                <span class="timer">
+                    Total Time : {{totalTime}}
+                </span>
+            </div>
         </div>
         <div class="content-body">
-
             <!-- Content types section start -->
             <section id="content-types">
 
                 <div class="row">
                     <div class="col-xl-9 col-md-9 col-sm-9">
-                       <!-- Mail Description -->
-                       <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
-                        <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
-                            <ng-container mCardHeaderTitle>
-                                Tests-View
-                            </ng-container>
-                            <ng-container mCardContent>
-                                <div class="card-body">
-                                  <h2 class="mb-1">{{selectedQuestionIndex+1+ " . "}}{{test.questions[selectedQuestionIndex]?.question}}</h2>
-                                 
-                                  <label class=" option" for="{{i}}" *ngFor="let option of test.questions[selectedQuestionIndex]?.options;let i=index">
-                                    <input class="" type="radio" id="{{i}}" name="selectedQuestionIndex" *ngIf="test.questions[selectedQuestionIndex]?.type=='radio'">
-                                    <input class="" type="checkbox" id="{{i}}" *ngIf="test.questions[selectedQuestionIndex]?.type=='checkbox'">
-                                    <span class="ml-2 ">{{option.option}}</span>
-                                  </label>  
-                                </div>
-                                <button class="btn btn-outline-secondary ml-3" (click)="prev(selectedQuestionIndex)">Prev</button>
-                                <button class="btn btn-outline-primary ml-1" (click)="next(selectedQuestionIndex)">Next</button>
-                            </ng-container>
-                        </m-card>
-                    </section>
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery()">
+                                <ng-container mCardHeaderTitle>
+                                    Tests-View
+                                    <span class="timer"> Timer : {{remainingTime}}</span>
+
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        <h2 class="mb-1">{{selectedQuestionIndex+1+ " .
+                                            "}}{{test.questions[selectedQuestionIndex]?.question}}</h2>
+
+                                        <label class=" option" for="{{i}}"
+                                            *ngFor="let option of test.questions[selectedQuestionIndex]?.options;let i=index">
+                                            <input class="" type="radio" id="{{i}}" name="selectedQuestionIndex"
+                                                *ngIf="test.questions[selectedQuestionIndex]?.type=='radio'">
+                                            <input class="" type="checkbox" id="{{i}}"
+                                                *ngIf="test.questions[selectedQuestionIndex]?.type=='checkbox'">
+                                            <span class="ml-2 ">{{option.option}}</span>
+                                        </label>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex ">
+                                        <p class="ml-3">{{selectedQuestionIndex +1 }}</p> of <p>
+                                            {{this.test.questions.length }} Questions</p>
+                                    </div>
+                                    <button class="btn btn-outline-secondary ml-3"
+                                        (click)="prev(selectedQuestionIndex)">Prev</button>
+                                    <button class="btn btn-outline-primary ml-1"
+                                        (click)="next(selectedQuestionIndex)">Next</button>
+                                </ng-container>
+                            </m-card>
+                        </section>
                     </div>
 
                     <div class="col-xl-3 col-md-3 col-sm-3">
                         <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
                             <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
                                 <ng-container mCardHeaderTitle>
-                                   question 
+                                    question    
                                 </ng-container>
                                 <ng-container mCardContent>
                                     <div class="card-body">
-                                        <button class="btn btn-icon mr-1 mb-1" [ngClass]="{'btn-primary':visitedQuestions.includes(i), 'btn-outline-primary':!visitedQuestions.includes(i)}" (click)="selectedQuestion(i)" *ngFor="let item of [].constructor(test.questions.length); let i = index">
+                                        <button class="btn btn-icon mr-1 mb-1"
+                                            [ngClass]="{'btn-primary':visitedQuestions.includes(i), 'btn-outline-primary':!visitedQuestions.includes(i)}"
+                                            (click)="selectedQuestion(i)"
+                                            *ngFor="let item of [].constructor(test.questions.length); let i = index">
                                             {{i+1}}
-                                        </button>    
+                                        </button>
                                     </div>
                                 </ng-container>
                             </m-card>

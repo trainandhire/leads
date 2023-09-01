@@ -8,7 +8,6 @@ import { BlockTemplateComponent } from 'src/app/_layout/blockui/block-template.c
 import { CardModule } from 'src/app/content/partials/general/card/card.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AttendInterviewComponent } from './attend-interview/attend-interview.component';
-import { AudioRecordingService } from 'src/app/_api/interviews/audio-recording.service';
 
 
 @NgModule({
@@ -27,6 +26,6 @@ import { AudioRecordingService } from 'src/app/_api/interviews/audio-recording.s
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AudioRecordingService]
+  providers: []
 })
 export class InterviewsModule { }
