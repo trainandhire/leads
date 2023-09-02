@@ -161,7 +161,7 @@
                             <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
                                 <ng-container mCardHeaderTitle>
                                     Institute Details
-                                    <button class="btn btn-outline-primary ml-1" (click)="edit()">edit</button>
+                                    <button class="btn btn-outline-primary ml-1" (click)="edit(institute.id)">edit</button>
                                 </ng-container>
                                 <ng-container mCardContent>
                                     <div class="card-body">
@@ -225,7 +225,7 @@
                             <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
                                 <ng-container mCardHeaderTitle>
                                     Institute Address Details
-                                    <button class="btn btn-outline-primary ml-1" (click)="edit()">edit</button>
+                                    <button class="btn btn-outline-primary ml-1" (click)="edit(institute.id)">edit</button>
                                 </ng-container>
                                 <ng-container mCardContent>
                                     <div class="card-body">

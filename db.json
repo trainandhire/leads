@@ -726,7 +726,7 @@
       "addressDetails": {
         "Branches": [
           {
-            "houseNo": "59-12-4",
+            "houseNo": "59-12-5",
             "city": "nellore",
             "mandal": "edureka",
             "district": "nothing",
@@ -736,9 +736,15 @@
           }
         ]
       },
+      "socialMediaInfo": {
+        "website": null,
+        "twitter": null,
+        "instagram": null,
+        "facebook": null
+      },
       "documents": {
-        "logo": "https://img.freepik.com/premium-vector/meandstudio_691652-245.jpg",
-        "banner": "https://i.pinimg.com/736x/48/de/28/48de28796df5d9e052a491315417b4fa.jpg"
+        "logo": null,
+        "banner": null
       },
       "id": 4
     },
@@ -1306,7 +1312,6 @@
           "question": "what is angular",
           "attachment": "C:\\fakepath\\education-logo-template-design-icon-illustration-vector.jpg"
         }
-
       ],
       "id": 2
     },
@@ -1332,7 +1337,6 @@
         {
           "question": "what is CSS ?",
           "attachment": null
-
         },
         {
           "question": "What is FrameWork ?",
@@ -1340,7 +1344,11 @@
         }
       ],
       "id": 4
+    },
+    {
+      "questions": [],
+      "id": 5
     }
-  ]
-
+  ],
+  "tasks": []
 }

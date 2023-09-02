@@ -9,7 +9,8 @@ const routes: Routes = [
  {path: "institute-onboarding",component:InstituteRegistrationFormComponent},
  {path:"features-permissions", component:FeaturesPermissionsComponent},
  {path: "all-institutes", component:AllInstitutesComponent},
- {path:"institute-details/:id",component:InstituteDetailsComponent}
+ {path:"institute-details/:id",component:InstituteDetailsComponent},
+ {path:"edit-institute/:id",component:InstituteRegistrationFormComponent}
 ];
 
 @NgModule({
