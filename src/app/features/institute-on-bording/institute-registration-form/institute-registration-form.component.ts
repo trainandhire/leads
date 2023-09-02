@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { InstituteService } from 'src/app/_api/institute/institute.service';
 import { AlertService } from 'src/app/_services/alert.service';
@@ -55,18 +56,47 @@ export class InstituteRegistrationFormComponent {
 
   iconTab: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private _alertservice: AlertService, private _instituteService: InstituteService) {
+  public id:any='';
+
+  public showButton:any;
+
+  constructor(private _activatedRoute:ActivatedRoute, private formBuilder: FormBuilder, private _alertservice: AlertService, private _instituteService: InstituteService) {
     this.iconTab = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
     });
 
+    
+
+    _activatedRoute.params.subscribe(
+      (data:any)=>{
+        this.id=data.id
+      }
+    )
+      
+    _instituteService.getInstitute(this.id).subscribe(
+      (data:any)=>{
+        this.instituteForm.patchValue(data);
+      }
+    )
+
+    this.showButton = this.id ? "update": "create";
+
     this.addBranches();
+
   }
 
   get branchesFormArray() {
     return this.instituteForm.get("addressDetails").get("Branches") as FormArray
   }
+
+ 
+
+
+  
+  
+
+
 
   addBranches() {
     this.branchesFormArray.push(
@@ -81,6 +111,27 @@ export class InstituteRegistrationFormComponent {
       })
     )
   }
+  
+  createInstitute(){
+    if(this.id.length>0){
+      this._instituteService.updateInstitute(this.id,this.instituteForm.value).subscribe(
+        (data:any)=>{
+          this._alertservice.success("update successfully")
+        },
+        (err:any)=>{
+          this._alertservice.error("Not Updated")
+        }
+      )
+    }
+    else{
+      this._instituteService.createInstitute(this.instituteForm.value).subscribe(
+            (data : any) => {
+              this._alertservice.success("Form Submitted successfullly")
+            },
+      )
+    }
+  }
+  
 
   delete(i: number) {
     this.branchesFormArray.removeAt(i);
@@ -94,15 +145,8 @@ export class InstituteRegistrationFormComponent {
     }, 2500);
   }
 
-  createInstitute() {
-    this._instituteService.createInstitute(this.instituteForm.value).subscribe(
-      (data: any) => {
-        this._alertservice.success("Form Submitted successfullly")
-      },
-      (err: any) => {
-        this._alertservice.error("Form Not Submitted")
-      }
-    )
-  }
+
+
+  
 
 }

@@ -16,6 +16,10 @@ export class InstituteService {
   getInstitute(id:any):Observable<any>{
     return  this._httpClient.get("http://localhost:3000/institutes/"+id);
    }
+   
+   updateInstitute(id:any,data:any):Observable<any>{
+    return this._httpClient.put("http://localhost:3000/institutes/"+id,data)
+   }  
  
 
   createInstitute(data: any): Observable<any> {
