@@ -1,0 +1,78 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row mb-1">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+        </div>
+        <div class="content-body">
+
+            <!-- Content types section start -->
+            <section id="content-types">
+
+                <div class="row">
+                    <div class="col-xl-9 col-md-9 col-sm-9">
+                       <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                        <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                            <ng-container mCardHeaderTitle>
+                                Interview Question
+                            </ng-container>
+                            <ng-container mCardContent>
+                            <div class="card-body">
+                             <h2 class="mb-1">{{selectedQuestionIndex+1+ " . "}}{{interview.questions[selectedQuestionIndex]?.question}}</h2>
+                
+                            <!-- text to speech -->
+                            <div class="m-5">
+                               
+                                <button class="btn btn-success ml-3" (click)="startService()">Start</button>
+                                <button class="btn btn-danger ml-1" (click)="stopService()">Stop</button>
+                                <p>{{service.text}}</p>
+                            </div>
+
+                            <ul *ngIf="records$ | async as records; else noRecords">
+                                <li *ngFor="let record of records">
+                                  <div>{{ record.label }}</div>
+                                  <audio src="{{ record.audio }}" controls></audio>
+                                  <button (click)="onClick()">play</button>
+                                </li>
+                              </ul>
+                              
+                              <ng-template #noRecords>no records yet.</ng-template>
+
+                            <!-- /////////////////////////// -->
+
+                               <div class="mt-2">
+                                <button class="btn btn-outline-secondary ml-3" (click)="prev(selectedQuestionIndex)">Prev</button>
+                                <button class="btn btn-outline-primary ml-1" (click)="next(selectedQuestionIndex)">Next</button>
+                                <button class="btn btn-outline-primary ml-1" (click)="submitInterview()">Submit</button>
+                                </div>
+                                </div>
+                            </ng-container>
+                        </m-card>
+                    </section>
+                    </div>
+
+                    <!-- Mail Menu -->
+                    <div class="col-xl-3 col-md-3 col-sm-3">
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    Questions
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        <button class="btn btn-primary mr-1 mb-1" (click)="selectedQuestion(i)" *ngFor="let item of [].constructor(interview.questions.length); let i = index">
+                                            {{i+1}}
+                                        </button> 
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+                    </div>
+
+                </div>
+            </section>
+            <!-- Content types section end -->
+
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->

@@ -1,12 +1,21 @@
-
-.option{
+.option {
     display: block;
     padding: 15px;
     border-radius: 5px;
 }
-.option:hover{
+
+.option:hover {
     cursor: pointer;
-    /* padding: 15px; */
-    background-color: rgb(209, 199, 199);
-    /* transition: 2s; */
+    background-color: lightgray;
+}
+
+.timer {
+    border: 1px solid gray;
+    width: 170px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    background-color: lightslategrey;
+    color: #fff;
+    margin-left: 15px;
+
 }

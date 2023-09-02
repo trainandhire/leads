@@ -1066,6 +1066,25 @@ export const MenuSettingsConfig: MenuConfig = {
           ],
         },
       },
+      {
+        title: "Interviews",
+        icon: "la-bell",
+        page: "null",
+        submenu: {
+          items: [
+            {
+              title: "Create Interview",
+              page: "/interviews/create-interview",
+              permissions: []
+            },
+            {
+              title: "Attend Interview",
+              page: "/interviews/attend-interview/1",
+              permissions: []
+            } 
+          ],
+        },
+      },
       // { section: "APPS", icon: "la-ellipsis-h" },
       // {
       //   title: "To Do",

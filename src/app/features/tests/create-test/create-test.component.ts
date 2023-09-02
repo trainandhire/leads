@@ -26,13 +26,13 @@ export class CreateTestComponent {
 
   public testForm:FormGroup=new FormGroup({
      questions:new FormArray([]),
-     type:new FormControl()
+     
   })
 
-  get questionsArray(){
-    return this.testForm.get("questions") as FormArray;
+    get questionsArray(){
+      return this.testForm.get("questions") as FormArray;
 
-  }
+    }
   getOptionArray(i:any){
     return this.questionsArray.controls[i].get('options') as FormArray;
   }  
@@ -64,6 +64,7 @@ export class CreateTestComponent {
     this.questionsArray.push(
       new FormGroup({
         question: new FormControl(),
+        type:new FormControl(),
         options:new FormArray([])
       })
     );

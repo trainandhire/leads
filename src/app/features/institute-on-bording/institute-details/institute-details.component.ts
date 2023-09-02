@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { InstituteService } from 'src/app/_api/institute/institute.service';
 import { AlertService } from 'src/app/_services/alert.service';
@@ -24,7 +24,8 @@ export class InstituteDetailsComponent {
 
   public institute: any = {};
 
-  constructor(private _instituteService: InstituteService, private _alertservice: AlertService, private _activatedRoute: ActivatedRoute) {
+  constructor(private _instituteService: InstituteService, private _alertservice: AlertService, private _activatedRoute: ActivatedRoute
+    , private router:Router) {
     this._activatedRoute.params.subscribe(
       (data: any) => {
         this.id = data.id;
@@ -42,6 +43,10 @@ export class InstituteDetailsComponent {
         this._alertservice.error("server unavailable")
       }
     )
+  }
+
+  edit(id){
+    this.router.navigateByUrl("/institutes/edit-institute/"+ id)
   }
 
   reloadImageGallery() {
