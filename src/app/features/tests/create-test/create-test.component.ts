@@ -68,10 +68,10 @@ export class CreateTestComponent {
       })
     );
 
-    this.addOptions(this.questionsArray.controls.length-1);
-    this.addOptions(this.questionsArray.controls.length-1);
-    this.addOptions(this.questionsArray.controls.length-1);
-    this.addOptions(this.questionsArray.controls.length-1);
+    this.addOption(this.questionsArray.controls.length-1);
+    this.addOption(this.questionsArray.controls.length-1);
+    this.addOption(this.questionsArray.controls.length-1);
+    this.addOption(this.questionsArray.controls.length-1);
     
   } 
 
@@ -79,7 +79,7 @@ export class CreateTestComponent {
     console.log(this.testForm)
   }
 
-  addOptions(i){
+  addOption(i){
     this.getOptionArray(i).push(
       new FormGroup({
         option:new FormControl(),
