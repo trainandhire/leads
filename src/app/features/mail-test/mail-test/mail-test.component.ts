@@ -60,14 +60,14 @@ export class MailTestComponent {
       }
     );
 
-    this._mailTestService.createMail(this._userService.getCurrentUserId()).subscribe(
-      (res:any)=>{
-        this.mailSubmissionData = res.payload.data();
-      },
-      (err:any)=>{
+    // this._mailTestService.createMail(this._userService.getCurrentUserId()).subscribe(
+    //   (res:any)=>{
+    //     this.mailSubmissionData = res.payload.data();
+    //   },
+    //   (err:any)=>{
         
-      }
-    );
+    //   }
+    // );
 
   }
 

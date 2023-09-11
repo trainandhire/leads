@@ -137,16 +137,6 @@ export class TypingTrainerSummeryComponent {
     )
   }
 
-  createSore(){
-    this._typingService.createSore().subscribe(
-      (data:any) => {
-        alert("posted successfullly")
-      },
-      (err:any)=>{
-        alert("not posted")
-      }
-    )
-  }
    
 
   reloadImageGallery() {

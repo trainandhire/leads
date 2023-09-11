@@ -26,8 +26,10 @@ export class TestViewComponent {
   @BlockUI('imageGallery') blockUIImageGallery: NgBlockUI;
 
   public selectedQuestionIndex: any = [];
+  public showButton :any="Next";
 
   public test: any = {};
+  // public showButton : boolean=false;
 
   public id: any;
   remainingTime: number = 10;
@@ -42,10 +44,11 @@ export class TestViewComponent {
     this._activatedRoute.params.subscribe(
       (data: any) => {
         this.id = data.id;
-        this.getTest(this.id);
+        this.getTest(this.id); 
       }
     )
     this.selectedQuestion(0);
+
 
 
     this.subscription.push(this.timer.subscribe(res => {
@@ -58,6 +61,7 @@ export class TestViewComponent {
       }
 
     })
+
     )
 
     this.timer.subscribe(res => {
@@ -65,8 +69,7 @@ export class TestViewComponent {
         this.totalTime--;
       }
     })
-
-
+    
   }
 
 
@@ -82,6 +85,7 @@ export class TestViewComponent {
       }
     )
   }
+
 
   public visitedQuestions: any = [];
   public answeredQuestions: any = [];
@@ -100,20 +104,23 @@ export class TestViewComponent {
     console.log("hello", i);
     this.next(i);
 
-
   }
 
+  
+  
 
   next(i: any) {
     if (i < this.test.questions.length - 1) {
       this.selectedQuestionIndex++;
       this.questionVisited(this.selectedQuestionIndex)
+      console.log(this.test.questions.length)
+      this.showButton = this.selectedQuestionIndex +1 == this.test.questions.length ? "Submit": "Next";
+
     }
     else {
       this.subscription.forEach(element => {
         element.unsubscribe();
       })
-
     }
 
   }

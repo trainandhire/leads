@@ -51,6 +51,11 @@ export class CreateInterviewComponent {
     )
   }
 
+  delete(i:any){
+    this.questionsArray.removeAt(i)
+
+  }
+
   reloadImageGallery() {
     this.blockUIImageGallery.start('Loading..');
 
