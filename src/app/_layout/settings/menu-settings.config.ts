@@ -945,143 +945,17 @@ export const MenuSettingsConfig: MenuConfig = {
         },
       },
       {
-        title: "Courses",
-        icon: "la-book",
+        title: "CRM",
+        icon: "la-users",
         page: "null",
+        permissions:[],
         submenu: {
           items: [
             {
-              title: "View Courses",
-              page: "null",
-              permissions: [4000,4002]
-            },
-            {
-              title: "Create Course",
-              page: "/course",
-              permissions: [4001]
-            }
-          ],
-        },
-      },
-      {
-        title: "Tasks",
-        icon: "la-tasks",
-        page: "null",
-        submenu: {
-          items: [
-            {
-              title : "Create Tasks",
-              page : "/tasks/create-task" ,
-              permissions : [3001]
-
-            },
-            {
-              title: "View Tasks",
-              page: "/tasks",
-              permissions: [3000, 3002]
-            },
-            {
-              title: "Task Evaluation",
-              page: "/tasks/task-evaluation",
-              permissions: [3004]
-            }
-          ],
-        },
-      },
-      {
-        title: "Typing",
-        icon: "la-keyboard-o",
-        page: "null",
-        submenu: {
-          items: [
-            {
-              title: "Playground",
-              page: "/typing",
-              permissions: [1000,1001,1002,1003]
-            },
-            {
-              title: "Trainer Summary",
-              page: "/typing/typing-trainer-summery",
-              permissions: [1004]
-            }
-          ],
-        },
-      },
-      {
-        title: "Email",
-        icon: "la-envelope-o",
-        page: "null",
-        submenu: {
-          items: [
-            {
-              title: "Playground",
-              page: "/mail-test/create-mail",
-              permissions: [2000,20001,2002]
-            },
-            {
-              title: "Evaluation",
-              page: "/mail-test/mail-evaluation",
-              permissions: [2004]
-            }
-          ],
-        },
-      },
-      {
-        title: "Notifications",
-        icon: "la-bell",
-        page: "null",
-        submenu: {
-          items: [
-            {
-              title: "Create Notifications",
-              page: "/notifications/create-notifications",
+              title: "CRM",
+              page: "/crm/crm",
               permissions: []
             },
-            {
-              
-                title: "Notifications",
-                page: "/notifications/notification",
-                permissions: []
-              
-            },
-          ],
-        },
-      },
-      {
-        title: "Tests",
-        icon: "la-bell",
-        page: "null",
-        submenu: {
-          items: [
-            {
-              title: "Create Tests",
-              page: "/tests/create-tests",
-              permissions: []
-            },
-            {
-              title: "Tests View",
-              page: "/tests/tests-view/1",
-              permissions: []
-            },  
-          ],
-        },
-      },
-      {
-        title: "Interviews",
-        icon: "la-bell",
-        page: "null",
-        submenu: {
-          items: [
-            {
-              title: "Create Interview",
-              page: "/interviews/create-interview",
-              permissions: []
-            },
-            {
-              title: "Attend Interview",
-              page: "/interviews/attend-interview/1",
-              permissions: []
-            } 
           ],
         },
       },
@@ -1101,11 +975,11 @@ export const MenuSettingsConfig: MenuConfig = {
       //   icon: "la-edit",
       //   page: "/course",
       // },
-      {
-        title: "Student Day Launcher",
-        icon: "la-edit",
-        page: "/student-day-launcher",
-      },
+      // {
+      //   title: "Student Day Launcher",
+      //   icon: "la-edit",
+      //   page: "/student-day-launcher",
+      // },
       // {
       //   title: "Contacts",
       //   icon: "la-users",

@@ -62,36 +62,10 @@ const appRoutes: Routes = [
         , canActivate: [AuthGuard]
       },
       {
-        path: 'typing', loadChildren: () => import('../app/features/typing/typing.module').then(m => m.TypingModule)
-        , canActivate: [AuthGuard]
-      },
-      {
-        path: 'course', loadChildren: () => import('../app/features/course/course.module').then(m => m.CourseModule),
-        canActivate: [AuthGuard]
-      },
-      {
-        path: 'student-day-launcher', loadChildren: () => import('../app/launchers/student-day-launcher/student-day-launcher.module').then(m => m.StudentDayLauncherModule),
-        canActivate: [AuthGuard],
-      },
-      {
-        path: 'mail-test', loadChildren: () => import('../app/features/mail-test/mail-test.module').then(m => m.MailTestModule),
-        canActivate: [AuthGuard]
-      },
-      {
           path: 'text',loadChildren: () => import('../app/features/text/text.module').then(m=>m.TextModule),
       },
       {
-        path: 'tasks',loadChildren: () => import('../app/features/tasks/tasks.module').then(m=>m.TasksModule),
-    },
-      {
-        path:"notifications",loadChildren: () => import('../app/features/notifications/notifications.module').then(m=>m.NotificationsModule ),
-      },
-      {
-        path:"interviews",loadChildren: () => import('../app/features/interviews/interviews.module').then(m=>m.InterviewsModule ),
-      },
-      {
-        path: 'tests', loadChildren: () => import('../app/features/tests/tests.module').then(m => m.TestsModule),
-        canActivate: [AuthGuard]
+        path: 'crm',loadChildren: () => import('../app/features/crm/crm.module').then(m=>m.CRMModule),
       },
       {
         path: 'chats', loadChildren: () => import('../app/content/applications/chat/chats.module').then(m => m.ChatsModule),
@@ -106,9 +80,6 @@ const appRoutes: Routes = [
       },
       {
         path: 'institutes',loadChildren: () => import('../app/features/institute-on-bording/institute-on-bording.module').then(m=>m.InstituteOnBordingModule  ),     
-      },
-      {
-        path: 'students',loadChildren: () => import('../app/features/students/students.module').then(m=>m.StudentsModule),
       },
       {
         path: 'kanban', loadChildren: () => import('../app/content/applications/kanban/kanban.module').then(m => m.KanbanModule)

@@ -1,0 +1,66 @@
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row mb-1">
+            <!-- <app-breadcrumb class="col-12" [breadcrumb]="breadcrumb"></app-breadcrumb> -->
+        </div>
+        <div class="content-body">
+
+            <!-- Content types section start -->
+            <section id="content-types">
+
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12">
+                        <section id="image-grid" class="card" *blockUI="'imageGallery'; message: 'Loading'">
+                            <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
+                                <ng-container mCardHeaderTitle>
+                                    CRM
+                                    <button (click)="view='list'">list</button>
+                                    <button (click)="view='grid'">grid</button>
+                                </ng-container>
+                                <ng-container mCardContent>
+                                    <div class="card-body">
+                                        <div class="form-group col-md-4">
+                                            <input class="form-control" placeholder="Search" [(ngModel)]="term"
+                                                (keyup)="filterData()" type="text" />
+                                        </div>
+
+                                        <table *ngIf="view=='list'" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th *ngFor="let key of keys">{{key}}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let lead of leads">
+                                                    <td *ngFor="let key of keys"> {{lead[key]}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <ng-container *ngIf="view=='grid'">
+                                            <div class="row lead-card" *ngFor="let lead of leads; let i=index">
+                                                <div class="col-md-4 col-sm-6 col-12" *ngFor="let key of keys">
+                                                    <h6 class="card-label"><strong>{{key}}</strong></h6>
+                                                    <h5>{{lead[key]}}</h5>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+
+                                    </div>
+                                </ng-container>
+                            </m-card>
+                        </section>
+
+                    </div>
+                    <!-- <div class="col-xl-3 col-md-3 col-sm-3">
+                        
+                    </div> -->
+
+                </div>
+            </section>
+            <!-- Content types section end -->
+
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->
