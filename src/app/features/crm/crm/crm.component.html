@@ -14,8 +14,8 @@
                             <m-card [options]="imageOptions" (reloadFunction)="reloadImageGallery(  )">
                                 <ng-container mCardHeaderTitle>
                                     CRM
-                                    <button (click)="view='list'">list</button>
-                                    <button (click)="view='grid'">grid</button>
+                                    <!-- <button (click)="view='list'">list</button>
+                                    <button (click)="view='grid'">grid</button> -->
                                 </ng-container>
                                 <ng-container mCardContent>
                                     <div class="card-body">
@@ -24,7 +24,7 @@
                                                 (keyup)="filterData()" type="text" />
                                         </div>
 
-                                        <table *ngIf="view=='list'" class="table">
+                                        <!-- <table *ngIf="view=='list'" class="table">
                                             <thead>
                                                 <tr>
                                                     <th *ngFor="let key of keys">{{key}}</th>
@@ -35,15 +35,19 @@
                                                     <td *ngFor="let key of keys"> {{lead[key]}}</td>
                                                 </tr>
                                             </tbody>
-                                        </table>
+                                        </table> -->
 
-                                        <ng-container *ngIf="view=='grid'">
+                                        <ng-container>
                                             <div class="row lead-card" *ngFor="let lead of leads; let i=index">
-                                                <div class="col-md-4 col-sm-6 col-12" *ngFor="let key of keys">
-                                                    <h6 class="card-label"><strong>{{key}}</strong></h6>
+                                                <div class="col-md-4 col-sm-6 col-12" *ngFor="let key of dynamicKeys(lead)">
+                                                    <h6 class="card-label"><strong>{{key}}</strong></h6>        
                                                     <h5>{{lead[key]}}</h5>
+                                                    
                                                 </div>
+                                                <button class="btn btn-info col-1 col-md-1" (click)="viewModelOpen(viewContent)">view</button>                          
                                             </div>
+
+                                           
                                         </ng-container>
 
                                     </div>
@@ -64,3 +68,36 @@
     </div>
 </div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->
+
+<ng-template class="modal text-left" #viewContent let-c="close" let-d="dismiss">
+    <div class="modal-lg">
+        <div class="modal-header">
+            <h6 id="myModalLabel23">
+                Leads
+            </h6>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" class="p-4" >
+            <ng-container>
+                <div class="row lead-card" *ngFor="let lead of leads; let i=index">
+                    <div class="col-md-4 col-sm-6 col-12" *ngFor="let key of dynamicKeys(lead)">
+                        <h6 class="card-label"><strong>{{key}}</strong></h6>        
+                        <h5>{{lead[key]}}</h5>
+                    </div>
+                </div>
+                <textarea placeholder="Comments" cols="70" rows="3" [(ngModel)]="info"></textarea><br>
+                <button class="btn btn-primary mb-2" (click)="save()">save</button>
+                <br>
+                <div *ngFor="let display of comment; let i=index">
+                    <h4>{{display.comment}} <br> {{display}} <button class="btn btn-outline-danger" (click)="deleteComment(i)">delete</button> </h4>
+                </div>
+            </ng-container>
+        <div class="modal-footer">
+            <button type="button" class="btn grey btn-outline-secondary " (click)="d('Close modal')">Close</button>
+
+        </div>
+    </div>
+    </div>
+</ng-template>

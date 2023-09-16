@@ -1198,37 +1198,10 @@
     "address" : "hyderabdad"
   },
   {
-    "name" : "kajshf",
-    "number": 26,
-    "email" : "jsdh@gmil.com",
-    "address" : "telangana"
-  },
-  {
-    "name" : "kusjdfb",
-    "number": 24,
-    "email" : "jsdh@gmil.com",
-    "address" : "andhra"
-  },
-  {
-    "name" : "zmnsfg",
-    "number": 25,
-    "email" : "jsdh@gmil.com",
-    "address" : "pradesh"
-  },
-  {
-    "name" : "zjgr",
-    "number": 24,
-    "email" : "jsdh@gmil.com",
-    "address" : "himachal"
-  },
-  {
-    "name" : "kusgf",
-    "number": 23,
-    "email" : "jsdh@gmil.com",
-    "address" : "manali"
+    "place" : "kajshf",
+    "gender": 26,
+    "instagramId" : "jsdh@gmil.com",
+    "webiteID" : "telangana"
   }
-
-
-
 ]
 }

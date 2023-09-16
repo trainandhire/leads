@@ -7,6 +7,7 @@ import { BlockUIModule } from 'ng-block-ui';
 import { BlockTemplateComponent } from 'src/app/_layout/blockui/block-template.component';
 import { CardModule } from 'src/app/content/partials/general/card/card.module';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -18,10 +19,10 @@ import { FormsModule } from '@angular/forms';
     CRMRoutingModule,
     BlockUIModule.forRoot({
       template: BlockTemplateComponent
-
     }),
     CardModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ]
 })
 export class CRMModule { }

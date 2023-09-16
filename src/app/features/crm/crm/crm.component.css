@@ -5,7 +5,24 @@
     align-items: center;
 } */
 
+/* Model z-index */
+::ng-deep ngb-modal-window {
+    z-index: 2000 !important;
+}
 
+
+::ng-deep .modal-content {
+    overflow: auto;
+    position: fixed !important;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 62%;
+}
+
+::placeholder{
+    padding: 10px;
+}
 
 
 .lead-card{
